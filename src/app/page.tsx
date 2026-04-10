@@ -1,64 +1,32 @@
-"use client";
+import fs from "fs";
+import path from "path";
+import ClientFieldProductivityBundlePage from "./dev/field-productivity-bundle/ClientFieldProductivityBundlePage";
 
-import { Section, Block, Link } from "@/devlink/_Builtin";
+function parseHtml(rawHtml: string) {
+  const bodyHtml = rawHtml
+    .replace(/<!doctype html[^>]*>/i, "")
+    .replace(/<html[^>]*>/gi, "")
+    .replace(/<\/html>/gi, "")
+    .replace(/<head[^>]*>/gi, "")
+    .replace(/<\/head>/gi, "")
+    .replace(/<body[^>]*>/gi, "")
+    .replace(/<\/body>/gi, "");
+
+  const scripts: string[] = [];
+  const html = bodyHtml.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, (_, scriptContent) => {
+    scripts.push(scriptContent);
+    return "";
+  });
+
+  return { html, scripts };
+}
+
+const rawHtml = fs.readFileSync(
+  path.join(process.cwd(), "field-productivity-bundles.html"),
+  "utf8"
+);
+const { html, scripts } = parseHtml(rawHtml);
 
 export default function Home() {
-  return (
-    <Section
-      tag="section"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Block tag="div" className="container">
-        <Block
-          tag="div"
-          className="hero-split"
-          style={{
-            textAlign: "center",
-            maxWidth: "600px",
-            margin: "0 auto",
-          }}
-        >
-          <h1
-            className="margin-bottom-24px"
-            style={{
-              fontSize: "2.5rem",
-              fontWeight: 700,
-              background: "linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Welcome to Webflow Cloud
-          </h1>
-          <Block tag="p" className="margin-bottom-24px">
-            This is a simple test using Basic components with enhanced styling.
-          </Block>
-          <div style={{ marginTop: "12px" }}>
-            <Link
-              button={true}
-              options={{
-                href: "https://developers.webflow.com/webflow-cloud/getting-started",
-              }}
-              className="button-primary"
-              style={{
-                borderRadius: "4px",
-                background: "#146ef5",
-                color: "#ffffff",
-                boxShadow:
-                  "0px 0.5px 1px rgba(0, 0, 0, 0.25), inset 0px 29px 23px -16px rgba(255, 255, 255, 0.04), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.2)",
-              }}
-            >
-              Get Started
-            </Link>
-          </div>
-        </Block>
-      </Block>
-    </Section>
-  );
+  return <ClientFieldProductivityBundlePage html={html} scripts={scripts} />;
 }
