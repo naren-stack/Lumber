@@ -824,7 +824,7 @@ export function ProductTab({ as: _Component = Block, variant = "Base" }) {
                     )}
                   >
                     {
-                      "Gain total insight into field operations with Lumber. Track time, equipment, schedules, productivity, and safety—whether managing one crew or multiple sites. Build smarter, stay on schedule, and keep budgets intact."
+                      "Why did the scarecrow win an award? Because he was outstanding in his field! With Lumber, you'll be outstanding in productivity too—tracking time, equipment, and safety like a pro."
                     }
                   </Paragraph>
                 </Block>
