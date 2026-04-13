@@ -2,20 +2,20 @@ import ClientFieldProductivityBundlePage from "./dev/field-productivity-bundle/C
 import rawHtml from "@/content/field-productivity-bundles.html";
 
 function parseHtml(rawHtml: string) {
-  const bodyHtml = rawHtml
-    .replace(/<!doctype html[^>]*>/i, "")
-    .replace(/<html[^>]*>/gi, "")
-    .replace(/<\/html>/gi, "")
-    .replace(/<head[^>]*>/gi, "")
-    .replace(/<\/head>/gi, "")
-    .replace(/<body[^>]*>/gi, "")
-    .replace(/<\/body>/gi, "");
+  const bodyMatch = rawHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  const bodyHtml = bodyMatch ? bodyMatch[1] : rawHtml;
+
+  const headMatch = rawHtml.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
+  const headHtml = headMatch ? headMatch[1] : "";
+  const preservedHeadAssets = (headHtml.match(/<link\b[^>]*>|<style\b[^>]*>[\s\S]*?<\/style>/gi) ?? []).join("\n");
 
   const scripts: string[] = [];
-  const html = bodyHtml.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, (_, scriptContent) => {
+  const contentWithoutScripts = bodyHtml.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, (_, scriptContent) => {
     scripts.push(scriptContent);
     return "";
   });
+
+  const html = preservedHeadAssets ? `${preservedHeadAssets}\n${contentWithoutScripts}` : contentWithoutScripts;
 
   return { html, scripts };
 }
