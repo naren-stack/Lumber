@@ -1,6 +1,5 @@
-import fs from "fs";
-import path from "path";
 import ClientFieldProductivityBundlePage from "./dev/field-productivity-bundle/ClientFieldProductivityBundlePage";
+import rawHtml from "@/content/field-productivity-bundles.html";
 
 function parseHtml(rawHtml: string) {
   const bodyHtml = rawHtml
@@ -21,10 +20,6 @@ function parseHtml(rawHtml: string) {
   return { html, scripts };
 }
 
-const rawHtml = fs.readFileSync(
-  path.join(process.cwd(), "src/content/field-productivity-bundles.html"),
-  "utf8"
-);
 const { html, scripts } = parseHtml(rawHtml);
 
 export default function Home() {
