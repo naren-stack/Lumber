@@ -22,7 +22,7 @@ function parseHtml(rawHtml: string) {
 }
 
 const rawHtml = fs.readFileSync(
-  path.join(process.cwd(), "field-productivity-bundles.html"),
+  path.join(process.cwd(), "src/content/field-productivity-bundles.html"),
   "utf8"
 );
 const { html, scripts } = parseHtml(rawHtml);

@@ -1,305 +1,925 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Field Productivity Bundle — Lumber</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumber Benefits — Benefits Admin Savings Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* ── Official Lumber Brand Tokens ── */
-      /* Backgrounds */
       --white:      #FFFFFF;
       --bg-page:    #F9FAFB;
       --bg-card:    #F2F4F7;
       --bg-subtle:  #F6F6F6;
-      --green-bg:   #EEF8F3;
-
-      /* Borders */
       --border:     #D0D5DD;
       --border-lt:  #EAECF0;
-
-      /* Brand Colors */
       --green:      #40956B;
       --green-dk:   #2D7A55;
       --green-lt:   #7AECB4;
+      --green-bg:   #EEF8F3;
       --orange:     #FF6F61;
       --orange-dk:  #E85D50;
       --dark:       #003333;
-
-      /* Text */
       --text-head:  #101828;
       --text-body:  #344054;
-      --text-soft:  #475467;
       --text-muted: #667085;
-
-      /* Legacy aliases — keep for gradual migration */
-      --green-900: #003333;
-      --green-800: #003333;
-      --green-700: #2D7A55;
-      --green-600: #2D7A55;
-      --green-500: #40956B;
-      --green-400: #7AECB4;
-      --green-100: #EEF8F3;
-      --yellow:    #F5C518;
-      --blue:      #3B82F6;
-      --gray-50:   #F9FAFB;
-      --gray-100:  #F3F4F6;
-      --gray-200:  #D0D5DD;
-      --gray-300:  #D0D5DD;
-      --gray-400:  #667085;
-      --gray-500:  #475467;
-      --gray-600:  #475467;
-      --gray-700: #344054;
-      --gray-800: #101828;
-
-      --radius: 12px;
-      --shadow: 0 2px 8px rgba(0,0,0,.06);
-      --shadow-lg: 0 8px 28px rgba(0,0,0,.10);
+      --text-soft:  #475467;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      color: var(--text-body); background: var(--bg-page); line-height: 1.6; }
 
-    /* ── ANNOUNCEMENT BAR ────────────────────── */
-    .announcement-bar { background: var(--dark); color: #fff; text-align: center;
-      padding: 10px 24px; font-size: 0.8rem; font-weight: 500; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-body);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announcement-bar {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 10px 24px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1px;
+    }
     .announcement-bar span { color: var(--green-lt); font-weight: 600; }
 
-    /* ── NAV ─────────────────────────────────── */
-    nav { position: sticky; top: 0; z-index: 100;
+    /* ── HEADER ── */
+    header {
       background: var(--white);
       border-bottom: 1px solid var(--border-lt);
-      box-shadow: 0 1px 4px rgba(0,0,0,.06);
-      display: flex; align-items: center;
-      justify-content: space-between; padding: 0 48px; height: 68px; }
-    .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-    .nav-logo img { height: 30px; width: auto; display: block; }
-    .nav-links { display: flex; gap: 28px; }
-    .nav-links a { color: var(--text-soft); text-decoration: none;
-      font-size: 14px; font-weight: 500; transition: color .2s; }
-    .nav-links a:hover { color: var(--text-head); }
-    .nav-cta { background: var(--orange); color: var(--white); border: none;
-      padding: 9px 20px; border-radius: 8px; font-size: 14px; font-weight: 700;
-      cursor: pointer; transition: background .2s, box-shadow .2s; text-decoration: none;
-      box-shadow: 0 2px 8px rgba(255,111,97,.28); }
-    .nav-cta:hover { background: var(--orange-dk); box-shadow: 0 4px 14px rgba(255,111,97,.35); }
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      height: 64px;
+      gap: 14px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .header-logo-link { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .header-logo      { height: 32px; width: auto; display: block; }
+    .header-divider { width: 1px; height: 20px; background: var(--border); }
+    .header-title { font-size: 0.85rem; font-weight: 700; color: var(--text-head); }
+    .header-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 1px; }
+    .header-badge {
+      margin-left: auto;
+      background: var(--green-bg);
+      border: 1px solid rgba(64,149,107,0.25);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.68rem; font-weight: 600;
+      color: var(--green-dk);
+      letter-spacing: 0.4px; text-transform: uppercase;
+    }
+    .step-indicator { display: flex; gap: 6px; align-items: center; margin-left: 24px; }
+    .step-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); transition: all 0.3s;
+    }
+    .step-dot.active { background: var(--orange); transform: scale(1.2); }
+    .step-dot.done { background: var(--green); }
 
-    /* ── STICKY REC BAR ──────────────────────── */
-    .sticky-bar { position: sticky; top: 68px; z-index: 99;
-      background: var(--green); color: var(--white);
-      display: none; align-items: center; justify-content: center;
-      gap: 20px; padding: 10px 24px; flex-wrap: wrap;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-      animation: slideDown .3s ease; }
-    .sticky-bar.visible { display: flex; }
-    @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; } }
-    .sticky-bar-label { font-size: 12px; color: rgba(255,255,255,.65); font-weight: 500; }
-    .sticky-bar-name { font-size: 14px; font-weight: 800; }
-    .sticky-bar-tagline { font-size: 13px; color: rgba(255,255,255,.75); }
-    .sticky-bar-divider { width: 1px; height: 20px; background: rgba(255,255,255,.2); }
-    .sticky-bar-btn { padding: 7px 16px; border-radius: 7px; font-size: 13px;
-      font-weight: 700; cursor: pointer; border: none; transition: all .2s; }
-    .sticky-bar-btn.primary { background: var(--orange); color: var(--white); }
-    .sticky-bar-btn.primary:hover { background: var(--orange-dk); }
-    .sticky-bar-btn.ghost { background: transparent; color: rgba(255,255,255,.85);
-      border: 1px solid rgba(255,255,255,.3); }
-    .sticky-bar-btn.ghost:hover { background: rgba(255,255,255,.1); }
-    .sticky-bar-close { background: none; border: none; color: rgba(255,255,255,.5);
-      cursor: pointer; font-size: 18px; padding: 0 4px; margin-left: 8px;
-      transition: color .2s; }
-    .sticky-bar-close:hover { color: var(--white); }
+    /* ── MAIN ── */
+    .main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 24px 90px;
+    }
 
-    /* ── HERO ────────────────────────────────── */
-    .hero { position: relative; min-height: calc(100vh - 88px);
-      background: linear-gradient(160deg, var(--white) 0%, var(--green-bg) 60%, #E8F5EE 100%);
+    /* ── PHASES ── */
+    .phase { display: none; animation: fadeIn 0.35s ease; }
+    .phase.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--green); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .eyebrow::before {
+      content: ''; width: 20px; height: 2px;
+      background: var(--green); border-radius: 1px;
+      display: inline-block;
+    }
+
+    /* ── PHASE 1: INPUTS ── */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .hero .eyebrow { justify-content: center; }
+    .hero .eyebrow::before { display: none; }
+    .hero h1 {
+      font-size: 2.5rem; font-weight: 800;
+      line-height: 1.2; letter-spacing: -1px;
+      max-width: 680px; margin: 0 auto 20px;
+      color: var(--text-head);
+    }
+    .hero h1 em { font-style: normal; color: var(--green); }
+    .hero p {
+      font-size: 0.96rem; color: var(--text-soft);
+      line-height: 1.7; max-width: 520px; margin: 0 auto;
+    }
+
+    .input-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 44px 52px;
+      max-width: 680px;
+      margin: 0 auto;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .input-group { margin-bottom: 36px; }
+    .input-group label {
+      display: block;
+      font-size: 0.9rem; font-weight: 600;
+      color: var(--text-head); margin-bottom: 14px;
+    }
+    .input-group .hint {
+      font-size: 0.75rem; color: var(--text-muted);
+      font-weight: 400; margin-left: 8px;
+    }
+
+    /* Slider */
+    .slider-row { display: flex; align-items: center; gap: 20px; }
+    .slider-wrap { flex: 1; }
+    input[type="range"] {
+      width: 100%; height: 6px;
+      -webkit-appearance: none;
+      background: var(--border-lt);
+      border-radius: 3px; outline: none; cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--green);
+      cursor: pointer;
+      box-shadow: 0 0 0 5px rgba(64,149,107,0.15);
+      transition: box-shadow 0.15s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 0 8px rgba(64,149,107,0.2);
+    }
+    .slider-labels {
+      display: flex; justify-content: space-between;
+      margin-top: 8px; font-size: 0.68rem; color: var(--text-muted);
+    }
+    .slider-val-display {
+      background: var(--green-bg);
+      border: 1.5px solid rgba(64,149,107,0.3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 1rem; font-weight: 700;
+      color: var(--green-dk);
+      min-width: 96px; text-align: center;
+      white-space: nowrap;
+    }
+
+    /* Stepper */
+    .stepper-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .stepper {
+      display: flex; align-items: stretch;
+      border: 1.5px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      width: fit-content;
+      background: var(--white);
+    }
+    .stepper-btn {
+      width: 48px; height: 48px;
+      background: var(--bg-card);
+      border: none; color: var(--text-soft);
+      font-size: 1.4rem; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s, color 0.15s;
+    }
+    .stepper-btn:hover { background: var(--border-lt); color: var(--text-head); }
+    .stepper-val {
+      min-width: 60px; text-align: center;
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--text-head);
+      border-left: 1.5px solid var(--border);
+      border-right: 1.5px solid var(--border);
       display: flex; align-items: center; justify-content: center;
-      overflow: hidden; padding: 100px 300px; }
-    .hero-grid { position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(64,149,107,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(64,149,107,.06) 1px, transparent 1px);
-      background-size: 48px 48px; pointer-events: none; z-index: 1; }
-    .glow-blob { position: absolute; border-radius: 50%; filter: blur(90px);
-      pointer-events: none; z-index: 2; }
-    .blob-tl { width: 480px; height: 480px; background: rgba(64,149,107,.10);
-      top: -120px; left: -120px; animation: blobDrift1 14s ease-in-out infinite; }
-    .blob-br { width: 360px; height: 360px; background: rgba(64,149,107,.07);
-      bottom: -80px; right: -80px; animation: blobDrift2 16s ease-in-out infinite 2s; }
-    .blob-center { width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(64,149,107,.07) 0%, transparent 65%);
-      top: 50%; left: 50%; transform: translate(-50%,-50%);
-      animation: centerPulse 5s ease-in-out infinite; pointer-events: none; }
-    .blob-orange { width: 220px; height: 220px; background: rgba(255,111,97,.05);
-      top: 25%; right: 18%; animation: blobDrift3 11s ease-in-out infinite 1s; }
-    @keyframes blobDrift1 { 0%,100% { transform: translate(0,0) scale(1); }
-      33% { transform: translate(50px,35px) scale(1.05); }
-      66% { transform: translate(-25px,60px) scale(.97); } }
-    @keyframes blobDrift2 { 0%,100% { transform: translate(0,0); }
-      50% { transform: translate(-40px,-50px); } }
-    @keyframes blobDrift3 { 0%,100% { transform: translate(0,0); }
-      50% { transform: translate(25px,-35px); } }
-    @keyframes centerPulse { 0%,100% { opacity: .7; transform: translate(-50%,-50%) scale(1); }
-      50% { opacity: 1; transform: translate(-50%,-50%) scale(1.08); } }
-    .hero-center { position: relative; z-index: 10; text-align: center;
-      max-width: 680px; display: flex; flex-direction: column; align-items: center; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px;
-      background: var(--green-bg); border: 1px solid rgba(64,149,107,.28);
-      color: var(--green-dk); font-size: .7rem; font-weight: 600;
-      letter-spacing: 1.3px; text-transform: uppercase;
-      padding: 6px 15px; border-radius: 20px; margin-bottom: 28px;
-      opacity: 0; animation: fadeUp .7s ease .15s forwards; }
-    .eyebrow-dot { width: 6px; height: 6px; background: var(--green);
-      border-radius: 50%; flex-shrink: 0; animation: dotBlink 2.2s ease-in-out infinite; }
-    @keyframes dotBlink { 0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:.35; transform:scale(.65); } }
-    .hero h1 { font-size: clamp(28px,3.8vw,54px); font-weight: 900; color: var(--text-head);
-      line-height: 1.08; letter-spacing: -1.5px; margin-bottom: 22px;
-      opacity: 0; animation: fadeUp .7s ease .3s forwards; }
-    .hero h1 .hl { color: var(--green); }
-    .hero-desc { font-size: 16px; line-height: 1.78; color: var(--text-soft);
-      max-width: 560px; margin-bottom: 40px;
-      opacity: 0; animation: fadeUp .7s ease .45s forwards; }
-    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
-      margin-bottom: 20px; opacity: 0; animation: fadeUp .7s ease .6s forwards; }
-    .btn-primary { background: var(--orange); color: var(--white); padding: 14px 28px;
-      border-radius: 8px; font-size: 15px; font-weight: 700; border: none; cursor: pointer;
-      transition: background .15s, transform .15s, box-shadow .15s;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 9px;
-      box-shadow: 0 4px 22px rgba(255,111,97,.4); }
-    .btn-primary:hover { background: var(--orange-dk); transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(255,111,97,.55); }
-    .btn-primary .btn-arrow { transition: transform .2s; }
-    .btn-primary:hover .btn-arrow { transform: translateX(4px); }
-    .btn-secondary { background: var(--white); color: var(--text-head);
-      border: 1.5px solid var(--border); padding: 14px 28px; border-radius: 8px;
-      font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none;
-      transition: border-color .15s, background .15s, transform .15s, color .15s;
-      display: inline-flex; align-items: center; gap: 9px;
-      box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-    .btn-secondary:hover { border-color: var(--green); background: var(--green-bg);
-      color: var(--green-dk); transform: translateY(-2px); }
-    .hero-reassure { font-size: 12px; color: var(--text-muted);
-      opacity: 0; animation: fadeUp .7s ease .78s forwards; }
-    /* Floating module cards */
-    .module-layer { position: absolute; inset: 0; pointer-events: none; z-index: 6; }
-    .mc-wrap { position: absolute; pointer-events: auto; opacity: 0; }
-    .mc-wrap.tl { top: 9%;  left: 3.5%;  animation: cardIn .65s ease .85s forwards; }
-    .mc-wrap.tr { top: 9%;  right: 3.5%; animation: cardIn .65s ease 1.0s  forwards; }
-    .mc-wrap.bl { bottom: 12%; left: 3.5%;  animation: cardIn .65s ease 1.15s forwards; }
-    .mc-wrap.br { bottom: 12%; right: 3.5%; animation: cardIn .65s ease 1.3s  forwards; }
-    @keyframes cardIn { from { opacity:0; filter:blur(8px); } to { opacity:1; filter:blur(0); } }
-    .mc { width: 215px; background: var(--white);
-      border: 1px solid var(--border-lt); border-radius: 16px; padding: 20px;
-      cursor: pointer; transition: background .3s, border-color .3s, box-shadow .3s;
-      box-shadow: 0 2px 16px rgba(0,0,0,.07);
-      will-change: transform; }
-    .mc-wrap.tl .mc { animation: floatA 7s   ease-in-out infinite; }
-    .mc-wrap.tr .mc { animation: floatB 8s   ease-in-out infinite .7s; }
+    }
+    .stepper-hint { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* Toggle */
+    .toggle-group {
+      display: flex;
+      border: 1.5px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      width: fit-content;
+      background: var(--white);
+    }
+    .toggle-btn {
+      padding: 12px 36px;
+      background: var(--white);
+      border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--text-muted);
+      transition: background 0.15s, color 0.15s;
+    }
+    .toggle-btn:not(:last-child) { border-right: 1.5px solid var(--border); }
+    .toggle-btn.active {
+      background: var(--green-bg);
+      color: var(--green-dk); font-weight: 700;
+    }
+    .toggle-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; }
+
+    .divider { height: 1px; background: var(--border-lt); margin: 8px 0 36px; }
+
+    /* Primary CTA */
+    .cta-btn {
+      width: 100%; padding: 15px 32px;
+      background: var(--orange); color: var(--white);
+      border: none; border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      cursor: pointer; letter-spacing: -0.1px;
+      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+      display: block;
+      box-shadow: 0 2px 8px rgba(255,111,97,0.3);
+    }
+    .cta-btn:hover {
+      background: var(--orange-dk);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(255,111,97,0.35);
+    }
+    .cta-btn:active { transform: translateY(0); }
+
+    .trust-note {
+      text-align: center; margin-top: 14px;
+      font-size: 0.72rem; color: var(--text-muted);
+    }
+
+    /* ── PHASE 2: LEAD CAPTURE ── */
+    .lead-wrapper { max-width: 540px; margin: 0 auto; }
+    .lead-header { text-align: center; margin-bottom: 28px; }
+    .lead-icon {
+      width: 60px; height: 60px;
+      background: var(--green-bg);
+      border: 1.5px solid rgba(64,149,107,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 20px;
+    }
+    .lead-header h2 {
+      font-size: 1.9rem; font-weight: 800;
+      letter-spacing: -0.5px; margin-bottom: 10px;
+      color: var(--text-head);
+    }
+    .lead-header p {
+      font-size: 0.88rem; color: var(--text-soft);
+      line-height: 1.65;
+    }
+
+    /* Blurred preview */
+    .preview-bar {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      margin-bottom: 24px;
+      display: flex; gap: 0;
+      position: relative; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .preview-bar::after {
+      content: 'Unlock to reveal your results';
+      position: absolute; inset: 0;
+      background: rgba(249,250,251,0.5);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--green-dk); letter-spacing: 0.3px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 12px;
+    }
+    .preview-stat { flex: 1; text-align: center; }
+    .preview-stat:not(:last-child) { border-right: 1px solid var(--border-lt); }
+    .ps-label {
+      font-size: 0.65rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      color: var(--text-muted); margin-bottom: 8px;
+    }
+    .ps-val {
+      font-size: 1.9rem; font-weight: 800;
+      color: var(--green); letter-spacing: -1px;
+      filter: blur(7px); user-select: none;
+    }
+    .ps-sub {
+      font-size: 0.7rem; color: var(--text-muted);
+      margin-top: 4px; filter: blur(4px);
+    }
+
+    /* Lead form */
+    .lead-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .lead-form .form-title {
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.6px;
+      color: var(--text-muted); margin-bottom: 20px;
+      padding-bottom: 14px; border-bottom: 1px solid var(--border-lt);
+    }
+    .form-row { margin-bottom: 14px; }
+    .form-row label {
+      display: block;
+      font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      color: var(--text-soft); margin-bottom: 7px;
+    }
+    .form-row input {
+      width: 100%; padding: 12px 16px;
+      background: var(--bg-page);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem; color: var(--text-head);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .form-row input:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(64,149,107,0.12);
+    }
+    .form-row input::placeholder { color: var(--border); }
+
+    .form-error {
+      display: none;
+      color: #B91C1C; font-size: 0.76rem;
+      margin-bottom: 12px; padding: 10px 14px;
+      background: #FEF2F2;
+      border-radius: 6px;
+      border: 1px solid #FECACA;
+    }
+
+    /* ── PHASE 3: RESULTS ── */
+    .results-header { text-align: center; margin-bottom: 44px; }
+    .results-greeting {
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 10px; font-weight: 500;
+    }
+    .results-header h2 {
+      font-size: 2.1rem; font-weight: 800;
+      letter-spacing: -0.6px; line-height: 1.25;
+      max-width: 620px; margin: 0 auto 14px;
+      color: var(--text-head);
+    }
+    .results-header p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; margin-bottom: 20px;
+    }
+    .kpi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px 22px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .kpi-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+    }
+    .kpi-card.broker::before  { background: var(--border); }
+    .kpi-card.employer::before { background: linear-gradient(90deg, var(--green), var(--green-lt)); }
+    .kpi-card.total::before   { background: var(--orange); }
+    .kc-label {
+      font-size: 0.65rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.6px;
+      color: var(--text-muted); margin-bottom: 10px;
+    }
+    .kc-val {
+      font-size: 2.8rem; font-weight: 800;
+      line-height: 1; letter-spacing: -2px;
+      color: var(--text-head); margin-bottom: 5px;
+    }
+    .kpi-card.total .kc-val { color: var(--green); }
+    .kc-sub { font-size: 0.72rem; color: var(--text-muted); }
+
+    .metrics-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-bottom: 20px;
+    }
+    .metrics-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .mc-title {
+      font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.6px;
+      color: var(--text-muted); margin-bottom: 14px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border-lt);
+    }
+    .metric-item {
+      display: flex; justify-content: space-between;
+      align-items: baseline; padding: 8px 0;
+      border-bottom: 1px solid var(--border-lt);
+      font-size: 0.8rem;
+    }
+    .metric-item:last-child { border-bottom: none; }
+    .mi-label { color: var(--text-muted); }
+    .mi-val { font-weight: 700; color: var(--text-head); }
+
+    /* Savings banner */
+    .savings-banner {
+      background: var(--green-bg);
+      border: 1.5px solid rgba(64,149,107,0.2);
+      border-radius: 12px;
+      padding: 32px 40px;
+      display: flex; align-items: center; gap: 44px;
+      margin-bottom: 20px;
+    }
+    .sb-main { flex-shrink: 0; }
+    .sb-label { font-size: 0.78rem; color: var(--text-soft); margin-bottom: 6px; font-weight: 500; }
+    .sb-amount {
+      font-size: 3.2rem; font-weight: 800;
+      color: var(--green-dk); letter-spacing: -2px;
+      line-height: 1;
+    }
+    .sb-note { font-size: 0.72rem; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
+    .sb-breakdown { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sb-item {
+      background: var(--white);
+      border: 1px solid rgba(64,149,107,0.15);
+      border-radius: 8px; padding: 13px 15px;
+    }
+    .sbi-label {
+      font-size: 0.65rem; color: var(--text-muted);
+      margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .sbi-val { font-size: 1.05rem; font-weight: 700; color: var(--text-head); }
+
+    /* CTA section */
+    .cta-section {
+      text-align: center;
+      background: var(--dark);
+      border-radius: 12px;
+      padding: 44px 32px;
+    }
+    .cta-section h3 {
+      font-size: 1.5rem; font-weight: 800;
+      letter-spacing: -0.3px; margin-bottom: 12px;
+      color: var(--white);
+    }
+    .cta-section > p {
+      font-size: 0.88rem; color: rgba(255,255,255,0.7);
+      line-height: 1.65; max-width: 460px;
+      margin: 0 auto 28px;
+    }
+    .cta-section .cta-btn {
+      max-width: 300px; margin: 0 auto;
+    }
+    .cta-secondary {
+      margin-top: 16px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.5);
+    }
+    .cta-secondary a { color: var(--green-lt); text-decoration: none; }
+    .cta-secondary a:hover { text-decoration: underline; }
+    .methodology {
+      margin-top: 22px;
+      font-size: 0.7rem; color: rgba(255,255,255,0.35);
+      line-height: 1.7; border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 18px; text-align: left;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      .header-badge { display: none; }
+      .step-indicator { margin-left: 16px; }
+      .main { padding: 36px 16px 70px; }
+      .hero h1 { font-size: 1.8rem; }
+      .input-card { padding: 28px 22px; }
+      .kpi-grid { grid-template-columns: 1fr; }
+      .metrics-row { grid-template-columns: 1fr; }
+      .savings-banner { flex-direction: column; gap: 24px; padding: 24px 20px; }
+      .sb-breakdown { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .announcement-bar { font-size: 0.72rem; }
+      .hero h1 { font-size: 1.55rem; }
+      .kc-val { font-size: 2.2rem; }
+      .sb-amount { font-size: 2.4rem; }
+      .input-card { padding: 22px 16px; }
+    }
   </style>
 </head>
 <body>
-  <div class="announcement-bar"><span>New:</span> Lumber’s Field Productivity Bundle is here—get crew insights without the guesswork.</div>
 
-  <nav>
-    <a href="/" class="nav-logo"><img src="https://assets.website-files.com/64ba4b61a6e0ed8004b57d97/650de90c3e6b2c02f6fe4f03_lumber-logo.svg" alt="Lumber logo"></a>
-    <div class="nav-links">
-      <a href="/dev">Product</a>
-      <a href="/dev/field-productivity-bundle">Bundle</a>
-      <a href="/contact">Contact</a>
+<!-- Announcement bar -->
+<div class="announcement-bar">
+  Purpose-built benefits admin for construction &nbsp;·&nbsp; <span>Carrier feeds · ACA compliance · COBRA · Payroll deductions</span>
+</div>
+
+<!-- Header -->
+<header>
+  <a href="https://lumberfi.com" class="header-logo-link">
+    <img
+      src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66f172583eca55ff6c30eb29_Lumber-Logo.webp"
+      alt="Lumber" class="header-logo" height="32">
+  </a>
+  <div class="header-divider"></div>
+  <div>
+    <div class="header-title">Lumber Benefits</div>
+    <div class="header-sub">Savings Calculator</div>
+  </div>
+  <div class="step-indicator">
+    <div class="step-dot active" id="dot-1"></div>
+    <div class="step-dot" id="dot-2"></div>
+    <div class="step-dot" id="dot-3"></div>
+  </div>
+  <div class="header-badge">🏗 Built for Construction</div>
+</header>
+
+<div class="main">
+
+  <!-- ══════ PHASE 1: INPUTS ══════ -->
+  <div id="phase1" class="phase active">
+
+    <div class="hero">
+      <div class="eyebrow">Benefits Admin ROI Calculator</div>
+      <h1>How much time is benefits admin <em>really</em> costing your team?</h1>
+      <p>Answer 3 quick questions and we'll show you exactly how many hours — and dollars — Lumber Benefits can put back in your day.</p>
     </div>
-    <a class="nav-cta" href="/signup">Start free</a>
-  </nav>
 
-  <div class="hero">
-    <div class="hero-grid"></div>
-    <div class="glow-blob blob-tl"></div>
-    <div class="glow-blob blob-br"></div>
-    <div class="glow-blob blob-center"></div>
-    <div class="glow-blob blob-orange"></div>
+    <div class="input-card">
 
-    <div class="hero-center">
-      <p class="hero-eyebrow"><span class="eyebrow-dot"></span>Field Productivity Bundle</p>
-      <h1>Field productivity that actually moves the job forward.</h1>
-      <p class="hero-desc">Run faster, smarter, and safer with one bundle for crew tracking, equipment oversight, schedule visibility, and production accountability.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#pricing">See bundle pricing</a>
-        <a class="btn-secondary" href="#demo">View demo</a>
+      <!-- Q1: Headcount -->
+      <div class="input-group">
+        <label>How many employees are on your roster? <span class="hint">Field &amp; office combined</span></label>
+        <div class="slider-row">
+          <div class="slider-wrap">
+            <input type="range" id="headcount" min="25" max="2000" value="250" step="25" oninput="updateHeadcount(this.value)">
+            <div class="slider-labels">
+              <span>25</span>
+              <span>500</span>
+              <span>1,000</span>
+              <span>2,000+</span>
+            </div>
+          </div>
+          <div class="slider-val-display" id="hc-display">250</div>
+        </div>
       </div>
-      <p class="hero-reassure">No more scattered spreadsheets. One source of truth for field and office.</p>
+
+      <!-- Q2: Carriers -->
+      <div class="input-group">
+        <label>How many benefit carriers or plans?</label>
+        <div class="stepper-row">
+          <div class="stepper">
+            <button class="stepper-btn" onclick="adjustCarriers(-1)">−</button>
+            <div class="stepper-val" id="carriers-display">5</div>
+            <button class="stepper-btn" onclick="adjustCarriers(1)">+</button>
+          </div>
+          <span class="stepper-hint">e.g. medical, dental, vision, life, 401k…</span>
+        </div>
+      </div>
+
+      <!-- Q3: Variable hour -->
+      <div class="input-group" style="margin-bottom:0">
+        <label>Do you have variable-hour employees requiring ACA tracking?</label>
+        <div class="toggle-group">
+          <button class="toggle-btn active" id="var-yes" onclick="setVariable(true)">Yes</button>
+          <button class="toggle-btn" id="var-no" onclick="setVariable(false)">No</button>
+        </div>
+        <div class="toggle-sub" id="var-sub">ACA hour tracking adds significant admin burden for construction employers.</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <button class="cta-btn" onclick="showLeadCapture()">Calculate My Savings →</button>
+      <div class="trust-note">🔒 No spam. Your info is only used to send your personalized results.</div>
+    </div>
+
+  </div>
+
+  <!-- ══════ PHASE 2: LEAD CAPTURE ══════ -->
+  <div id="phase2" class="phase">
+    <div class="lead-wrapper">
+
+      <div class="lead-header">
+        <div class="lead-icon">📊</div>
+        <h2>Your estimate is ready</h2>
+        <p>We've calculated your personalized savings. Enter your details below to unlock your full results — no credit card required.</p>
+      </div>
+
+      <!-- Blurred preview -->
+      <div class="preview-bar">
+        <div class="preview-stat">
+          <div class="ps-label">Hours Saved / Year</div>
+          <div class="ps-val" id="preview-total">842</div>
+          <div class="ps-sub">combined hours</div>
+        </div>
+        <div class="preview-stat">
+          <div class="ps-label">Est. Cost Savings</div>
+          <div class="ps-val" id="preview-cost">$38k</div>
+          <div class="ps-sub">annual value</div>
+        </div>
+        <div class="preview-stat">
+          <div class="ps-label">Days Freed / Month</div>
+          <div class="ps-val" id="preview-days">8.8</div>
+          <div class="ps-sub">combined</div>
+        </div>
+      </div>
+
+      <!-- Lead form -->
+      <div class="lead-form">
+        <div class="form-title">Enter your details to unlock results</div>
+        <div class="form-row">
+          <label>Your Name</label>
+          <input type="text" id="lead-name" placeholder="Jane Smith" autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label>Company</label>
+          <input type="text" id="lead-company" placeholder="ABC Construction Co." autocomplete="organization">
+        </div>
+        <div class="form-row" style="margin-bottom:20px">
+          <label>Work Email</label>
+          <input type="email" id="lead-email" placeholder="jane@abcconstruction.com" autocomplete="email">
+        </div>
+        <div class="form-error" id="form-error">Please fill in all fields with a valid work email address.</div>
+        <button class="cta-btn" onclick="showResults()">Unlock My Full Results →</button>
+      </div>
+
     </div>
   </div>
 
-  <main>
-    <section id="intro" style="padding: 80px 48px; max-width: 1180px; margin: 0 auto;">
-      <div style="display: grid; gap: 28px; grid-template-columns: minmax(300px, 1fr) 1.4fr; align-items: center;">
-        <div>
-          <h2 style="font-size: clamp(28px, 3vw, 44px); color: var(--text-head); margin-bottom: 20px;">Everything your field teams need, all in one productivity bundle.</h2>
-          <p style="font-size: 18px; color: var(--text-soft); line-height: 1.8;">Stop guessing about daily production. Lumber bundles the tools your crew already needs into one predictable package, so field ops stay aligned and budgets stay on track.</p>
-        </div>
-        <div style="display: grid; gap: 16px;">
-          <div style="background: var(--white); border: 1px solid var(--border); border-radius: 22px; padding: 24px; box-shadow: var(--shadow);">
-            <strong style="display: block; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--green-dk); margin-bottom: 14px;">Bundle includes</strong>
-            <ul style="color: var(--text-body); line-height: 1.9; list-style: disc inside;">
-              <li>Field task tracking</li>
-              <li>Productivity scorecards</li>
-              <li>Equipment and materials oversight</li>
-              <li>Daily crew progress</li>
-            </ul>
-          </div>
-          <div style="background: var(--green-bg); border-radius: 22px; padding: 24px;">
-            <p style="font-weight: 700; color: var(--green-dk); margin-bottom: 16px;">Why it works</p>
-            <p style="color: var(--text-body); line-height: 1.8;">Because field productivity should be simple to measure, not impossible to manage.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- ══════ PHASE 3: RESULTS ══════ -->
+  <div id="phase3" class="phase">
 
-    <section id="demo" style="padding: 80px 48px; background: var(--bg-subtle);">
-      <div style="max-width: 1180px; margin: 0 auto; display: grid; gap: 24px;">
-        <h2 style="font-size: clamp(26px, 3vw, 38px); color: var(--text-head);">Demo-ready workflows for crews and foremen.</h2>
-        <div style="display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-          <div style="background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 24px; box-shadow: var(--shadow);">
-            <h3 style="margin-bottom: 14px; color: var(--text-head);">Daily progress</h3>
-            <p style="color: var(--text-soft); line-height: 1.8;">Capture the day’s actual production without chasing crews for notes.</p>
-          </div>
-          <div style="background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 24px; box-shadow: var(--shadow);">
-            <h3 style="margin-bottom: 14px; color: var(--text-head);">Labor efficiency</h3>
-            <p style="color: var(--text-soft); line-height: 1.8;">Compare planned versus actual performance in minutes, not weeks.</p>
-          </div>
-          <div style="background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 24px; box-shadow: var(--shadow);">
-            <h3 style="margin-bottom: 14px; color: var(--text-head);">Crew alignment</h3>
-            <p style="color: var(--text-soft); line-height: 1.8;">Keep field, office, and leadership working from the same plan.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="results-header">
+      <div class="results-greeting" id="results-greeting">Here are your personalized results</div>
+      <h2>Your team could reclaim <span id="result-headline-hrs" style="color:var(--green)">—</span> of benefits admin time each year.</h2>
+      <p>Based on construction industry benchmarks for your team size and complexity.</p>
+    </div>
 
-    <section id="pricing" style="padding: 80px 48px; max-width: 1180px; margin: 0 auto;">
-      <div style="background: var(--green-bg); border-radius: 28px; padding: 48px; display: grid; gap: 24px;">
-        <h2 style="font-size: clamp(28px, 3vw, 42px); color: var(--green-dk);">Bundle pricing built for teams that move fast.</h2>
-        <p style="color: var(--text-body); line-height: 1.8;">One predictable price for field productivity, crew tracking, and equipment oversight across every job site.</p>
-        <div style="display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-          <div style="background: var(--white); border-radius: 20px; border: 1px solid rgba(64,149,107,.16); padding: 26px;">
-            <strong style="font-size: 13px; color: var(--green-dk); text-transform: uppercase; letter-spacing: .14em;">Starter</strong>
-            <p style="font-size: 32px; font-weight: 800; color: var(--text-head); margin: 18px 0 10px;">$99</p>
-            <p style="color: var(--text-soft);">Perfect for small crews and first-time field teams.</p>
-          </div>
-          <div style="background: var(--white); border-radius: 20px; border: 1px solid rgba(64,149,107,.16); padding: 26px;">
-            <strong style="font-size: 13px; color: var(--green-dk); text-transform: uppercase; letter-spacing: .14em;">Growth</strong>
-            <p style="font-size: 32px; font-weight: 800; color: var(--text-head); margin: 18px 0 10px;">$179</p>
-            <p style="color: var(--text-soft);">Best for teams adding automation and real-time tracking.</p>
-          </div>
-          <div style="background: var(--white); border-radius: 20px; border: 1px solid rgba(64,149,107,.16); padding: 26px;">
-            <strong style="font-size: 13px; color: var(--green-dk); text-transform: uppercase; letter-spacing: .14em;">Enterprise</strong>
-            <p style="font-size: 32px; font-weight: 800; color: var(--text-head); margin: 18px 0 10px;">$299</p>
-            <p style="color: var(--text-soft);">Designed for large field operations and multi-site teams.</p>
-          </div>
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card broker">
+        <div class="kc-label">Broker Team Hours Saved</div>
+        <div class="kc-val" id="r-broker-hrs">—</div>
+        <div class="kc-sub">hours per year</div>
+      </div>
+      <div class="kpi-card employer">
+        <div class="kc-label">Employer HR Hours Saved</div>
+        <div class="kc-val" id="r-employer-hrs">—</div>
+        <div class="kc-sub">hours per year</div>
+      </div>
+      <div class="kpi-card total">
+        <div class="kc-label">Total Annual Hours Saved</div>
+        <div class="kc-val" id="r-total-hrs">—</div>
+        <div class="kc-sub">combined hours</div>
+      </div>
+    </div>
+
+    <!-- Time breakdown -->
+    <div class="metrics-row">
+      <div class="metrics-card">
+        <div class="mc-title">Broker Time Freed</div>
+        <div class="metric-item">
+          <span class="mi-label">Days freed each month</span>
+          <span class="mi-val" id="r-b-days-mo">—</span>
+        </div>
+        <div class="metric-item">
+          <span class="mi-label">Weeks freed each year</span>
+          <span class="mi-val" id="r-b-wks">—</span>
+        </div>
+        <div class="metric-item">
+          <span class="mi-label">Hours freed per week</span>
+          <span class="mi-val" id="r-b-hrs-wk">—</span>
         </div>
       </div>
-    </section>
-  </main>
+      <div class="metrics-card">
+        <div class="mc-title">HR Team Time Freed</div>
+        <div class="metric-item">
+          <span class="mi-label">Days freed each month</span>
+          <span class="mi-val" id="r-e-days-mo">—</span>
+        </div>
+        <div class="metric-item">
+          <span class="mi-label">Weeks freed each year</span>
+          <span class="mi-val" id="r-e-wks">—</span>
+        </div>
+        <div class="metric-item">
+          <span class="mi-label">Hours freed per week</span>
+          <span class="mi-val" id="r-e-hrs-wk">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dollar savings -->
+    <div class="savings-banner">
+      <div class="sb-main">
+        <div class="sb-label">Estimated Annual Cost Savings</div>
+        <div class="sb-amount" id="r-total-cost">$—</div>
+        <div class="sb-note">Industry avg. salaries · 1.25× burden rate applied</div>
+      </div>
+      <div class="sb-breakdown">
+        <div class="sb-item">
+          <div class="sbi-label">Broker Savings</div>
+          <div class="sbi-val" id="r-broker-cost">$—</div>
+        </div>
+        <div class="sb-item">
+          <div class="sbi-label">HR Team Savings</div>
+          <div class="sbi-val" id="r-employer-cost">$—</div>
+        </div>
+        <div class="sb-item">
+          <div class="sbi-label">Employees</div>
+          <div class="sbi-val" id="r-config-hc">—</div>
+        </div>
+        <div class="sb-item">
+          <div class="sbi-label">Carriers / Plans</div>
+          <div class="sbi-val" id="r-config-car">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h3>Ready to get this time back?</h3>
+      <p>Talk to a Lumber Benefits specialist and get a full, customized analysis for your construction company — at no cost.</p>
+      <button class="cta-btn" onclick="window.open('https://lumberfi.com/benefits', '_blank')">Book a Discovery Call →</button>
+      <div class="cta-secondary">Questions first? <a href="mailto:benefits@lumberfi.com">Email our team</a></div>
+      <div class="methodology">
+        <strong style="color:rgba(255,255,255,0.6)">Methodology:</strong> Annual hours saved = Year 1 implementation savings + Year 2 ongoing OE savings + (monthly maintenance savings × 12). Monthly maintenance scales with employee headcount; EDI/carrier savings scale with number of carriers. Variable-hour ACA tracking burden is included when applicable. Cost savings apply a 1.25× burden rate to industry-average salaries ($72k broker / $88k HR manager), divided by 2,080 annual working hours. Estimates are based on construction employer benchmarks and will vary by organization.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────
+const state = {
+  headcount: 250,
+  carriers: 5,
+  variableHour: true
+};
+
+// ─────────────────────────────────────────
+// CALCULATION MODEL
+// Base = 250 employees, 5 carriers, variable hour = true
+// ─────────────────────────────────────────
+const BROKER_IMPL      = 90;    // Year 1 implementation — fixed
+const EMPLOYER_IMPL    = 67;
+const BROKER_YR2       = 21;    // Annual OE — fixed recurring
+const EMPLOYER_YR2     = 20;
+
+const BROKER_MONTHLY_HC  = 18.5;   // scales with headcount
+const BROKER_MONTHLY_CAR = 4.0;    // scales with carriers
+const EMP_MONTHLY_HC     = 28.125;
+const EMP_MONTHLY_CAR    = 1.0;
+const EMP_MONTHLY_ACA    = 2.0;    // headcount-scaled, only if variable
+
+const BASE_HC  = 250;
+const BASE_CAR = 5;
+const SAL_BROKER   = 72000;
+const SAL_EMPLOYER = 88000;
+const BURDEN       = 1.25;
+const WRK_HRS      = 2080;
+
+function calcSavings() {
+  const hcR  = state.headcount / BASE_HC;
+  const carR = state.carriers  / BASE_CAR;
+
+  const brokerMo   = (BROKER_MONTHLY_HC * hcR) + (BROKER_MONTHLY_CAR * carR);
+  const acaMo      = state.variableHour ? (EMP_MONTHLY_ACA * hcR) : 0;
+  const employerMo = (EMP_MONTHLY_HC * hcR) + (EMP_MONTHLY_CAR * carR) + acaMo;
+
+  const brokerAnn   = BROKER_IMPL   + BROKER_YR2   + brokerMo   * 12;
+  const employerAnn = EMPLOYER_IMPL + EMPLOYER_YR2 + employerMo * 12;
+  const totalAnn    = brokerAnn + employerAnn;
+
+  const cB = (SAL_BROKER   * BURDEN / WRK_HRS) * brokerAnn;
+  const cE = (SAL_EMPLOYER * BURDEN / WRK_HRS) * employerAnn;
+
+  return {
+    broker:       Math.round(brokerAnn),
+    employer:     Math.round(employerAnn),
+    total:        Math.round(totalAnn),
+    brokerCost:   Math.round(cB),
+    employerCost: Math.round(cE),
+    totalCost:    Math.round(cB + cE)
+  };
+}
+
+// ─────────────────────────────────────────
+// INPUT HANDLERS
+// ─────────────────────────────────────────
+function updateHeadcount(val) {
+  state.headcount = parseInt(val);
+  const display = parseInt(val) >= 2000 ? '2,000+' : parseInt(val).toLocaleString();
+  document.getElementById('hc-display').textContent = display;
+}
+
+function adjustCarriers(delta) {
+  state.carriers = Math.max(1, Math.min(20, state.carriers + delta));
+  document.getElementById('carriers-display').textContent = state.carriers;
+}
+
+function setVariable(val) {
+  state.variableHour = val;
+  document.getElementById('var-yes').classList.toggle('active', val);
+  document.getElementById('var-no').classList.toggle('active', !val);
+  document.getElementById('var-sub').textContent = val
+    ? 'ACA hour tracking adds significant admin burden for construction employers.'
+    : 'No ACA tracking burden — your savings estimate reflects this.';
+}
+
+// ─────────────────────────────────────────
+// PHASE TRANSITIONS
+// ─────────────────────────────────────────
+function showLeadCapture() {
+  const r = calcSavings();
+  document.getElementById('preview-total').textContent = r.total.toLocaleString();
+  document.getElementById('preview-cost').textContent  = '$' + Math.round(r.totalCost / 1000) + 'k+';
+  document.getElementById('preview-days').textContent  = (r.total / 12 / 8).toFixed(1);
+  switchPhase('phase2');
+  setDots(2);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showResults() {
+  const name    = document.getElementById('lead-name').value.trim();
+  const company = document.getElementById('lead-company').value.trim();
+  const email   = document.getElementById('lead-email').value.trim();
+  const errEl   = document.getElementById('form-error');
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!name || !company || !email || !emailOk) {
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+
+  const firstName = name.split(' ')[0];
+  const r = calcSavings();
+
+  document.getElementById('results-greeting').textContent  = `Here are your personalized results, ${firstName}`;
+  document.getElementById('result-headline-hrs').textContent = r.total.toLocaleString() + ' hours';
+
+  document.getElementById('r-broker-hrs').textContent   = r.broker.toLocaleString();
+  document.getElementById('r-employer-hrs').textContent = r.employer.toLocaleString();
+  document.getElementById('r-total-hrs').textContent    = r.total.toLocaleString();
+
+  document.getElementById('r-b-days-mo').textContent  = (r.broker   / 12 / 8).toFixed(1) + ' days';
+  document.getElementById('r-e-days-mo').textContent  = (r.employer / 12 / 8).toFixed(1) + ' days';
+  document.getElementById('r-b-wks').textContent      = (r.broker   / 40).toFixed(1) + ' weeks';
+  document.getElementById('r-e-wks').textContent      = (r.employer / 40).toFixed(1) + ' weeks';
+  document.getElementById('r-b-hrs-wk').textContent   = (r.broker   / 52).toFixed(1) + ' hrs';
+  document.getElementById('r-e-hrs-wk').textContent   = (r.employer / 52).toFixed(1) + ' hrs';
+
+  document.getElementById('r-broker-cost').textContent   = '$' + r.brokerCost.toLocaleString();
+  document.getElementById('r-employer-cost').textContent = '$' + r.employerCost.toLocaleString();
+  document.getElementById('r-total-cost').textContent    = '$' + r.totalCost.toLocaleString();
+
+  const hcLabel = state.headcount >= 2000 ? '2,000+' : state.headcount.toLocaleString();
+  document.getElementById('r-config-hc').textContent  = hcLabel + ' employees';
+  document.getElementById('r-config-car').textContent = state.carriers + ' carrier' + (state.carriers !== 1 ? 's' : '');
+
+  switchPhase('phase3');
+  setDots(3);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function switchPhase(id) {
+  document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function setDots(active) {
+  for (let i = 1; i <= 3; i++) {
+    const dot = document.getElementById(`dot-${i}`);
+    dot.classList.remove('active', 'done');
+    if (i < active)        dot.classList.add('done');
+    else if (i === active) dot.classList.add('active');
+  }
+}
+</script>
+
 </body>
 </html>
