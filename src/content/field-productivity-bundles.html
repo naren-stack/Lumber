@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lumber Benefits — Benefits Admin Savings Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/css/lumber-staging.webflow.shared.9a233e66f.css" rel="stylesheet" type="text/css" crossorigin="anonymous"/>
   <style>
     :root {
       --white:      #FFFFFF;
@@ -39,77 +38,234 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .banner2_component { background: #003333; padding: 10px 0; }
-    .banner2_wrapper { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 0 24px; position: relative; }
-    .banner2_text-wrapper p { color: #fff; font-size: 14px; }
-    .banner-btn { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); color: #fff; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; transition: background 0.2s; }
-    .banner-btn:hover { background: rgba(255,255,255,0.25); }
-    .banner2_close-button { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); color: #fff; opacity: 0.7; cursor: pointer; text-decoration: none; display: flex; }
-    .banner2_close-button:hover { opacity: 1; }
-    .nav-wrap-desktop { background: #fff; box-shadow: 0 1px 0 #e5e7eb; position: sticky; top: 0; z-index: 1000; }
-    .new-navbar11_container { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 0 32px; height: 68px; gap: 32px; }
-    .new-navbar11_logo-link img { height: 32px; width: auto; display: block; }
-    .navbar1_menu-2 { display: flex; align-items: center; gap: 4px; flex: 1; }
-    .nav-wrapper-main { display: flex; align-items: center; gap: 4px; }
-    .desktop_menu-dropdown { position: relative; }
-    .desktop_dropdown-toggle { display: flex; align-items: center; gap: 4px; padding: 8px 12px; cursor: pointer; font-size: 14px; font-weight: 500; color: #101828; border-radius: 6px; user-select: none; transition: background 0.15s; white-space: nowrap; }
-    .desktop_dropdown-toggle:hover { background: #f9fafb; }
-    .dropdown-icon-6 { width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; }
-    .product_dropdown-list, .toolkit-menu-list, .customer-list, .company-menu-list { display: none; position: absolute; top: calc(100% + 4px); left: 0; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 20px; z-index: 999; min-width: 280px; }
-    .desktop_menu-dropdown:hover .product_dropdown-list, .desktop_menu-dropdown:hover .toolkit-menu-list, .desktop_menu-dropdown:hover .customer-list, .desktop_menu-dropdown:hover .company-menu-list { display: flex; }
-    .navbar08_dropdown-content { display: grid; grid-template-columns: repeat(4, 200px); gap: 0 24px; }
-    .toolkit-menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
-    .customer-menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
-    .company-menu-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 24px; }
-    .w-layout-grid.integrations-nav-grid { display: grid; grid-template-columns: 1fr; gap: 4px; margin-top: 12px; }
-    .navbar08_dropdown-link-list { display: flex; flex-direction: column; gap: 2px; }
-    .navbar08_dropdown-link { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; text-decoration: none; color: #101828; font-size: 13.5px; transition: background 0.15s; white-space: nowrap; }
-    .navbar08_dropdown-link:hover { background: #f0fdf4; }
-    .navbar08_dropdown-link.sub-menu { padding-left: 28px; font-size: 13px; color: #475467; }
-    .navbar08_dropdown-link.sub-menu:hover { background: #f0fdf4; color: #101828; }
-    .navbar08_icon-wrapper { flex-shrink: 0; }
-    .text-weight-semibold { font-weight: 600; }
-    .text-color-gray900 { color: #101828; }
-    .ai-grad { background: linear-gradient(90deg, #da32f3, #3d80f4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .toolkit-menu-link { display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; border-radius: 8px; text-decoration: none; color: #101828; font-size: 13.5px; transition: background 0.15s; }
-    .toolkit-menu-link:hover { background: #f0fdf4; }
-    .nav-item-holder { display: flex; flex-direction: column; gap: 2px; }
-    .menu-sub-text { font-size: 12px; color: #667085; }
-    .integrations-nav-wrap { display: flex; flex-direction: column; gap: 4px; padding: 8px 10px; border-radius: 8px; text-decoration: none; color: #101828; font-size: 13px; transition: background 0.15s; }
-    .integrations-nav-wrap:hover { background: #f0fdf4; }
-    .integrations-nav-title { display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 13px; }
-    .integrations_card { grid-column: span 4; margin-top: 12px; border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px 16px; text-decoration: none; display: flex; align-items: center; gap: 16px; transition: background 0.15s; }
-    .integrations_card:hover { background: #f9fafb; }
-    .view-integrations_wrap { display: flex; flex-direction: column; gap: 4px; }
-    .nav_product-card_title { font-weight: 600; font-size: 14px; color: #101828; }
-    .nav_product-card_para { font-size: 12px; color: #667085; }
-    .view-integrations_link { display: flex; align-items: center; gap: 6px; color: #ff6f61; font-size: 13px; font-weight: 600; }
-    .nav-side-link-ai-banner { display: flex; flex-direction: column; gap: 12px; padding: 14px; border-radius: 10px; background: #f9fafb; border: 1px solid #e5e7eb; text-decoration: none; grid-column: span 1; align-self: start; transition: background 0.15s; }
-    .nav-side-link-ai-banner:hover { background: #f0fdf4; }
-    .nav-side-link-ai-banner img { border-radius: 8px; width: 100%; }
-    .v-flex-12 { display: flex; flex-direction: column; gap: 8px; }
-    .v-flex-4 { display: flex; flex-direction: column; gap: 4px; }
-    .nav-side-link-btn { display: flex; align-items: center; gap: 6px; color: #ff6f61; font-size: 13px; font-weight: 600; }
-    .nav-cta-wrapper { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    .nav-contact { font-size: 14px; font-weight: 500; color: #344054; text-decoration: none; }
-    .nav-contact:hover { color: #101828; }
-    .button.is-primary { display: inline-flex; align-items: center; background: #1a3d2b; color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
-    .button.is-primary:hover { background: #12301f; }
-    .localiztion-wrapper { position: relative; }
-    .localiztion-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 6px 8px; border-radius: 6px; font-size: 13px; font-weight: 500; color: #344054; transition: background 0.15s; }
-    .localiztion-toggle:hover { background: #f9fafb; }
-    .localiztion-current-flag { width: 20px; height: 14px; object-fit: cover; border-radius: 2px; }
-    .localiztion-nav { display: none; position: absolute; top: calc(100% + 4px); right: 0; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); padding: 8px; min-width: 180px; z-index: 9999; }
-    .localiztion-wrapper:hover .localiztion-nav { display: block; }
-    .locale-link_new { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; text-decoration: none; color: #101828; font-size: 13px; transition: background 0.15s; }
-    .locale-link_new:hover { background: #f0fdf4; }
-    .localiztion-flag { width: 20px; height: 14px; object-fit: cover; border-radius: 2px; }
-    .navbar08_dropdown-link-list + .navbar08_dropdown-link-list { border-left: 1px solid #f2f4f7; padding-left: 16px; }
-    .navbar1_menu-button { display: none; }
-    .mobile1_menu-dropdown { display: none; }
-    .nav-contact.mobile-nav { display: block; }
-    .desktop_menu-dropdown:hover .desktop_dropdown-toggle { background: #f9fafb; }
-    .hide { display: none !important; }
+    :root {
+      --nav-h:        64px;
+      --banner-h:     40px;
+    }
+
+    .ann-bar {
+      background: var(--dark);
+      color: #fff;
+      min-height: var(--banner-h);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      gap: 10px;
+      position: relative;
+    }
+    .ann-bar__text { line-height: 1.5; text-align: center; }
+    .ann-bar__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .ann-bar__link:hover { background: rgba(255,255,255,0.22); }
+    .ann-bar__close {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,0.6);
+      font-size: 1.1rem;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.2s;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    .ann-bar__close:hover { color: #fff; }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-lt);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    }
+    .navbar__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .navbar__logo { flex-shrink: 0; margin-right: 8px; }
+    .navbar__logo img { height: 30px; width: auto; }
+    .navbar__links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+    }
+    .nav-item { position: relative; }
+    .nav-item__trigger {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-body);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+      user-select: none;
+    }
+    .nav-item__trigger:hover,
+    .nav-item.open .nav-item__trigger { background: var(--bg-page); color: var(--text-head); }
+    .nav-item__trigger .chevron { width: 14px; height: 14px; transition: transform 0.25s; color: var(--text-muted); }
+    .nav-item.open .nav-item__trigger .chevron { transform: rotate(180deg); }
+    .nav-contact-link {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-body);
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-contact-link:hover { background: var(--bg-page); color: var(--text-head); }
+    .navbar__cta { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+    .btn-login {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-body);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    .btn-login:hover { background: var(--bg-page); }
+    .btn-demo {
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 9px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(255,111,97,0.3);
+      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-demo:hover { background: var(--orange-dk); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,111,97,0.35); }
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+      padding: 24px;
+      display: none;
+      z-index: 300;
+      animation: dropIn 0.2s ease;
+    }
+    @keyframes dropIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+    .nav-item.open .dropdown { display: block; }
+    .dropdown--product { width: 860px; display: none; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 4px; }
+    .nav-item.open .dropdown--product { display: grid; }
+    .dropdown--resources { width: 560px; display: none; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .nav-item.open .dropdown--resources { display: grid; }
+    .dropdown--single { width: 300px; }
+    .dd-col-head {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--text-muted);
+      padding: 4px 8px 8px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .dd-link { display: flex; align-items: flex-start; gap: 10px; padding: 9px 10px; border-radius: 8px; transition: background 0.15s; cursor: pointer; text-decoration: none; }
+    .dd-link:hover { background: var(--bg-page); }
+    .dd-link--sub { padding: 7px 10px 7px 36px; }
+    .dd-icon {
+      width: 28px; height: 28px; flex-shrink: 0; border-radius: 8px;
+      background: var(--green-icon); border: 3px solid var(--green-bg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dd-icon svg { width: 14px; height: 14px; }
+    .dd-link__title { font-size: 0.82rem; font-weight: 600; color: var(--text-head); line-height: 1.3; }
+    .dd-link__sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; line-height: 1.45; }
+    .dd-link--sub .dd-link__title { font-weight: 500; color: var(--text-body); font-size: 0.8rem; }
+    .ai-grad-text {
+      background: linear-gradient(90deg, #DA32F3, #3D80F4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .dd-integrations-card {
+      grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 16px; border: 1px solid var(--border-lt); border-radius: 10px;
+      background: var(--bg-page); margin-top: 8px; transition: background 0.15s;
+    }
+    .dd-integrations-card:hover { background: var(--border-lt); }
+    .dic-text { font-size: 0.82rem; font-weight: 600; color: var(--text-head); }
+    .dic-sub  { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+    .dic-arrow { width: 32px; height: 32px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .locale-wrap { position: relative; margin-left: 8px; }
+    .locale-btn {
+      display: flex; align-items: center; gap: 5px; padding: 6px 10px;
+      border: 1px solid var(--border); border-radius: 8px; font-size: 0.78rem;
+      font-weight: 600; color: var(--text-body); cursor: pointer; transition: background 0.15s;
+      background: #fff;
+    }
+    .locale-btn:hover { background: var(--bg-page); }
+    .locale-flag { width: 18px; height: 14px; border-radius: 2px; object-fit: cover; }
+    .locale-dropdown {
+      display: none; position: absolute; top: calc(100% + 6px); right: 0; background: var(--white);
+      border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 8px; min-width: 180px; z-index: 400;
+    }
+    .locale-wrap.open .locale-dropdown { display: block; }
+    .locale-option {
+      display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 6px;
+      font-size: 0.8rem; font-weight: 500; color: var(--text-body); cursor: pointer; transition: background 0.15s;
+    }
+    .locale-option:hover, .locale-option.active { background: var(--bg-page); }
+    .locale-option.active { font-weight: 700; color: var(--text-head); }
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      width: 40px; height: 40px; border-radius: 8px; cursor: pointer; margin-left: 8px; transition: background 0.15s;
+      border: none; background: none;
+    }
+    .hamburger:hover { background: var(--bg-page); }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-body); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; top: calc(var(--banner-h) + var(--nav-h));
+      background: var(--white); z-index: 150; overflow-y: auto; padding: 20px; border-top: 1px solid var(--border-lt);
+      animation: slideDown 0.25s ease;
+    }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    .mobile-menu.open { display: block; }
+    .mob-section { margin-bottom: 24px; }
+    .mob-section-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); padding: 0 8px; margin-bottom: 8px; }
+    .mob-link { display: block; padding: 10px 8px; font-size: 0.9rem; font-weight: 500; color: var(--text-body); border-radius: 8px; transition: background 0.15s; text-decoration: none; }
+    .mob-link:hover { background: var(--bg-page); }
+    .mob-cta-row { display: flex; gap: 8px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-lt); }
+    .mob-cta-row .btn-demo, .mob-cta-row .btn-login { flex: 1; text-align: center; padding: 11px 16px; border-radius: 8px; font-size: 0.85rem; }
 
     .footer {
       background: #0A1628;
@@ -563,15 +719,13 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 991px) {
-      .nav-wrapper-main { display: none; }
-      .navbar1_menu-button { display: flex; cursor: pointer; flex-direction: column; gap: 5px; padding: 8px; }
-      .menu-icon1_line-top-4,
-      .menu-icon_line-middle-inner,
-      .menu-icon1_line-bottom-3 { display: block; width: 22px; height: 2px; background: #344054; border-radius: 2px; }
-      .new-navbar11_container { padding: 0 16px; }
-    }
     @media (max-width: 768px) {
+      .navbar__links,
+      .nav-contact-link,
+      .locale-wrap { display: none; }
+      .hamburger { display: flex; }
+      .navbar__cta .btn-demo { display: none; }
+      .navbar__inner { padding: 0 16px; }
       .main { padding: 36px 16px 70px; }
       .hero h1 { font-size: 1.8rem; }
       .input-card { padding: 28px 22px; }
@@ -583,7 +737,7 @@
       .footer__links-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 480px) {
-      .banner2_text-wrapper p { font-size: 12px; }
+      .ann-bar { font-size: 0.72rem; padding-right: 44px; }
       .hero h1 { font-size: 1.55rem; }
       .kc-val { font-size: 2.2rem; }
       .sb-amount { font-size: 2.4rem; }
@@ -595,165 +749,83 @@
 </head>
 <body>
 
-<div class="banner2_component">
-  <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
-    <div class="banner2_wrapper">
-      <div class="banner2_content center-center en">
-        <div class="banner2_text-wrapper">
-          <p class="hello-bar-text">CPE Webinar: A Contractor's Survival Guide to the 4 Toughest Compliance States (CA, NY, IL, NJ)</p>
-        </div>
-        <div style="margin-left:16px;">
-          <a href="https://luma.com/8c3686k7" target="_blank" class="banner-btn">
-            Register Now
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-      <a href="#" class="banner2_close-button" onclick="this.closest('.banner2_component').style.display='none';return false;">
-        <svg width="20" height="20" viewBox="0 0 32 33" fill="none"><path d="M22.8354 22.864L22.3639 23.3354C22.1036 23.5957 21.6815 23.5957 21.4211 23.3354L16 17.9142L10.5788 23.3353C10.3185 23.5957 9.89638 23.5957 9.63603 23.3353L9.16462 22.8639C8.90427 22.6036 8.90427 22.1815 9.16462 21.9211L14.5858 16.5L9.16462 11.0788C8.90427 10.8185 8.90427 10.3964 9.16462 10.136L9.63602 9.66463C9.89637 9.40428 10.3185 9.40428 10.5788 9.66463L16 15.0858L21.4211 9.66462C21.6815 9.40427 22.1036 9.40427 22.3639 9.66462L22.8354 10.136C23.0957 10.3964 23.0957 10.8185 22.8354 11.0788L17.4142 16.5L22.8354 21.9211C23.0957 22.1815 23.0957 22.6036 22.8354 22.864Z" fill="currentColor"/></svg>
-      </a>
-    </div>
-  </div>
+<div class="ann-bar" id="annBar">
+  <span class="ann-bar__text">
+    CPE Webinar: A Contractor's Survival Guide to the 4 Toughest Compliance States (CA, NY, IL, NJ)
+  </span>
+  <a href="https://luma.com/8c3686k7" target="_blank" class="ann-bar__link">
+    Register Now
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <button class="ann-bar__close" onclick="closeBanner()" aria-label="Close">✕</button>
 </div>
 
-<div class="nav-wrap-desktop">
-  <nav class="navbar11_component" style="width:100%;">
-    <div class="new-navbar11_container">
-      <a href="/" class="new-navbar11_logo-link">
-        <img width="142" alt="Lumber" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66f172583eca55ff6c30eb29_Lumber-Logo.webp"/>
-      </a>
-      <nav class="navbar1_menu-2">
-        <div class="nav-wrapper-main">
-          <div class="desktop_menu-dropdown">
-            <div class="desktop_dropdown-toggle">
-              <div class="dropdown-icon-6">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"/></svg>
-              </div>
-              <div>Product</div>
-            </div>
-            <nav class="product_dropdown-list" style="width:900px;left:-20px;">
-              <div class="navbar08_dropdown-content" style="grid-template-columns:repeat(4,1fr);width:100%;gap:0 16px;">
-                <div class="navbar08_dropdown-link-list" style="border-left:none;padding-left:0;">
-                  <a href="/product/payroll" class="navbar08_dropdown-link"><div class="navbar08_item-right"><div class="text-weight-semibold text-color-gray900">Payroll</div></div></a>
-                  <a href="/product/payroll/prevailing-wages" class="navbar08_dropdown-link sub-menu">Prevailing Wages</a>
-                  <a href="/product/payroll/certified-payroll" class="navbar08_dropdown-link sub-menu">Certified Payroll</a>
-                  <a href="/product/payroll/union-configuration" class="navbar08_dropdown-link sub-menu">Union Reporting</a>
-                  <a href="/product/payroll/worker-compensation" class="navbar08_dropdown-link sub-menu">Worker Compensation</a>
-                  <a href="/product/payroll/tax-filing" class="navbar08_dropdown-link sub-menu">Tax Filing</a>
-                  <a href="/product/payroll/expense-management" class="navbar08_dropdown-link sub-menu">Expense Management</a>
-                </div>
-                <div class="navbar08_dropdown-link-list">
-                  <a href="/product/hr" class="navbar08_dropdown-link"><div class="navbar08_item-right"><div class="text-weight-semibold text-color-gray900">HR Management</div></div></a>
-                  <a href="/product/hr/applicant-tracking-system" class="navbar08_dropdown-link sub-menu">Applicant Tracking System</a>
-                  <a href="/product/hr/streamlined-onboarding" class="navbar08_dropdown-link sub-menu">Onboarding</a>
-                  <a href="/product/hr/benefits" class="navbar08_dropdown-link sub-menu">Benefits Administration</a>
-                  <a href="/product/hr/credential-management" class="navbar08_dropdown-link sub-menu">Credential Management</a>
-                </div>
-                <div class="navbar08_dropdown-link-list">
-                  <a href="/product/productivity" class="navbar08_dropdown-link"><div class="navbar08_item-right"><div class="text-weight-semibold text-color-gray900">Productivity</div></div></a>
-                  <a href="/product/productivity/multi-time-capture-modes" class="navbar08_dropdown-link sub-menu">Time Tracking</a>
-                  <a href="/product/productivity/productivity-tracking" class="navbar08_dropdown-link sub-menu">Productivity Tracking</a>
-                  <a href="/product/productivity/form-builder" class="navbar08_dropdown-link sub-menu">Form Builder</a>
-                  <a href="/product/productivity/gamification" class="navbar08_dropdown-link sub-menu">Recognition &amp; Award</a>
-                </div>
-                <div class="navbar08_dropdown-link-list">
-                  <a href="/ila" class="navbar08_dropdown-link"><div class="navbar08_item-right"><div class="text-weight-semibold ai-grad">AI Agents</div></div></a>
-                  <a href="/union-agent" class="navbar08_dropdown-link sub-menu">Union Agent</a>
-                  <a href="/prevailing-wage-agent" class="navbar08_dropdown-link sub-menu">Prevailing Wage Agent</a>
-                  <a href="/paper-timecard-agent" class="navbar08_dropdown-link sub-menu">Paper Timecard Agent</a>
-                </div>
-              </div>
-            </nav>
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="https://www.lumberfi.com/" class="navbar__logo">
+      <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66f172583eca55ff6c30eb29_Lumber-Logo.webp" alt="Lumber" />
+    </a>
+    <nav class="navbar__links">
+      <a href="/product/payroll" class="nav-contact-link">Product</a>
+      <a href="/resources" class="nav-contact-link">Resources</a>
+      <a href="/case-studies" class="nav-contact-link">Customer Success</a>
+      <a href="/about" class="nav-contact-link">Company</a>
+      <a href="/contact-us" class="nav-contact-link">Contact</a>
+    </nav>
+    <div class="navbar__cta">
+      <div class="locale-wrap" id="localeWrap">
+        <button class="locale-btn" onclick="toggleLocale()">
+          <img class="locale-flag" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" alt="US" />
+          <span>US</span>
+          <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#667085" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="locale-dropdown">
+          <div class="locale-option active">
+            <img class="locale-flag" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" alt="US" />
+            United States (US)
           </div>
-
-          <div class="desktop_menu-dropdown">
-            <div class="desktop_dropdown-toggle"><div class="dropdown-icon-6"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"/></svg></div><div>Resources</div></div>
-            <nav class="toolkit-menu-list" style="width:640px;left:-20px;">
-              <div class="toolkit-menu-grid" style="width:100%;">
-                <div class="navbar08_dropdown-link-list" style="border-left:none;padding-left:0;">
-                  <a href="/blog" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Blogs</div><div class="menu-sub-text">Dive into latest insights and industry trends</div></div></a>
-                  <a href="/expert-column-listing" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Expert Column</div><div class="menu-sub-text">Tips &amp; insights from industry experts</div></div></a>
-                  <a href="/webinars" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Webinars</div><div class="menu-sub-text">Live and on-demand learning from industry pros</div></div></a>
-                  <a href="/wiki" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Wiki</div><div class="menu-sub-text">Your go-to hub for construction compliance knowledge</div></div></a>
-                  <a href="/whitepapers" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Whitepapers</div><div class="menu-sub-text">Data-driven insights and expert analysis</div></div></a>
-                </div>
-                <div class="navbar08_dropdown-link-list">
-                  <a href="/reports-guides" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Reports &amp; Guides</div><div class="menu-sub-text">In-depth resources to power your construction success</div></div></a>
-                  <a href="/templates" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Templates</div><div class="menu-sub-text">Useful downloadable, free-to-use templates</div></div></a>
-                  <a href="/podcasts" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Podcasts</div><div class="menu-sub-text">Tune in to construction conversations that matter</div></div></a>
-                  <a href="/glossary" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Glossary</div><div class="menu-sub-text">Clear, concise definitions of 100+ construction terms</div></div></a>
-                </div>
-              </div>
-            </nav>
+          <div class="locale-option">
+            <img class="locale-flag" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b3bcf47d76c7ffd6920_Canada.webp" alt="CA" />
+            Canada (CA)
           </div>
-
-          <div class="desktop_menu-dropdown">
-            <div class="desktop_dropdown-toggle"><div class="dropdown-icon-6"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"/></svg></div><div>Customer Success</div></div>
-            <nav class="customer-list" style="width:440px;left:-20px;">
-              <div class="customer-menu-grid" style="width:100%;">
-                <div class="navbar08_dropdown-link-list" style="border-left:none;padding-left:0;">
-                  <a href="/lumbercare" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">LumberCare</div><div class="menu-sub-text">Tailored, expert support for your operational needs</div></div></a>
-                </div>
-                <div class="navbar08_dropdown-link-list">
-                  <a href="/case-studies" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Case Studies</div><div class="menu-sub-text">How Lumber has transformed construction companies</div></div></a>
-                </div>
-              </div>
-            </nav>
-          </div>
-
-          <div class="desktop_menu-dropdown">
-            <div class="desktop_dropdown-toggle"><div class="dropdown-icon-6"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"/></svg></div><div>Company</div></div>
-            <nav class="company-menu-list" style="width:560px;left:-20px;">
-              <div class="company-menu-grid" style="width:100%;">
-                <div class="navbar08_dropdown-link-list" style="border-left:none;padding-left:0;">
-                  <a href="/about" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">About Lumber</div><div class="menu-sub-text">Discover the team and vision behind Lumber</div></div></a>
-                  <a href="/newsroom" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Newsroom</div><div class="menu-sub-text">Catch the latest buzz and breakthroughs from Lumber</div></div></a>
-                </div>
-                <div class="navbar08_dropdown-link-list">
-                  <a href="/partnerships" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Partners</div><div class="menu-sub-text">Collaborating with the best to drive industry excellence</div></div></a>
-                  <a href="/associations" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Associations</div><div class="menu-sub-text">Proudly connected to leading industry associations</div></div></a>
-                </div>
-                <div class="navbar08_dropdown-link-list">
-                  <a href="/careers" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Careers</div><div class="menu-sub-text">Join the Lumber team</div></div></a>
-                  <a href="/construction-industry-events" class="toolkit-menu-link"><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Events</div><div class="menu-sub-text">Meet our Lumberjacks</div></div></a>
-                </div>
-              </div>
-            </nav>
-          </div>
-
-          <a href="/contact-us" class="nav-contact mobile-nav" style="padding:8px 12px;font-size:14px;">Contact</a>
-        </div>
-      </nav>
-      <div class="nav-cta-wrapper">
-        <div class="localiztion-wrapper">
-          <div class="localiztion-toggle">
-            <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" class="localiztion-current-flag" alt="US flag"/>
-            <span>US</span>
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="#344054" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <nav class="localiztion-nav">
-            <a hreflang="en" href="/" class="locale-link_new">
-              <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" class="localiztion-flag" alt="US"/>
-              United States (US)
-            </a>
-            <a hreflang="en-CA" href="/ca" class="locale-link_new">
-              <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b3bcf47d76c7ffd6920_Canada.webp" class="localiztion-flag" alt="CA"/>
-              Canada (CA)
-            </a>
-          </nav>
-        </div>
-        <a href="https://timesheet.lumberfi.com/" target="_blank" class="nav-contact">App Login</a>
-        <a href="/demo-sign-up" class="button is-primary">Book a demo</a>
-      </div>
-      <div class="navbar1_menu-button" id="hamburger" onclick="toggleMobileMenu()">
-        <div class="menu-icon1">
-          <div class="menu-icon1_line-top-4"></div>
-          <div class="menu-icon_line-middle-inner"></div>
-          <div class="menu-icon1_line-bottom-3"></div>
         </div>
       </div>
+      <a href="https://timesheet.lumberfi.com/" target="_blank" class="btn-login">App Login</a>
+      <a href="/demo-sign-up" class="btn-demo">Book a demo</a>
     </div>
-  </nav>
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section">
+    <div class="mob-section-title">Product</div>
+    <a href="/product/payroll" class="mob-link">Payroll</a>
+    <a href="/product/hr" class="mob-link">HR Management</a>
+    <a href="/product/productivity" class="mob-link">Productivity</a>
+    <a href="/ila" class="mob-link ai-grad-text">AI Agents</a>
+  </div>
+  <div class="mob-section">
+    <div class="mob-section-title">Resources</div>
+    <a href="/blog" class="mob-link">Blogs</a>
+    <a href="/webinars" class="mob-link">Webinars</a>
+    <a href="/reports-guides" class="mob-link">Reports &amp; Guides</a>
+    <a href="/templates" class="mob-link">Templates</a>
+  </div>
+  <div class="mob-section">
+    <div class="mob-section-title">Company</div>
+    <a href="/about" class="mob-link">About Lumber</a>
+    <a href="/careers" class="mob-link">Careers</a>
+    <a href="/contact-us" class="mob-link">Contact</a>
+  </div>
+  <div class="mob-cta-row">
+    <a href="https://timesheet.lumberfi.com/" target="_blank" class="btn-login" style="border:1px solid var(--border);border-radius:8px;">App Login</a>
+    <a href="/demo-sign-up" class="btn-demo">Book a demo</a>
+  </div>
 </div>
 
 <div class="main">
@@ -1037,20 +1109,38 @@
 </footer>
 
 <script>
-function toggleMobileMenu() {
-  const menu = document.querySelector('.nav-wrapper-main');
-  if (!menu) return;
-  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-  menu.style.flexDirection = 'column';
-  menu.style.position = 'fixed';
-  menu.style.top = '68px';
-  menu.style.left = '0';
-  menu.style.right = '0';
-  menu.style.background = '#fff';
-  menu.style.padding = '16px';
-  menu.style.boxShadow = '0 8px 24px rgba(0,0,0,0.12)';
-  menu.style.zIndex = '998';
+function closeBanner() {
+  const bar = document.getElementById('annBar');
+  if (!bar) return;
+  bar.style.transition = 'max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease';
+  bar.style.maxHeight = '0';
+  bar.style.opacity = '0';
+  bar.style.padding = '0';
+  bar.style.overflow = 'hidden';
+  document.documentElement.style.setProperty('--banner-h', '0px');
+  setTimeout(() => bar.remove(), 300);
 }
+
+function toggleLocale() {
+  const wrap = document.getElementById('localeWrap');
+  if (wrap) wrap.classList.toggle('open');
+}
+
+function toggleMobile() {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  if (!menu || !ham) return;
+  const open = menu.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.locale-wrap')) {
+    const localeWrap = document.getElementById('localeWrap');
+    if (localeWrap) localeWrap.classList.remove('open');
+  }
+});
 
 // ─────────────────────────────────────────
 // STATE
