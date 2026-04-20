@@ -38,234 +38,206 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    :root {
-      --nav-h:        64px;
-      --banner-h:     40px;
-    }
-
-    .ann-bar {
+    /* ════════════════════════════════════
+       HELLO BAR
+    ════════════════════════════════════ */
+    .hello-bar {
       background: var(--dark);
-      color: #fff;
-      min-height: var(--banner-h);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      gap: 10px;
-      position: relative;
+      padding: 9px 0;
     }
-    .ann-bar__text { line-height: 1.5; text-align: center; }
-    .ann-bar__link {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 20px;
-      padding: 4px 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #fff;
-      white-space: nowrap;
-      transition: background 0.2s;
+    .hello-bar__inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; position: relative;
     }
-    .ann-bar__link:hover { background: rgba(255,255,255,0.22); }
-    .ann-bar__close {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgba(255,255,255,0.6);
-      font-size: 1.1rem;
-      line-height: 1;
-      padding: 4px;
-      transition: color 0.2s;
-      border: none;
-      background: none;
-      cursor: pointer;
+    .hello-bar__text { color: rgba(255,255,255,0.9); font-size: 13.5px; }
+    .hello-bar__cta {
+      display: inline-flex; align-items: center; gap: 5px;
+      color: #7AECB4; font-size: 13.5px; font-weight: 600;
+      text-decoration: none; white-space: nowrap;
     }
-    .ann-bar__close:hover { color: #fff; }
+    .hello-bar__cta:hover { text-decoration: underline; }
+    .hello-bar__close {
+      position: absolute; right: 32px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,0.6); width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 4px; transition: color 0.15s;
+    }
+    .hello-bar__close:hover { color: #fff; }
 
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: var(--white);
-      border-bottom: 1px solid var(--border-lt);
-      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    /* ════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════ */
+    .nav {
+      background: #fff;
+      border-bottom: 1px solid #EAECF0;
+      position: sticky; top: 0; z-index: 1000;
     }
-    .navbar__inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 32px;
-      height: var(--nav-h);
-      display: flex;
-      align-items: center;
-      gap: 4px;
+    .nav__inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 32px;
+      height: 68px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
     }
-    .navbar__logo { flex-shrink: 0; margin-right: 8px; }
-    .navbar__logo img { height: 30px; width: auto; }
-    .navbar__links {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      flex: 1;
-    }
+    .nav__logo { display: flex; align-items: center; gap: 0; text-decoration: none; flex-shrink: 0; }
+    .nav__logo img { height: 30px; width: auto; }
+    .nav__links { display: flex; align-items: center; gap: 2px; flex: 1; }
     .nav-item { position: relative; }
     .nav-item__trigger {
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      display: flex; align-items: center; gap: 5px;
       padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-body);
-      cursor: pointer;
+      font-size: 14px; font-weight: 500; color: #344054;
+      cursor: pointer; border-radius: 6px;
+      user-select: none; white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+      text-decoration: none;
+    }
+    .nav-item:hover > .nav-item__trigger,
+    .nav-item__trigger:hover { color: var(--green); background: transparent; }
+    .nav-item__trigger svg { transition: transform 0.2s; flex-shrink: 0; }
+    .nav-item:hover > .nav-item__trigger svg { transform: rotate(180deg); }
+    .nav-panel {
+      display: none;
+      position: absolute; top: calc(100% + 6px); left: 0;
+      background: #fff;
+      border: 1px solid #EAECF0;
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(16,24,40,0.10);
+      padding: 16px;
+      z-index: 999;
+    }
+    .nav-item:hover > .nav-panel { display: flex; }
+    .nav-panel--product { width: 820px; flex-direction: column; gap: 0; }
+    .nav-panel--product .panel-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .panel-col { padding: 4px 8px; }
+    .panel-col + .panel-col { border-left: 1px solid #F2F4F7; }
+    .panel-col__head {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 8px 10px;
+      font-size: 14px; font-weight: 700; color: #101828;
+      border-bottom: 1px solid #F2F4F7; margin-bottom: 6px;
+    }
+    .panel-col__head-icon {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: #AEFFD7; border: 3px solid #D0FFE8;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .panel-col__head-icon svg { width: 14px; height: 14px; }
+    .panel-col__head-icon--ai { background: transparent; border: none; }
+    .panel-sub {
+      display: block; padding: 7px 8px;
+      font-size: 13px; color: #475467;
+      text-decoration: none; border-radius: 6px;
+      transition: background 0.12s, color 0.12s;
       white-space: nowrap;
-      transition: background 0.15s, color 0.15s;
-      user-select: none;
     }
-    .nav-item__trigger:hover,
-    .nav-item.open .nav-item__trigger { background: var(--bg-page); color: var(--text-head); }
-    .nav-item__trigger .chevron { width: 14px; height: 14px; transition: transform 0.25s; color: var(--text-muted); }
-    .nav-item.open .nav-item__trigger .chevron { transform: rotate(180deg); }
-    .nav-contact-link {
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-body);
-      transition: background 0.15s, color 0.15s;
+    .panel-sub:hover { background: #F0FDF4; color: #101828; }
+    .panel-strip {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 6px; margin-top: 14px;
+      padding-top: 14px; border-top: 1px solid #F2F4F7;
     }
-    .nav-contact-link:hover { background: var(--bg-page); color: var(--text-head); }
-    .navbar__cta { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
-    .btn-login {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-body);
-      padding: 8px 14px;
+    .panel-strip-item {
+      display: flex; flex-direction: column; gap: 3px;
+      padding: 10px 12px; border-radius: 8px;
+      text-decoration: none; color: #101828;
+      transition: background 0.12s;
+    }
+    .panel-strip-item:hover { background: #F0FDF4; }
+    .panel-strip-title {
+      font-size: 13px; font-weight: 600; color: #101828;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .panel-strip-desc { font-size: 12px; color: #667085; line-height: 1.5; }
+    .nav-panel--resources {
+      width: 780px;
+      flex-direction: row;
+      gap: 0;
+      align-items: stretch;
+    }
+    .res-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0; flex: 1; }
+    .res-col { padding: 4px 8px; }
+    .res-col + .res-col { border-left: 1px solid #F2F4F7; }
+    .res-right { width: 220px; flex-shrink: 0; border-left: 1px solid #F2F4F7; padding: 4px 4px 4px 16px; }
+    .mega-link {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 10px 8px; border-radius: 8px;
+      text-decoration: none; color: #101828;
+      transition: background 0.12s;
+    }
+    .mega-link:hover { background: #F0FDF4; }
+    .mega-link:hover .mega-link__title { color: var(--green); }
+    .mega-icon {
+      flex-shrink: 0; width: 32px; height: 32px;
+      background: #EEFFF5; border: 1.5px solid #C6F6D5;
       border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .mega-icon svg { width: 16px; height: 16px; color: var(--green); }
+    .mega-link__body { display: flex; flex-direction: column; gap: 2px; }
+    .mega-link__title { font-size: 14px; font-weight: 600; color: #101828; line-height: 1.3; transition: color 0.12s; }
+    .mega-link__desc  { font-size: 12.5px; color: #667085; line-height: 1.5; }
+    .audit-card {
+      background: #0f1f38; border-radius: 10px;
+      overflow: hidden; text-decoration: none; display: flex;
+      flex-direction: column;
+      transition: opacity 0.15s;
+    }
+    .audit-card:hover { opacity: 0.9; }
+    .audit-card__img { width: 100%; height: 110px; object-fit: cover; display: block; }
+    .audit-card__body { padding: 14px; }
+    .audit-card__title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+    .audit-card__desc  { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; margin-bottom: 10px; }
+    .audit-card__cta   { display: flex; align-items: center; gap: 4px; color: #FF6F61; font-size: 13px; font-weight: 600; }
+    .nav-panel--customer { width: 480px; flex-direction: row; gap: 0; }
+    .cust-col { flex: 1; padding: 4px 8px; }
+    .cust-col + .cust-col { border-left: 1px solid #F2F4F7; }
+    .nav-panel--company { width: 680px; flex-direction: row; gap: 0; }
+    .comp-col { flex: 1; padding: 4px 8px; }
+    .comp-col + .comp-col { border-left: 1px solid #F2F4F7; }
+    .nav__right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .nav__app-login { font-size: 14px; font-weight: 500; color: #344054; text-decoration: none; }
+    .nav__app-login:hover { color: #101828; }
+    .nav__contact { font-size: 14px; font-weight: 500; color: #344054; text-decoration: none; padding: 8px 12px; }
+    .nav__contact:hover { color: #101828; }
+    .nav__demo {
+      display: inline-flex; align-items: center;
+      background: #FF6F61; color: #fff;
+      padding: 10px 22px; border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .nav__demo:hover { background: #E85D50; }
+    .locale-wrap { position: relative; }
+    .locale-trigger {
+      display: flex; align-items: center; gap: 6px;
+      cursor: pointer; padding: 6px 10px; border-radius: 6px;
+      font-size: 13px; font-weight: 500; color: #344054;
       transition: background 0.15s;
     }
-    .btn-login:hover { background: var(--bg-page); }
-    .btn-demo {
-      background: var(--orange);
-      color: #fff;
-      font-size: 0.85rem;
-      font-weight: 700;
-      padding: 9px 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(255,111,97,0.3);
-      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
-      white-space: nowrap;
-      border: none;
-      cursor: pointer;
+    .locale-trigger:hover { background: #F9FAFB; }
+    .locale-flag { width: 22px; height: 16px; object-fit: cover; border-radius: 3px; }
+    .locale-panel {
+      display: none; position: absolute;
+      top: calc(100% + 4px); right: 0;
+      background: #fff; border: 1px solid #EAECF0;
+      border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      padding: 8px; min-width: 185px; z-index: 9999;
     }
-    .btn-demo:hover { background: var(--orange-dk); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,111,97,0.35); }
-    .dropdown {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
-      padding: 24px;
-      display: none;
-      z-index: 300;
-      animation: dropIn 0.2s ease;
-    }
-    @keyframes dropIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-    .nav-item.open .dropdown { display: block; }
-    .dropdown--product { width: 860px; display: none; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 4px; }
-    .nav-item.open .dropdown--product { display: grid; }
-    .dropdown--resources { width: 560px; display: none; grid-template-columns: 1fr 1fr; gap: 4px; }
-    .nav-item.open .dropdown--resources { display: grid; }
-    .dropdown--single { width: 300px; }
-    .dd-col-head {
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-      color: var(--text-muted);
-      padding: 4px 8px 8px;
-      margin-bottom: 4px;
-      border-bottom: 1px solid var(--border-lt);
-    }
-    .dd-link { display: flex; align-items: flex-start; gap: 10px; padding: 9px 10px; border-radius: 8px; transition: background 0.15s; cursor: pointer; text-decoration: none; }
-    .dd-link:hover { background: var(--bg-page); }
-    .dd-link--sub { padding: 7px 10px 7px 36px; }
-    .dd-icon {
-      width: 28px; height: 28px; flex-shrink: 0; border-radius: 8px;
-      background: var(--green-icon); border: 3px solid var(--green-bg);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .dd-icon svg { width: 14px; height: 14px; }
-    .dd-link__title { font-size: 0.82rem; font-weight: 600; color: var(--text-head); line-height: 1.3; }
-    .dd-link__sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; line-height: 1.45; }
-    .dd-link--sub .dd-link__title { font-weight: 500; color: var(--text-body); font-size: 0.8rem; }
-    .ai-grad-text {
-      background: linear-gradient(90deg, #DA32F3, #3D80F4);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .dd-integrations-card {
-      grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding: 14px 16px; border: 1px solid var(--border-lt); border-radius: 10px;
-      background: var(--bg-page); margin-top: 8px; transition: background 0.15s;
-    }
-    .dd-integrations-card:hover { background: var(--border-lt); }
-    .dic-text { font-size: 0.82rem; font-weight: 600; color: var(--text-head); }
-    .dic-sub  { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
-    .dic-arrow { width: 32px; height: 32px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .locale-wrap { position: relative; margin-left: 8px; }
-    .locale-btn {
-      display: flex; align-items: center; gap: 5px; padding: 6px 10px;
-      border: 1px solid var(--border); border-radius: 8px; font-size: 0.78rem;
-      font-weight: 600; color: var(--text-body); cursor: pointer; transition: background 0.15s;
-      background: #fff;
-    }
-    .locale-btn:hover { background: var(--bg-page); }
-    .locale-flag { width: 18px; height: 14px; border-radius: 2px; object-fit: cover; }
-    .locale-dropdown {
-      display: none; position: absolute; top: calc(100% + 6px); right: 0; background: var(--white);
-      border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      padding: 8px; min-width: 180px; z-index: 400;
-    }
-    .locale-wrap.open .locale-dropdown { display: block; }
+    .locale-wrap:hover .locale-panel { display: block; }
     .locale-option {
-      display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 6px;
-      font-size: 0.8rem; font-weight: 500; color: var(--text-body); cursor: pointer; transition: background 0.15s;
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 10px; border-radius: 6px;
+      text-decoration: none; color: #101828; font-size: 13px;
+      transition: background 0.12s;
     }
-    .locale-option:hover, .locale-option.active { background: var(--bg-page); }
-    .locale-option.active { font-weight: 700; color: var(--text-head); }
-    .hamburger {
-      display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
-      width: 40px; height: 40px; border-radius: 8px; cursor: pointer; margin-left: 8px; transition: background 0.15s;
-      border: none; background: none;
-    }
-    .hamburger:hover { background: var(--bg-page); }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-body); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu {
-      display: none; position: fixed; inset: 0; top: calc(var(--banner-h) + var(--nav-h));
-      background: var(--white); z-index: 150; overflow-y: auto; padding: 20px; border-top: 1px solid var(--border-lt);
-      animation: slideDown 0.25s ease;
-    }
-    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-    .mobile-menu.open { display: block; }
-    .mob-section { margin-bottom: 24px; }
-    .mob-section-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); padding: 0 8px; margin-bottom: 8px; }
-    .mob-link { display: block; padding: 10px 8px; font-size: 0.9rem; font-weight: 500; color: var(--text-body); border-radius: 8px; transition: background 0.15s; text-decoration: none; }
-    .mob-link:hover { background: var(--bg-page); }
-    .mob-cta-row { display: flex; gap: 8px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-lt); }
-    .mob-cta-row .btn-demo, .mob-cta-row .btn-login { flex: 1; text-align: center; padding: 11px 16px; border-radius: 8px; font-size: 0.85rem; }
+    .locale-option:hover { background: #F0FDF4; }
+    .nav__hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
+    .nav__hamburger span { display: block; width: 22px; height: 2px; background: #344054; border-radius: 2px; }
 
     .footer {
       background: #0A1628;
@@ -719,13 +691,11 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 991px) {
+      .nav__links { display:none; }
+      .nav__hamburger { display:flex; }
+    }
     @media (max-width: 768px) {
-      .navbar__links,
-      .nav-contact-link,
-      .locale-wrap { display: none; }
-      .hamburger { display: flex; }
-      .navbar__cta .btn-demo { display: none; }
-      .navbar__inner { padding: 0 16px; }
       .main { padding: 36px 16px 70px; }
       .hero h1 { font-size: 1.8rem; }
       .input-card { padding: 28px 22px; }
@@ -737,7 +707,7 @@
       .footer__links-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 480px) {
-      .ann-bar { font-size: 0.72rem; padding-right: 44px; }
+      .hello-bar__text { font-size: 12px; }
       .hero h1 { font-size: 1.55rem; }
       .kc-val { font-size: 2.2rem; }
       .sb-amount { font-size: 2.4rem; }
@@ -749,84 +719,104 @@
 </head>
 <body>
 
-<div class="ann-bar" id="annBar">
-  <span class="ann-bar__text">
-    CPE Webinar: A Contractor's Survival Guide to the 4 Toughest Compliance States (CA, NY, IL, NJ)
-  </span>
-  <a href="https://luma.com/8c3686k7" target="_blank" class="ann-bar__link">
-    Register Now
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </a>
-  <button class="ann-bar__close" onclick="closeBanner()" aria-label="Close">✕</button>
-</div>
-
-<header class="navbar" id="navbar">
-  <div class="navbar__inner">
-    <a href="https://www.lumberfi.com/" class="navbar__logo">
-      <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66f172583eca55ff6c30eb29_Lumber-Logo.webp" alt="Lumber" />
+<div class="hello-bar" id="helloBar">
+  <div class="hello-bar__inner">
+    <span class="hello-bar__text">CPE Webinar: A Contractor's Survival Guide to the 4 Toughest Compliance States (CA, NY, IL, NJ)</span>
+    <a href="https://luma.com/8c3686k7" target="_blank" class="hello-bar__cta">
+      Register Now
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <nav class="navbar__links">
-      <a href="/product/payroll" class="nav-contact-link">Product</a>
-      <a href="/resources" class="nav-contact-link">Resources</a>
-      <a href="/case-studies" class="nav-contact-link">Customer Success</a>
-      <a href="/about" class="nav-contact-link">Company</a>
-      <a href="/contact-us" class="nav-contact-link">Contact</a>
-    </nav>
-    <div class="navbar__cta">
-      <div class="locale-wrap" id="localeWrap">
-        <button class="locale-btn" onclick="toggleLocale()">
-          <img class="locale-flag" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" alt="US" />
-          <span>US</span>
-          <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#667085" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="locale-dropdown">
-          <div class="locale-option active">
-            <img class="locale-flag" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" alt="US" />
-            United States (US)
-          </div>
-          <div class="locale-option">
-            <img class="locale-flag" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b3bcf47d76c7ffd6920_Canada.webp" alt="CA" />
-            Canada (CA)
-          </div>
-        </div>
-      </div>
-      <a href="https://timesheet.lumberfi.com/" target="_blank" class="btn-login">App Login</a>
-      <a href="/demo-sign-up" class="btn-demo">Book a demo</a>
-    </div>
-    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <button class="hello-bar__close" onclick="document.getElementById('helloBar').style.display='none'">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
     </button>
   </div>
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mob-section">
-    <div class="mob-section-title">Product</div>
-    <a href="/product/payroll" class="mob-link">Payroll</a>
-    <a href="/product/hr" class="mob-link">HR Management</a>
-    <a href="/product/productivity" class="mob-link">Productivity</a>
-    <a href="/ila" class="mob-link ai-grad-text">AI Agents</a>
-  </div>
-  <div class="mob-section">
-    <div class="mob-section-title">Resources</div>
-    <a href="/blog" class="mob-link">Blogs</a>
-    <a href="/webinars" class="mob-link">Webinars</a>
-    <a href="/reports-guides" class="mob-link">Reports &amp; Guides</a>
-    <a href="/templates" class="mob-link">Templates</a>
-  </div>
-  <div class="mob-section">
-    <div class="mob-section-title">Company</div>
-    <a href="/about" class="mob-link">About Lumber</a>
-    <a href="/careers" class="mob-link">Careers</a>
-    <a href="/contact-us" class="mob-link">Contact</a>
-  </div>
-  <div class="mob-cta-row">
-    <a href="https://timesheet.lumberfi.com/" target="_blank" class="btn-login" style="border:1px solid var(--border);border-radius:8px;">App Login</a>
-    <a href="/demo-sign-up" class="btn-demo">Book a demo</a>
-  </div>
 </div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">
+      <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66f172583eca55ff6c30eb29_Lumber-Logo.webp" alt="Lumber"/>
+    </a>
+    <div class="nav__links">
+      <div class="nav-item">
+        <div class="nav-item__trigger">Product<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg></div>
+        <nav class="nav-panel nav-panel--product">
+          <div class="panel-cols">
+            <div class="panel-col">
+              <div class="panel-col__head"><div class="panel-col__head-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M4.5 9.5C4.5 10.33 5.17 11 6 11h1.5c.83 0 1.5-.67 1.5-1.5S8.33 8 7.5 8H6C5.17 8 4.5 7.33 4.5 6.5S5.17 5 6 5h1.5c.83 0 1.5.67 1.5 1.5M7 4v7" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Payroll</div>
+              <a href="/product/payroll/prevailing-wages" class="panel-sub">Prevailing Wages</a><a href="/product/payroll/certified-payroll" class="panel-sub">Certified Payroll</a><a href="/product/payroll/union-configuration" class="panel-sub">Union Reporting</a><a href="/product/payroll/worker-compensation" class="panel-sub">Worker Compensation</a><a href="/product/payroll/tax-filing" class="panel-sub">Tax Filing</a><a href="/product/payroll/expense-management" class="panel-sub">Expense Management</a>
+            </div>
+            <div class="panel-col">
+              <div class="panel-col__head"><div class="panel-col__head-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M11 10.25V9.5c0-.73-.5-1.357-1.25-1.561M8.875 3.396A2 2 0 017 6M9.25 10.25c0-.73 0-1.1-.109-1.402a2 2 0 00-1.14-1.14C7.7 7.5 7.33 7.5 6.75 7.5H6c-.58 0-.95 0-1.25.108a2 2 0 00-1.14 1.14C3.5 9.15 3.5 9.52 3.5 10.25M7.625 5.25a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div>HR Management</div>
+              <a href="/product/hr/applicant-tracking-system" class="panel-sub">Applicant Tracking System</a><a href="/product/hr/streamlined-onboarding" class="panel-sub">Onboarding</a><a href="/product/hr/benefits" class="panel-sub">Benefits Administration</a><a href="/product/hr/credential-management" class="panel-sub">Credential Management</a>
+            </div>
+            <div class="panel-col">
+              <div class="panel-col__head"><div class="panel-col__head-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M11.35 6.25l-.75.75-.75-.75M11.47 6.75A5 5 0 006.75 2a5 5 0 000 10 4.98 4.98 0 003.75-1.714M6.75 3.75V6.5l.875.875" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Productivity</div>
+              <a href="/product/productivity/multi-time-capture-modes" class="panel-sub">Time Tracking</a><a href="/product/productivity/productivity-tracking" class="panel-sub">Productivity Tracking</a><a href="/product/productivity/form-builder" class="panel-sub">Form Builder</a><a href="/product/productivity/gamification" class="panel-sub">Recognition &amp; Award</a>
+            </div>
+            <div class="panel-col">
+              <div class="panel-col__head"><div class="panel-col__head-icon panel-col__head-icon--ai"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69b13b8a1d5a6470b80194c0_Sparkle%20AI%203.webp" width="22" alt="AI"/></div><span style="background:linear-gradient(90deg,#da32f3,#3d80f4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI Agents</span></div>
+              <a href="/union-agent" class="panel-sub">Union Agent</a><a href="/prevailing-wage-agent" class="panel-sub">Prevailing Wage Agent</a><a href="/paper-timecard-agent" class="panel-sub">Paper Timecard Agent</a>
+            </div>
+          </div>
+          <div class="panel-strip">
+            <a href="/lumbercare" class="panel-strip-item"><div class="panel-strip-title">Prevailing Wage Compliance <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-7-7M19 12l-7 7" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="panel-strip-desc">Audit-proof your prevailing wage work with expert guidance, proactive compliance support.</div></a>
+            <a href="/integrations" class="panel-strip-item"><div class="panel-strip-title">Integrations <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-7-7M19 12l-7 7" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="panel-strip-desc">Lumber integrates with over 20+ popular ERP, payroll and HR applications.</div></a>
+            <a href="/case-studies" class="panel-strip-item"><div class="panel-strip-title">Case Studies <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-7-7M19 12l-7 7" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="panel-strip-desc">Read success stories of how Lumber has transformed construction companies.</div></a>
+          </div>
+        </nav>
+      </div>
+      <div class="nav-item">
+        <div class="nav-item__trigger">Resources<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg></div>
+        <nav class="nav-panel nav-panel--resources">
+          <div class="res-cols">
+            <div class="res-col">
+              <a href="/blog" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Blogs</div><div class="mega-link__desc">Dive into latest insights and industry trends</div></div></a>
+              <a href="/expert-column-listing" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Expert Column</div><div class="mega-link__desc">Tips &amp; insights from industry experts</div></div></a>
+              <a href="/webinars" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Webinars</div><div class="mega-link__desc">Live and on-demand learning from industry pros</div></div></a>
+              <a href="/wiki" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Wiki</div><div class="mega-link__desc">Your go-to hub for construction compliance knowledge</div></div></a>
+              <a href="/whitepapers" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Whitepapers</div><div class="mega-link__desc">Data-driven insights and expert analysis</div></div></a>
+            </div>
+            <div class="res-col">
+              <a href="/reports-guides" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Reports &amp; Guides</div><div class="mega-link__desc">In-depth resources to power your construction success</div></div></a>
+              <a href="/templates" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Templates</div><div class="mega-link__desc">Useful downloadable, free-to-use templates</div></div></a>
+              <a href="/podcasts" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Podcasts</div><div class="mega-link__desc">Tune in to construction conversations that matter</div></div></a>
+              <a href="/glossary" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Glossary</div><div class="mega-link__desc">Clear, concise definitions of 100+ construction terms</div></div></a>
+            </div>
+          </div>
+          <div class="res-right">
+            <a href="/free-ai-audit-tool" class="audit-card"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66de000cfa9ffe6669635b8d_Image%20wrap.webp" alt="AI Audit Tool" class="audit-card__img"/><div class="audit-card__body"><div class="audit-card__title">Free AI Audit Tool</div><div class="audit-card__desc">Get your certified payroll report scanned for any compliance issues.</div><div class="audit-card__cta">View more</div></div></a>
+          </div>
+        </nav>
+      </div>
+      <div class="nav-item">
+        <div class="nav-item__trigger">Customer Success<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg></div>
+        <nav class="nav-panel nav-panel--customer">
+          <div class="cust-col"><a href="/lumbercare" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">LumberCare</div><div class="mega-link__desc">Tailored, expert support for your operational needs</div></div></a></div>
+          <div class="cust-col"><a href="/case-studies" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Case Studies</div><div class="mega-link__desc">How Lumber has transformed construction companies</div></div></a></div>
+        </nav>
+      </div>
+      <div class="nav-item">
+        <div class="nav-item__trigger">Company<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg></div>
+        <nav class="nav-panel nav-panel--company">
+          <div class="comp-col"><a href="/about" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">About Lumber</div><div class="mega-link__desc">Discover the team and vision behind Lumber</div></div></a><a href="/newsroom" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Newsroom</div><div class="mega-link__desc">Catch the latest buzz and breakthroughs from Lumber</div></div></a></div>
+          <div class="comp-col"><a href="/partnerships" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Partners</div><div class="mega-link__desc">Collaborating with the best to drive industry excellence</div></div></a><a href="/associations" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Associations</div><div class="mega-link__desc">Proudly connected to leading industry associations</div></div></a></div>
+          <div class="comp-col"><a href="/careers" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Careers</div><div class="mega-link__desc">Join the Lumber team</div></div></a><a href="/construction-industry-events" class="mega-link"><div class="mega-link__body"><div class="mega-link__title">Events</div><div class="mega-link__desc">Meet our Lumberjacks</div></div></a></div>
+        </nav>
+      </div>
+      <a href="/contact-us" class="nav-item__trigger" style="text-decoration:none;padding:8px 12px;">Contact</a>
+    </div>
+    <div class="nav__right">
+      <div class="locale-wrap">
+        <div class="locale-trigger"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" class="locale-flag" alt="US"/>US<svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#344054" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <nav class="locale-panel"><a href="/" class="locale-option"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" class="locale-flag" alt="US"/> United States (US)</a><a href="/ca" class="locale-option"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b3bcf47d76c7ffd6920_Canada.webp" class="locale-flag" alt="CA"/> Canada (CA)</a></nav>
+      </div>
+      <a href="https://timesheet.lumberfi.com/" target="_blank" class="nav__app-login">App Login</a>
+      <a href="/demo-sign-up" class="nav__demo">Book a demo</a>
+    </div>
+    <div class="nav__hamburger" onclick="this.closest('.nav').querySelector('.nav__links').classList.toggle('nav__links--open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
 
 <div class="main">
 
@@ -1109,110 +1099,32 @@
 </footer>
 
 <script>
-function closeBanner() {
-  const bar = document.getElementById('annBar');
-  if (!bar) return;
-  bar.style.transition = 'max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease';
-  bar.style.maxHeight = '0';
-  bar.style.opacity = '0';
-  bar.style.padding = '0';
-  bar.style.overflow = 'hidden';
-  document.documentElement.style.setProperty('--banner-h', '0px');
-  setTimeout(() => bar.remove(), 300);
+const state = { headcount:250, carriers:5, variableHour:true };
+
+const BROKER_IMPL=90, EMPLOYER_IMPL=67, BROKER_YR2=21, EMPLOYER_YR2=20;
+const BROKER_MONTHLY_HC=18.5, BROKER_MONTHLY_CAR=4.0;
+const EMP_MONTHLY_HC=28.125, EMP_MONTHLY_CAR=1.0, EMP_MONTHLY_ACA=2.0;
+const BASE_HC=250, BASE_CAR=5;
+const SAL_BROKER=72000, SAL_EMPLOYER=88000, BURDEN=1.25, WRK_HRS=2080;
+
+function calcSavings(){
+  const hcR=state.headcount/BASE_HC, carR=state.carriers/BASE_CAR;
+  const brokerMo=(BROKER_MONTHLY_HC*hcR)+(BROKER_MONTHLY_CAR*carR);
+  const acaMo=state.variableHour?(EMP_MONTHLY_ACA*hcR):0;
+  const employerMo=(EMP_MONTHLY_HC*hcR)+(EMP_MONTHLY_CAR*carR)+acaMo;
+  const brokerAnn=BROKER_IMPL+BROKER_YR2+brokerMo*12;
+  const employerAnn=EMPLOYER_IMPL+EMPLOYER_YR2+employerMo*12;
+  const cB=(SAL_BROKER*BURDEN/WRK_HRS)*brokerAnn;
+  const cE=(SAL_EMPLOYER*BURDEN/WRK_HRS)*employerAnn;
+  return { broker:Math.round(brokerAnn), employer:Math.round(employerAnn), total:Math.round(brokerAnn+employerAnn), brokerCost:Math.round(cB), employerCost:Math.round(cE), totalCost:Math.round(cB+cE) };
 }
-
-function toggleLocale() {
-  const wrap = document.getElementById('localeWrap');
-  if (wrap) wrap.classList.toggle('open');
+function updateHeadcount(val){
+  state.headcount=parseInt(val);
+  document.getElementById('hc-display').textContent=parseInt(val)>=2000?'2,000+':parseInt(val).toLocaleString();
 }
+function adjustCarriers(d){ state.carriers=Math.max(1,Math.min(20,state.carriers+d)); document.getElementById('carriers-display').textContent=state.carriers; }
 
-function toggleMobile() {
-  const menu = document.getElementById('mobileMenu');
-  const ham = document.getElementById('hamburger');
-  if (!menu || !ham) return;
-  const open = menu.classList.toggle('open');
-  ham.classList.toggle('open', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-}
-
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.locale-wrap')) {
-    const localeWrap = document.getElementById('localeWrap');
-    if (localeWrap) localeWrap.classList.remove('open');
-  }
-});
-
-// ─────────────────────────────────────────
-// STATE
-// ─────────────────────────────────────────
-const state = {
-  headcount: 250,
-  carriers: 5,
-  variableHour: true
-};
-
-// ─────────────────────────────────────────
-// CALCULATION MODEL
-// Base = 250 employees, 5 carriers, variable hour = true
-// ─────────────────────────────────────────
-const BROKER_IMPL      = 90;    // Year 1 implementation — fixed
-const EMPLOYER_IMPL    = 67;
-const BROKER_YR2       = 21;    // Annual OE — fixed recurring
-const EMPLOYER_YR2     = 20;
-
-const BROKER_MONTHLY_HC  = 18.5;   // scales with headcount
-const BROKER_MONTHLY_CAR = 4.0;    // scales with carriers
-const EMP_MONTHLY_HC     = 28.125;
-const EMP_MONTHLY_CAR    = 1.0;
-const EMP_MONTHLY_ACA    = 2.0;    // headcount-scaled, only if variable
-
-const BASE_HC  = 250;
-const BASE_CAR = 5;
-const SAL_BROKER   = 72000;
-const SAL_EMPLOYER = 88000;
-const BURDEN       = 1.25;
-const WRK_HRS      = 2080;
-
-function calcSavings() {
-  const hcR  = state.headcount / BASE_HC;
-  const carR = state.carriers  / BASE_CAR;
-
-  const brokerMo   = (BROKER_MONTHLY_HC * hcR) + (BROKER_MONTHLY_CAR * carR);
-  const acaMo      = state.variableHour ? (EMP_MONTHLY_ACA * hcR) : 0;
-  const employerMo = (EMP_MONTHLY_HC * hcR) + (EMP_MONTHLY_CAR * carR) + acaMo;
-
-  const brokerAnn   = BROKER_IMPL   + BROKER_YR2   + brokerMo   * 12;
-  const employerAnn = EMPLOYER_IMPL + EMPLOYER_YR2 + employerMo * 12;
-  const totalAnn    = brokerAnn + employerAnn;
-
-  const cB = (SAL_BROKER   * BURDEN / WRK_HRS) * brokerAnn;
-  const cE = (SAL_EMPLOYER * BURDEN / WRK_HRS) * employerAnn;
-
-  return {
-    broker:       Math.round(brokerAnn),
-    employer:     Math.round(employerAnn),
-    total:        Math.round(totalAnn),
-    brokerCost:   Math.round(cB),
-    employerCost: Math.round(cE),
-    totalCost:    Math.round(cB + cE)
-  };
-}
-
-// ─────────────────────────────────────────
-// INPUT HANDLERS
-// ─────────────────────────────────────────
-function updateHeadcount(val) {
-  state.headcount = parseInt(val);
-  const display = parseInt(val) >= 2000 ? '2,000+' : parseInt(val).toLocaleString();
-  document.getElementById('hc-display').textContent = display;
-}
-
-function adjustCarriers(delta) {
-  state.carriers = Math.max(1, Math.min(20, state.carriers + delta));
-  document.getElementById('carriers-display').textContent = state.carriers;
-}
-
-function setVariable(val) {
+function setVariable(val){
   state.variableHour = val;
   document.getElementById('var-yes').classList.toggle('active', val);
   document.getElementById('var-no').classList.toggle('active', !val);
@@ -1221,16 +1133,12 @@ function setVariable(val) {
     : 'No ACA tracking burden — your savings estimate reflects this.';
 }
 
-// ─────────────────────────────────────────
-// PHASE TRANSITIONS
-// ─────────────────────────────────────────
-function showLeadCapture() {
+function showLeadCapture(){
   const r = calcSavings();
   document.getElementById('preview-total').textContent = r.total.toLocaleString();
   document.getElementById('preview-cost').textContent  = '$' + Math.round(r.totalCost / 1000) + 'k+';
   document.getElementById('preview-days').textContent  = (r.total / 12 / 8).toFixed(1);
   switchPhase('phase2');
-  setDots(2);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1273,23 +1181,12 @@ function showResults() {
   document.getElementById('r-config-car').textContent = state.carriers + ' carrier' + (state.carriers !== 1 ? 's' : '');
 
   switchPhase('phase3');
-  setDots(3);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function switchPhase(id) {
+function switchPhase(id){
   document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-}
-
-function setDots(active) {
-  for (let i = 1; i <= 3; i++) {
-    const dot = document.getElementById(`dot-${i}`);
-    if (!dot) continue;
-    dot.classList.remove('active', 'done');
-    if (i < active)        dot.classList.add('done');
-    else if (i === active) dot.classList.add('active');
-  }
 }
 </script>
 
