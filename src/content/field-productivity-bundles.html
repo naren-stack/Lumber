@@ -975,6 +975,9 @@
       background: #003333;
       padding: 9px 0;
     }
+    .product-head{
+      color: #40956b;
+    }
     .banner2_component .padding-global { padding: 0 32px; }
     .container-large-2 { max-width: 1280px; margin: 0 auto; }
     .banner2_wrapper { display: flex; align-items: center; justify-content: center; gap: 16px; position: relative; }
@@ -1109,9 +1112,10 @@
       border: 1px solid #EAECF0;
       border-radius: 14px;
       box-shadow: 0 8px 40px rgba(16,24,40,0.10);
-      padding: 16px;
+      padding: 1.25rem;
       z-index: 999;
       min-width: 860px;
+      inset: 100% 0% auto -100%;
     }
     .desktop_menu-dropdown:hover > .product_dropdown-list,
     .desktop_menu-dropdown:hover > .ca-product { display: block; }
@@ -1125,7 +1129,7 @@
     
     .navbar08_dropdown-link-list {
       padding: 4px 8px;
-      border-right: 1px solid #F2F4F7;
+      /* border-right: 1px solid #F2F4F7; */
     }
     .navbar08_dropdown-link-list:last-of-type { border-right: none; }
     
@@ -1195,8 +1199,10 @@
       background: #fff;
       border: 1px solid #EAECF0; border-radius: 14px;
       box-shadow: 0 8px 40px rgba(16,24,40,0.10);
-      padding: 16px; z-index: 999;
+      padding: 1,25rem
+      ; z-index: 999;
       min-width: 780px;
+      inset: 100% 0% auto -180%;
     }
     .desktop_menu-dropdown:hover > .toolkit-menu-list { display: block; }
     
@@ -1226,7 +1232,7 @@
     .v-flex-12 { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
     .navbar_item-big { display: flex; flex-direction: column; gap: 4px; }
     .v-flex-4 { display: flex; flex-direction: column; gap: 4px; }
-    .nav_product-card_title, .text-weight-semibold { color: #fff; }
+    .nav_product-card_title, .text-weight-semibold { font-weight: 600; }
     .max-wd-240 { max-width: 200px; color: rgba(255,255,255,0.6) !important; }
     .nav-side-link-btn { display: flex; align-items: center; gap: 6px; color: #FF6F61; font-size: 13px; font-weight: 600; }
     .icon { display: flex; align-items: center; }
@@ -1238,8 +1244,10 @@
       background: #fff;
       border: 1px solid #EAECF0; border-radius: 14px;
       box-shadow: 0 8px 40px rgba(16,24,40,0.10);
-      padding: 16px; z-index: 999;
+      padding:1.25rem;
+       z-index: 999;
       min-width: 480px;
+      inset: 100% -242% auto 0%;
     }
     .desktop_menu-dropdown:hover > .customer-list { display: block; }
     .customer-menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
@@ -1253,8 +1261,9 @@
       background: #fff;
       border: 1px solid #EAECF0; border-radius: 14px;
       box-shadow: 0 8px 40px rgba(16,24,40,0.10);
-      padding: 16px; z-index: 999;
+      padding:1.25rem; z-index: 999;
       min-width: 680px;
+      inset: 100% 0% auto -411%;
     }
     .desktop_menu-dropdown:hover > .company-menu-list { display: block; }
     .company-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
@@ -1418,7 +1427,7 @@
                         </div>
                       </div>
                       <div class="navbar08_item-right">
-                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Payroll</div></div>
+                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900 product-head">Payroll</div></div>
                       </div>
                     </a>
                     <a href="/product/payroll/prevailing-wages" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Prevailing Wages</div></div></div></a>
@@ -1438,7 +1447,7 @@
                         </div>
                       </div>
                       <div class="navbar08_item-right">
-                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">HR Management</div></div>
+                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900 product-head">HR Management</div></div>
                       </div>
                     </a>
                     <a href="/product/hr/applicant-tracking-system" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Applicant Tracking System</div></div></div></a>
@@ -1456,7 +1465,7 @@
                         </div>
                       </div>
                       <div class="navbar08_item-right">
-                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Productivity</div></div>
+                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900 product-head">Productivity</div></div>
                       </div>
                     </a>
                     <a href="/product/productivity/multi-time-capture-modes" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Time Tracking</div></div></div></a>
@@ -1514,41 +1523,41 @@
                   <div class="navbar08_dropdown-link-list" style="border-right:1px solid #F2F4F7;">
                     <a href="/blog" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M15 13.5H12M13 15.5H12M16 11.5H12M18 13.25V11.4C18 10.5599 18 10.1399 17.8365 9.81901C17.6927 9.53677 17.4632 9.3073 17.181 9.16349C16.8601 9 16.4401 9 15.6 9H12.4C11.5599 9 11.1399 9 10.819 9.16349C10.5368 9.3073 10.3073 9.53677 10.1635 9.81901C10 10.1399 10 10.5599 10 11.4V16.6C10 17.4401 10 17.8601 10.1635 18.181C10.3073 18.4632 10.5368 18.6927 10.819 18.8365C11.1399 19 11.5599 19 12.4 19H13.75M19 19L18.25 18.25M18.75 17C18.75 17.9665 17.9665 18.75 17 18.75C16.0335 18.75 15.25 17.9665 15.25 17C15.25 16.0335 16.0335 15.25 17 15.25C17.9665 15.25 18.75 16.0335 18.75 17Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Blogs</div><div class="menu-sub-text">Dive into latest insights and industry trends</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Blogs</div><div class="menu-sub-text">Dive into latest insights and industry trends</div></div>
                     </a>
                     <a href="/expert-column-listing" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="29" viewBox="0 0 28 29" fill="none"><rect x="2" y="2.5" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2.5" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 13.5V16.5056C10.5 16.6851 10.5 16.7748 10.5273 16.8541C10.5515 16.9241 10.5909 16.9879 10.6428 17.0409C10.7014 17.1007 10.7817 17.1409 10.9422 17.2211L13.6422 18.5711C13.7734 18.6367 13.839 18.6695 13.9078 18.6824C13.9687 18.6939 14.0313 18.6939 14.0922 18.6824C14.161 18.6695 14.2266 18.6367 14.3578 18.5711L17.0578 17.2211C17.2183 17.1409 17.2986 17.1007 17.3572 17.0409C17.4091 16.9879 17.4485 16.9241 17.4727 16.8541C17.5 16.7748 17.5 16.6851 17.5 16.5056V13.5M9 12.75L13.8211 10.3395C13.8867 10.3067 13.9195 10.2903 13.9539 10.2838C13.9844 10.2781 14.0156 10.2781 14.0461 10.2838C14.0805 10.2903 14.1133 10.3067 14.1789 10.3395L19 12.75L14.1789 15.1606C14.1133 15.1934 14.0805 15.2098 14.0461 15.2162C14.0156 15.222 13.9844 15.222 13.9539 15.2162C13.9195 15.2098 13.8867 15.1934 13.8211 15.1606L9 12.75Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Expert Column</div><div class="menu-sub-text">Tips &amp; insights from industry experts</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Expert Column</div><div class="menu-sub-text">Tips &amp; insights from industry experts</div></div>
                     </a>
                     <a href="/webinars" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 10.4938C10.5 10.0082 10.5 9.76541 10.6012 9.63157C10.6894 9.51498 10.8243 9.44283 10.9702 9.43411C11.1377 9.42411 11.3397 9.55879 11.7438 9.82814L17.0015 13.3333C17.3354 13.5559 17.5023 13.6672 17.5605 13.8074C17.6113 13.9301 17.6113 14.0679 17.5605 14.1905C17.5023 14.3308 17.3354 14.442 17.0015 14.6646L11.7438 18.1698C11.3397 18.4391 11.1377 18.5738 10.9702 18.5638C10.8243 18.5551 10.6894 18.483 10.6012 18.3664C10.5 18.2325 10.5 17.9897 10.5 17.5042V10.4938Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Webinars</div><div class="menu-sub-text">Live and on-demand learning from industry pros</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Webinars</div><div class="menu-sub-text">Live and on-demand learning from industry pros</div></div>
                     </a>
                     <a href="/wiki" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.5 18.5L16.325 16.325M13.5 11C14.8807 11 16 12.1193 16 13.5M17.5 13.5C17.5 15.7091 15.7091 17.5 13.5 17.5C11.2909 17.5 9.5 15.7091 9.5 13.5C9.5 11.2909 11.2909 9.5 13.5 9.5C15.7091 9.5 17.5 11.2909 17.5 13.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Wiki</div><div class="menu-sub-text">Your go-to hub for construction compliance knowledge</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Wiki</div><div class="menu-sub-text">Your go-to hub for construction compliance knowledge</div></div>
                     </a>
                     <a href="/whitepapers" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M15 9.13477V11.2C15 11.4801 15 11.6201 15.0545 11.727C15.1024 11.8211 15.1789 11.8976 15.273 11.9455C15.38 12 15.52 12 15.8 12H17.8653M16 14.5H12M16 16.5H12M13 12.5H12M15 9H12.4C11.5599 9 11.1399 9 10.819 9.16349C10.5368 9.3073 10.3073 9.53677 10.1635 9.81901C10 10.1399 10 10.5599 10 11.4V16.6C10 17.4401 10 17.8601 10.1635 18.181C10.3073 18.4632 10.5368 18.6927 10.819 18.8365C11.1399 19 11.5599 19 12.4 19H15.6C16.4401 19 16.8601 19 17.181 18.8365C17.4632 18.6927 17.6927 18.4632 17.8365 18.181C18 17.8601 18 17.4401 18 16.6V12L15 9Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Whitepapers</div><div class="menu-sub-text">Data-driven insights and expert analysis</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Whitepapers</div><div class="menu-sub-text">Data-driven insights and expert analysis</div></div>
                     </a>
                   </div>
                   <div class="navbar08_dropdown-link-list" style="border-right:1px solid #F2F4F7;">
                     <a href="/reports-guides" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M14 18.5L13.95 18.425C13.6027 17.904 13.429 17.6435 13.1996 17.4549C12.9964 17.288 12.7624 17.1627 12.5108 17.0863C12.2266 17 11.9136 17 11.2874 17H10.6C10.0399 17 9.75992 17 9.54601 16.891C9.35785 16.7951 9.20487 16.6422 9.10899 16.454C9 16.2401 9 15.9601 9 15.4V11.1C9 10.5399 9 10.2599 9.10899 10.046C9.20487 9.85785 9.35785 9.70487 9.54601 9.60899C9.75992 9.5 10.0399 9.5 10.6 9.5H10.8C11.9201 9.5 12.4802 9.5 12.908 9.71799C13.2843 9.90973 13.5903 10.2157 13.782 10.592C14 11.0198 14 11.5799 14 12.7M14 18.5V12.7M14 18.5L14.05 18.425C14.3973 17.904 14.571 17.6435 14.8004 17.4549C15.0036 17.288 15.2376 17.1627 15.4892 17.0863C15.7734 17 16.0864 17 16.7126 17H17.4C17.9601 17 18.2401 17 18.454 16.891C18.6422 16.7951 18.7951 16.6422 18.891 16.454C19 16.2401 19 15.9601 19 15.4V11.1C19 10.5399 19 10.2599 18.891 10.046C18.7951 9.85785 18.6422 9.70487 18.454 9.60899C18.2401 9.5 17.9601 9.5 17.4 9.5H17.2C16.0799 9.5 15.5198 9.5 15.092 9.71799C14.7157 9.90973 14.4097 10.2157 14.218 10.592C14 11.0198 14 11.5799 14 12.7" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Reports &amp; Guides</div><div class="menu-sub-text">In-depth resources to power your construction success</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Reports &amp; Guides</div><div class="menu-sub-text">In-depth resources to power your construction success</div></div>
                     </a>
                     <a href="/templates" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.5762 13.4497L14.0684 17.9575C13.0433 18.9827 11.3813 18.9827 10.3561 17.9575C9.331 16.9324 9.331 15.2703 10.3561 14.2452L14.8639 9.73742C15.5473 9.054 16.6554 9.054 17.3388 9.73742C18.0222 10.4208 18.0222 11.5289 17.3388 12.2123L13.0078 16.5433C12.6661 16.885 12.112 16.885 11.7703 16.5433C11.4286 16.2016 11.4286 15.6476 11.7703 15.3059L15.571 11.5052" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Templates</div><div class="menu-sub-text">Useful downloadable, free-to-use templates</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Templates</div><div class="menu-sub-text">Useful downloadable, free-to-use templates</div></div>
                     </a>
                     <a href="/podcasts" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.5 17V14C18.5 11.5147 16.4853 9.5 14 9.5C11.5147 9.5 9.5 11.5147 9.5 14V17M10.75 18.5C10.0596 18.5 9.5 17.9404 9.5 17.25V16.25C9.5 15.5596 10.0596 15 10.75 15C11.4404 15 12 15.5596 12 16.25V17.25C12 17.9404 11.4404 18.5 10.75 18.5ZM17.25 18.5C16.5596 18.5 16 17.9404 16 17.25V16.25C16 15.5596 16.5596 15 17.25 15C17.9404 15 18.5 15.5596 18.5 16.25V17.25C18.5 17.9404 17.9404 18.5 17.25 18.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Podcasts</div><div class="menu-sub-text">Tune in to construction conversations that matter</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Podcasts</div><div class="menu-sub-text">Tune in to construction conversations that matter</div></div>
                     </a>
                     <a href="/glossary" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 11.9C10.5 11.0599 10.5 10.6399 10.6635 10.319C10.8073 10.0368 11.0368 9.8073 11.319 9.66349C11.6399 9.5 12.0599 9.5 12.9 9.5H15.1C15.9401 9.5 16.3601 9.5 16.681 9.66349C16.9632 9.8073 17.1927 10.0368 17.3365 10.319C17.5 10.6399 17.5 11.0599 17.5 11.9V18.5L14 16.5L10.5 18.5V11.9Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Glossary</div><div class="menu-sub-text">Clear, concise definitions of 100+ construction terms</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Glossary</div><div class="menu-sub-text">Clear, concise definitions of 100+ construction terms</div></div>
                     </a>
                   </div>
                   <!-- AI Audit card -->
@@ -1578,13 +1587,13 @@
                   <div class="navbar08_dropdown-link-list en" style="border-right:1px solid #F2F4F7;padding-right:8px;">
                     <a href="/lumbercare" class="toolkit-menu-link en">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11 18.0435H12.3051C12.4753 18.0435 12.6444 18.0638 12.8094 18.1043L14.1884 18.4394C14.4877 18.5123 14.7994 18.5194 15.1017 18.4606L16.6265 18.164C17.0293 18.0855 17.3998 17.8927 17.6902 17.6102L18.7689 16.5608C19.077 16.2616 19.077 15.7762 18.7689 15.4765C18.4916 15.2067 18.0524 15.1763 17.7386 15.4051L16.4813 16.3224C16.3012 16.454 16.0822 16.5249 15.8568 16.5249H14.6427L15.4155 16.5248C15.8511 16.5248 16.2039 16.1816 16.2039 15.7579V15.6045C16.2039 15.2527 15.9578 14.9459 15.607 14.8609L14.4143 14.5708C14.2202 14.5237 14.0214 14.4999 13.8216 14.4999C13.3392 14.4999 12.4659 14.8994 12.4659 14.8994L11 15.5124M9 15.2999L9 18.1999C9 18.48 9 18.62 9.0545 18.7269C9.10243 18.821 9.17892 18.8975 9.273 18.9454C9.37996 18.9999 9.51997 18.9999 9.8 18.9999H10.2C10.48 18.9999 10.62 18.9999 10.727 18.9455C10.8211 18.8975 10.8976 18.821 10.9455 18.7269C11 18.62 11 18.48 11 18.1999V15.2999C11 15.0199 11 14.8799 10.9455 14.773C10.8976 14.6789 10.8211 14.6024 10.727 14.5544C10.62 14.4999 10.48 14.4999 10.2 14.4999H9.8C9.51997 14.4999 9.37996 14.4999 9.273 14.5544C9.17892 14.6024 9.10243 14.6789 9.0545 14.773C9 14.8799 9 15.0199 9 15.2999ZM16.5957 9.79607C16.2973 9.17165 15.6093 8.84084 14.9402 9.16013C14.2711 9.47943 13.9861 10.2366 14.2662 10.9014C14.4394 11.3122 14.9354 12.1099 15.289 12.6595C15.4197 12.8625 15.4851 12.964 15.5805 13.0234C15.6624 13.0744 15.7648 13.1018 15.8612 13.0986C15.9735 13.0949 16.0809 13.0397 16.2956 12.9292C16.8766 12.6301 17.7051 12.1872 18.0604 11.918C18.6354 11.4824 18.7778 10.6817 18.3473 10.0731C17.9169 9.4644 17.1663 9.40451 16.5957 9.79607Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">LumberCare</div><div class="menu-sub-text max-wd-350">Tailored, expert support for your operational needs</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">LumberCare</div><div class="menu-sub-text max-wd-350">Tailored, expert support for your operational needs</div></div>
                     </a>
                   </div>
                   <div class="navbar08_dropdown-link-list">
                     <a href="/case-studies" class="toolkit-menu-link">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M12.75 19H15.25M15.5 15.6632C16.6825 15.1015 17.5 13.8962 17.5 12.5C17.5 10.567 15.933 9 14 9C12.067 9 10.5 10.567 10.5 12.5C10.5 13.8962 11.3175 15.1015 12.5 15.6632V16C12.5 16.4659 12.5 16.6989 12.5761 16.8827C12.6776 17.1277 12.8723 17.3224 13.1173 17.4239C13.3011 17.5 13.5341 17.5 14 17.5C14.4659 17.5 14.6989 17.5 14.8827 17.4239C15.1277 17.3224 15.3224 17.1277 15.4239 16.8827C15.5 16.6989 15.5 16.4659 15.5 16V15.6632Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Case Studies</div><div class="menu-sub-text">How Lumber has transformed construction companies</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Case Studies</div><div class="menu-sub-text">How Lumber has transformed construction companies</div></div>
                     </a>
                   </div>
                 </div>
@@ -1605,31 +1614,31 @@
                   <div class="navbar08_dropdown-link-list nav-11" style="border-right:1px solid #F2F4F7;">
                     <a href="/about" class="toolkit-menu-link company-nav">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.75 13.5H10.3C10.02 13.5 9.87996 13.5 9.773 13.5545C9.67892 13.6024 9.60243 13.6789 9.5545 13.773C9.5 13.88 9.5 14.02 9.5 14.3V18.5M16.25 13.5H17.7C17.98 13.5 18.12 13.5 18.227 13.5545C18.3211 13.6024 18.3976 13.6789 18.4455 13.773C18.5 13.88 18.5 14.02 18.5 14.3V18.5M16.25 18.5V11.1C16.25 10.5399 16.25 10.2599 16.141 10.046C16.0451 9.85785 15.8922 9.70487 15.704 9.60899C15.4901 9.5 15.2101 9.5 14.65 9.5H13.35C12.7899 9.5 12.5099 9.5 12.296 9.60899C12.1078 9.70487 11.9549 9.85785 11.859 10.046C11.75 10.2599 11.75 10.5399 11.75 11.1V18.5M19 18.5H9M13.5 11.5H14.5M13.5 13.5H14.5M13.5 15.5H14.5" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">About Lumber</div><div class="menu-sub-text">Discover the team and vision behind Lumber</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">About Lumber</div><div class="menu-sub-text">Discover the team and vision behind Lumber</div></div>
                     </a>
                     <a href="/newsroom" class="toolkit-menu-link company-nav">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10 15L10.7873 18.1492C10.8095 18.2378 10.8205 18.2821 10.8336 18.3208C10.9616 18.6985 11.3018 18.9641 11.6993 18.9966C11.74 19 11.7856 19 11.8769 19C11.9912 19 12.0484 19 12.0965 18.9953C12.5725 18.9491 12.9492 18.5725 12.9953 18.0965C13 18.0483 13 17.9912 13 17.8769V10.75M17.25 14.75C18.2165 14.75 19 13.9665 19 13C19 12.0335 18.2165 11.25 17.25 11.25M13.125 10.75H11.25C10.0074 10.75 9 11.7573 9 13C9 14.2426 10.0074 15.25 11.25 15.25H13.125C14.0082 15.25 15.0886 15.7234 15.9221 16.1778C16.4084 16.4429 16.6515 16.5754 16.8108 16.5559C16.9584 16.5378 17.0701 16.4715 17.1567 16.3505C17.25 16.22 17.25 15.959 17.25 15.4368V10.5631C17.25 10.041 17.25 9.77988 17.1567 9.6494C17.0701 9.52841 16.9584 9.46211 16.8108 9.44402C16.6515 9.42452 16.4084 9.55706 15.9221 9.82213C15.0886 10.2765 14.0082 10.75 13.125 10.75Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Newsroom</div><div class="menu-sub-text">Catch the latest buzz and breakthroughs from Lumber</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Newsroom</div><div class="menu-sub-text">Catch the latest buzz and breakthroughs from Lumber</div></div>
                     </a>
                   </div>
                   <div class="navbar08_dropdown-link-list" style="border-right:1px solid #F2F4F7;">
                     <a href="/partnerships" class="toolkit-menu-link company-nav">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M13.0001 14.5C13.2148 14.787 13.4888 15.0246 13.8034 15.1965C14.118 15.3683 14.4659 15.4705 14.8234 15.4961C15.181 15.5218 15.5399 15.4702 15.8758 15.3449C16.2117 15.2196 16.5167 15.0235 16.7701 14.77L18.2701 13.27C18.7255 12.7985 18.9775 12.167 18.9718 11.5115C18.9661 10.856 18.7032 10.229 18.2396 9.76544C17.7761 9.30192 17.1491 9.03899 16.4936 9.0333C15.8381 9.0276 15.2066 9.27959 14.7351 9.73498L13.8751 10.59M15.0001 13.5C14.7854 13.2129 14.5114 12.9754 14.1968 12.8035C13.8822 12.6316 13.5343 12.5294 13.1768 12.5038C12.8192 12.4782 12.4603 12.5298 12.1244 12.6551C11.7885 12.7804 11.4835 12.9764 11.2301 13.23L9.7301 14.73C9.2747 15.2015 9.02272 15.833 9.02841 16.4885C9.03411 17.144 9.29703 17.771 9.76055 18.2345C10.2241 18.698 10.8511 18.961 11.5066 18.9667C12.1621 18.9724 12.7936 18.7204 13.2651 18.265L14.1201 17.41" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Partners</div><div class="menu-sub-text">Collaborating with the best to drive industry excellence</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Partners</div><div class="menu-sub-text">Collaborating with the best to drive industry excellence</div></div>
                     </a>
                     <a href="/associations" class="toolkit-menu-link company-nav">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M13.0001 14.5C13.2148 14.787 13.4888 15.0246 13.8034 15.1965C14.118 15.3683 14.4659 15.4705 14.8234 15.4961C15.181 15.5218 15.5399 15.4702 15.8758 15.3449C16.2117 15.2196 16.5167 15.0235 16.7701 14.77L18.2701 13.27C18.7255 12.7985 18.9775 12.167 18.9718 11.5115C18.9661 10.856 18.7032 10.229 18.2396 9.76544C17.7761 9.30192 17.1491 9.03899 16.4936 9.0333C15.8381 9.0276 15.2066 9.27959 14.7351 9.73498L13.8751 10.59M15.0001 13.5C14.7854 13.2129 14.5114 12.9754 14.1968 12.8035C13.8822 12.6316 13.5343 12.5294 13.1768 12.5038C12.8192 12.4782 12.4603 12.5298 12.1244 12.6551C11.7885 12.7804 11.4835 12.9764 11.2301 13.23L9.7301 14.73C9.2747 15.2015 9.02272 15.833 9.02841 16.4885C9.03411 17.144 9.29703 17.771 9.76055 18.2345C10.2241 18.698 10.8511 18.961 11.5066 18.9667C12.1621 18.9724 12.7936 18.7204 13.2651 18.265L14.1201 17.41" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Associations</div><div class="menu-sub-text">Proudly connected to leading industry associations</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Associations</div><div class="menu-sub-text">Proudly connected to leading industry associations</div></div>
                     </a>
                   </div>
                   <div class="navbar08_dropdown-link-list">
                     <a href="/careers" class="toolkit-menu-link company-nav">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M12 18.5V11.5C12 11.035 12 10.8025 12.0511 10.6118C12.1898 10.0941 12.5941 9.68981 13.1118 9.55111C13.3025 9.5 13.535 9.5 14 9.5C14.465 9.5 14.6975 9.5 14.8882 9.55111C15.4059 9.68981 15.8102 10.0941 15.9489 10.6118C16 10.8025 16 11.035 16 11.5V18.5M10.6 18.5H17.4C17.9601 18.5 18.2401 18.5 18.454 18.391C18.6422 18.2951 18.7951 18.1422 18.891 17.954C19 17.7401 19 17.4601 19 16.9V13.1C19 12.5399 19 12.2599 18.891 12.046C18.7951 11.8578 18.6422 11.7049 18.454 11.609C18.2401 11.5 17.9601 11.5 17.4 11.5H10.6C10.0399 11.5 9.75992 11.5 9.54601 11.609C9.35785 11.7049 9.20487 11.8578 9.10899 12.046C9 12.2599 9 12.5399 9 13.1V16.9C9 17.4601 9 17.7401 9.10899 17.954C9.20487 18.1422 9.35785 18.2951 9.54601 18.391C9.75992 18.5 10.0399 18.5 10.6 18.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Careers</div><div class="menu-sub-text">Join the Lumber team</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Careers</div><div class="menu-sub-text">Join the Lumber team</div></div>
                     </a>
                     <a href="/construction-industry-events" class="toolkit-menu-link company-nav">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M16 9V11M12 9V11M9.5 13H18.5M10.5 10H17.5C18.0523 10 18.5 10.4477 18.5 11V18C18.5 18.5523 18.0523 19 17.5 19H10.5C9.94772 19 9.5 18.5523 9.5 18V11C9.5 10.4477 9.94772 10 10.5 10Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Events</div><div class="menu-sub-text">Meet our Lumberjacks</div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">Events</div><div class="menu-sub-text">Meet our Lumberjacks</div></div>
                     </a>
                   </div>
                 </div>
