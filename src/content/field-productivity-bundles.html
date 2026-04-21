@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lumber Benefits — Benefits Admin Savings Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- <style>
+  <style>
     :root {
       --white:      #FFFFFF;
       --bg-page:    #F9FAFB;
@@ -965,1578 +965,318 @@
       .footer__inner { padding: 0 20px; }
       .footer__bottom { padding: 16px 20px; }
     }
-  </style> -->
-  <style>
-    /* ============================================================
-   CSS VARIABLES & RESET
-   ============================================================ */
-:root {
-  --white:      #FFFFFF;
-  --bg-page:    #F9FAFB;
-  --bg-card:    #F2F4F7;
-  --bg-subtle:  #F6F6F6;
-  --border:     #D0D5DD;
-  --border-lt:  #EAECF0;
-  --green:      #40956B;
-  --green-dk:   #2D7A55;
-  --green-lt:   #7AECB4;
-  --green-bg:   #EEF8F3;
-  --green-icon: #AEFFD7;
-  --orange:     #FF6F61;
-  --orange-dk:  #E85D50;
-  --dark:       #003333;
-  --text-head:  #101828;
-  --text-body:  #344054;
-  --text-muted: #667085;
-  --text-soft:  #475467;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: var(--bg-page);
-  color: var(--text-body);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ============================================================
-   LUMBER NAVBAR — Complete CSS
-   ============================================================ */
-
-/* ---------- Namespace marker ---------- */
-.n { /* no extra rules needed */ }
-
-/* ============================================================
-   HELLO / ANNOUNCEMENT BAR
-   ============================================================ */
-.banner2_component {
-  background: #003333;
-  padding: 9px 0;
-}
-.banner2_component .padding-global {
-  padding: 0 32px;
-}
-.container-large-2 {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-.banner2_wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  position: relative;
-}
-.hide-this-div-when-spacebetween {
-  width: 100%;
-}
-.banner2_content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-.banner2_text-wrapper {}
-.hello-bar-text {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 13.5px;
-  margin: 0;
-}
-.banner2_button-wrapper {}
-.banner-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: #7AECB4;
-  font-size: 13.5px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.banner-btn:hover {
-  text-decoration: underline;
-}
-.banner-btn img {
-  width: 14px;
-  height: 14px;
-}
-.banner2_close-button {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
-}
-.banner2_close-button:hover {
-  color: #fff;
-}
-.icon-embed-small {
-  display: flex;
-}
-
-/* ============================================================
-   NAV WRAPPER
-   ============================================================ */
-.nav-wrap {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.nav-wrap-desktop {
-  background: #fff;
-  border-bottom: 1px solid #EAECF0;
-}
-.new-navbar11_container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 32px;
-  height: 68px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-.new-navbar11_logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.navbar11_logo {
-  height: 30px;
-  width: auto;
-}
-
-/* ============================================================
-   DESKTOP NAV MENU
-   ============================================================ */
-.navbar1_menu-2 {
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-.nav-wrapper-main {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex: 1;
-}
-
-/* ---- Dropdown triggers ---- */
-.desktop_menu-dropdown,
-.mobile1_menu-dropdown {
-  position: relative;
-}
-.desktop_dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 8px 12px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #344054;
-  cursor: pointer;
-  border-radius: 6px;
-  user-select: none;
-  white-space: nowrap;
-  transition: color 0.15s;
-}
-.desktop_dropdown-toggle:hover {
-  color: #40956b;
-}
-.dropdown-icon-6 {
-  display: flex;
-  align-items: center;
-  width: 16px;
-  height: 16px;
-}
-.desktop_menu-dropdown:hover > .desktop_dropdown-toggle {
-  color: #40956b;
-}
-
-/* ---- Contact plain link ---- */
-.nav-contact {
-  font-size: 14px;
-  font-weight: 500;
-  color: #344054;
-  text-decoration: none;
-  padding: 8px 12px;
-}
-.nav-contact:hover {
-  color: #101828;
-}
-
-/* ---- CTA / right side ---- */
-.nav-cta-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-.navbar11_menu-buttons {
-  display: flex;
-}
-.button.is-primary {
-  display: inline-flex;
-  align-items: center;
-  background: #FF6F61;
-  color: #fff;
-  padding: 10px 22px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background 0.15s;
-  white-space: nowrap;
-}
-.button.is-primary:hover {
-  background: #E85D50;
-}
-
-/* ---- Locale switcher ---- */
-.localiztion-wrapper {
-  position: relative;
-}
-.localiztion-toggle {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #344054;
-  transition: background 0.15s;
-}
-.localiztion-toggle:hover {
-  background: #F9FAFB;
-}
-.localiztion-current-flag {
-  width: 22px;
-  height: 16px;
-  object-fit: cover;
-  border-radius: 3px;
-  display: block;
-}
-.ca-localiztion {
-  display: none;
-}
-.localiztion-nav {
-  display: none;
-  position: absolute;
-  top: calc(100% + 4px);
-  right: 0;
-  background: #fff;
-  border: 1px solid #EAECF0;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  padding: 8px;
-  min-width: 185px;
-  z-index: 9999;
-}
-.localiztion-dropdown:hover .localiztion-nav {
-  display: block;
-}
-.localiztion-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.locale-link_new {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #101828;
-  font-size: 13px;
-  transition: background 0.12s;
-}
-.locale-link_new:hover {
-  background: #F0FDF4;
-}
-.localiztion-flag {
-  width: 22px;
-  height: 16px;
-  object-fit: cover;
-  border-radius: 3px;
-  display: block;
-}
-.link-3 {
-  display: none;
-}
-
-/* ---- Mobile hamburger (hidden on desktop) ---- */
-.navbar1_menu-button {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-}
-.menu-icon1 {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 4px;
-}
-.menu-icon1_line-top-4,
-.menu-icon1_line-bottom-3,
-.menu-icon1_line-middle-3 {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: #344054;
-  border-radius: 2px;
-  transition: transform 0.25s, opacity 0.25s;
-}
-
-/* Hidden extras */
-.navbar11_menu-mobil {
-  display: none;
-}
-.image-64 {
-  display: none;
-}
-
-/* ============================================================
-   PRODUCT MEGA DROPDOWN
-   ============================================================ */
-.product_dropdown-list,
-.ca-product {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  background: #fff;
-  border: 1px solid #EAECF0;
-  border-radius: 14px;
-  box-shadow: 0 8px 40px rgba(16, 24, 40, 0.10);
-  padding: 16px;
-  z-index: 999;
-  min-width: 860px;
-}
-.desktop_menu-dropdown:hover > .product_dropdown-list,
-.desktop_menu-dropdown:hover > .ca-product {
-  display: block;
-}
-.navbar08_dropdown-content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-}
-.navbar08_dropdown-link-list {
-  padding: 4px 8px;
-  border-right: 1px solid #F2F4F7;
-}
-.navbar08_dropdown-link-list:last-of-type {
-  border-right: none;
-}
-.navbar08_dropdown-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 8px;
-  text-decoration: none;
-  color: #101828;
-  border-radius: 8px;
-  transition: background 0.12s;
-}
-.navbar08_dropdown-link:hover {
-  background: #F0FDF4;
-}
-.navbar08_icon-wrapper {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.icon-1x1-xsmall {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.navbar08_item-right {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.margin-bottom {
-  margin-bottom: 4px;
-}
-.margin-tiny {
-  margin-bottom: 2px;
-}
-.text-weight-semibold {
-  font-size: 14px;
-  font-weight: 700;
-  color: #101828;
-}
-.text-color-gray900 {
-  color: #101828;
-}
-.ai-grad {
-  background: linear-gradient(90deg, #da32f3, #3d80f4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Sub-menu links */
-.navbar08_dropdown-link.sub-menu {
-  padding: 7px 8px;
-  font-size: 13px;
-  color: #475467;
-  font-weight: 600;
-}
-.navbar08_dropdown-link.sub-menu:hover {
-  background: #F0FDF4;
-  color: #101828;
-}
-.navbar08_dropdown-link.hide {
-  display: none;
-}
-
-/* Bottom strip */
-.integrations-nav-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid #F2F4F7;
-}
-.integrations-nav-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #101828;
-  transition: background 0.12s;
-}
-.integrations-nav-wrap:hover {
-  background: #F0FDF4;
-}
-.integrations-nav-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: #101828;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 4px;
-}
-.menu-sub-text {
-  font-size: 12px;
-  color: #667085;
-  line-height: 1.5;
-}
-.integrations_card {
-  display: none;
-}
-.nav-big-link {
-  display: none;
-}
-
-/* ============================================================
-   RESOURCES MEGA DROPDOWN
-   ============================================================ */
-.toolkit-menu-list {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  background: #fff;
-  border: 1px solid #EAECF0;
-  border-radius: 14px;
-  box-shadow: 0 8px 40px rgba(16, 24, 40, 0.10);
-  padding: 16px;
-  z-index: 999;
-  min-width: 780px;
-}
-.desktop_menu-dropdown:hover > .toolkit-menu-list {
-  display: block;
-}
-.toolkit-menu-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 200px;
-  gap: 0;
-}
-.toolkit-menu-link {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 10px 8px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #101828;
-  transition: background 0.12s;
-}
-.toolkit-menu-link:hover {
-  background: #F0FDF4;
-}
-.nav-item-holder {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-/* AI Audit card — resources right column */
-.nav-side-link-ai-banner {
-  display: flex;
-  flex-direction: column;
-  background: #0f1f38;
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
-  margin-left: 8px;
-  transition: opacity 0.15s;
-}
-.nav-side-link-ai-banner:hover {
-  opacity: 0.9;
-}
-.nav-side-link-ai-banner .ai-banner-img {
-  width: 100%;
-  object-fit: cover;
-  display: block;
-}
-.ai-banner-body {
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.ai-banner-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-}
-.ai-banner-desc {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.5;
-}
-.ai-banner-cta {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #FF6F61;
-  font-size: 13px;
-  font-weight: 600;
-}
-.icon {
-  display: flex;
-  align-items: center;
-}
-.max-wd-350 {
-  max-width: 350px;
-}
-
-/* ============================================================
-   CUSTOMER SUCCESS DROPDOWN
-   ============================================================ */
-.customer-list {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  background: #fff;
-  border: 1px solid #EAECF0;
-  border-radius: 14px;
-  box-shadow: 0 8px 40px rgba(16, 24, 40, 0.10);
-  padding: 16px;
-  z-index: 999;
-  min-width: 480px;
-}
-.desktop_menu-dropdown:hover > .customer-list {
-  display: block;
-}
-.customer-menu-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-.navbar08_dropdown-link-list.en {
-  border-right: 1px solid #F2F4F7;
-}
-
-/* ============================================================
-   COMPANY DROPDOWN
-   ============================================================ */
-.company-menu-list {
-  display: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  background: #fff;
-  border: 1px solid #EAECF0;
-  border-radius: 14px;
-  box-shadow: 0 8px 40px rgba(16, 24, 40, 0.10);
-  padding: 16px;
-  z-index: 999;
-  min-width: 680px;
-}
-.desktop_menu-dropdown:hover > .company-menu-list {
-  display: block;
-}
-.company-menu-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-}
-.navbar08_dropdown-link-list.nav-11 {
-  border-right: 1px solid #F2F4F7;
-}
-.navbar08_dropdown-link-list a {
-  color: #212222;
-}
-
-/* Utility */
-.ca-hide { display: none; }
-.ca { display: none; }
-
-/* ============================================================
-   MOBILE OVERLAY MENU
-   ============================================================ */
-.mobile-nav-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #fff;
-  z-index: 2000;
-  overflow-y: auto;
-  flex-direction: column;
-}
-.mobile-nav-overlay.is-open {
-  display: flex;
-}
-.mobile-nav-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-  border-bottom: 1px solid #F2F4F7;
-  flex-shrink: 0;
-}
-.mobile-nav-logo img {
-  height: 28px;
-  width: auto;
-}
-.mobile-nav-close {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  color: #344054;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mobile-nav-close:hover {
-  color: #101828;
-}
-.mobile-nav-body {
-  flex: 1;
-  padding: 8px 0;
-}
-.mob-acc-item {
-  border-bottom: 1px solid #F2F4F7;
-}
-.mob-acc-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 20px;
-  font-size: 17px;
-  font-weight: 500;
-  color: #101828;
-  cursor: pointer;
-  background: none;
-  border: none;
-  width: 100%;
-  text-align: left;
-  transition: color 0.15s;
-}
-.mob-acc-trigger:hover {
-  color: #40956b;
-}
-.mob-acc-trigger.is-active {
-  font-weight: 700;
-}
-.mob-acc-chevron {
-  display: flex;
-  align-items: center;
-  transition: transform 0.25s;
-  flex-shrink: 0;
-}
-.mob-acc-trigger.is-active .mob-acc-chevron {
-  transform: rotate(180deg);
-}
-.mob-acc-panel {
-  display: none;
-  padding: 0 0 12px 0;
-  background: #FAFAFA;
-}
-.mob-acc-panel.is-open {
-  display: block;
-}
-.mob-sub-section {
-  padding: 12px 20px 4px;
-}
-.mob-sub-heading {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: #98A2B3;
-  margin-bottom: 6px;
-  padding: 0 4px;
-}
-.mob-sub-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 4px;
-  text-decoration: none;
-  color: #344054;
-  font-size: 14px;
-  font-weight: 500;
-  border-radius: 8px;
-  transition: background 0.12s, color 0.12s;
-}
-.mob-sub-link:hover {
-  background: #F0FDF4;
-  color: #40956b;
-}
-.mob-sub-link .navbar08_icon-wrapper {
-  flex-shrink: 0;
-}
-.mob-sub-link .icon-1x1-xsmall {
-  width: 28px;
-  height: 28px;
-}
-.mob-sub-link-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-.mob-sub-link-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #101828;
-  line-height: 1.3;
-}
-.mob-sub-link-desc {
-  font-size: 12px;
-  color: #667085;
-  line-height: 1.4;
-}
-.mob-plain-link {
-  display: block;
-  padding: 18px 20px;
-  font-size: 17px;
-  font-weight: 500;
-  color: #101828;
-  text-decoration: none;
-  border-bottom: 1px solid #F2F4F7;
-  transition: color 0.15s;
-}
-.mob-plain-link:hover {
-  color: #40956b;
-}
-.mobile-nav-footer {
-  padding: 24px 20px 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  border-top: 1px solid #F2F4F7;
-  flex-shrink: 0;
-}
-.mob-locale-toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #344054;
-  border: 1px solid #EAECF0;
-  background: #fff;
-  transition: background 0.15s;
-  position: relative;
-}
-.mob-locale-toggle:hover {
-  background: #F9FAFB;
-}
-.mob-locale-flag {
-  width: 22px;
-  height: 16px;
-  object-fit: cover;
-  border-radius: 3px;
-}
-.mob-locale-panel {
-  display: none;
-  position: absolute;
-  bottom: calc(100% + 4px);
-  left: 0;
-  background: #fff;
-  border: 1px solid #EAECF0;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  padding: 8px;
-  min-width: 185px;
-  z-index: 9999;
-}
-.mob-locale-toggle.open .mob-locale-panel {
-  display: block;
-}
-.mob-book-demo {
-  display: block;
-  width: 100%;
-  text-align: center;
-  background: #FF6F61;
-  color: #fff;
-  padding: 14px 22px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background 0.15s;
-}
-.mob-book-demo:hover {
-  background: #E85D50;
-}
-.mob-app-login {
-  font-size: 14px;
-  font-weight: 500;
-  color: #344054;
-  text-decoration: none;
-}
-.mob-app-login:hover {
-  color: #101828;
-}
-
-/* ============================================================
-   NAV RESPONSIVE BREAKPOINTS
-   ============================================================ */
-@media (max-width: 991px) {
-  .nav-wrapper-main {
-    display: none;
-  }
-  .navbar11_menu-buttons {
-    display: none;
-  }
-  .nav-cta-wrapper {
-    display: none;
-  }
-  .navbar1_menu-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-@media (max-width: 768px) {
-  .new-navbar11_container {
-    padding: 0 16px;
-  }
-  .banner2_component .padding-global {
-    padding: 0 16px;
-  }
-}
-
-/* ============================================================
-   FOOTER WRAPPER
-   ============================================================ */
-.new-footer {
-  background: #002b2b;
-  color: #fff;
-}
-.footer11_component {
-  padding: 60px 0 0 0;
-}
-.container-large {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* ── TOP WRAPPER GRID ── */
-.footer11_top-wrapper {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 48px;
-  padding-bottom: 48px;
-}
-
-/* ── LEFT COLUMN ── */
-.footer11_left-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.margin-bottom.margin-medium { margin-bottom: 24px; }
-
-.footer11_logo-link-copy img {
-  max-width: 160px;
-  display: block;
-}
-.footer-last-text {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #98a2b3;
-  max-width: 260px;
-}
-
-/* login CTA */
-.login-lumberapp_cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #7aecb4;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-.login-lumberapp_cta:hover { opacity: 0.8; }
-.login-lumberapp_cta .icon svg { display: block; }
-
-/* App store badges */
-.play-store-holder {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-.play-store-holder a { display: inline-block; }
-.play-store-holder img { height: 36px; width: auto; display: block; }
-
-/* Social icons */
-.footer11_social-list {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.footer11_social-link-2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.05);
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.footer11_social-link-2:hover { background: rgba(255,255,255,0.12); }
-.icon-embed-xsmall-3 svg { display: block; }
-
-/* Badges */
-.div-block-badge {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-.max-height_84 { height: 56px; width: auto; display: block; }
-
-/* Summarize AI */
-.ai-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 4px;
-}
-.summarize-ai {
-  font-size: 12px;
-  color: #98a2b3;
-  white-space: nowrap;
-}
-.ai-wrap {
-  display: flex;
-  gap: 8px;
-}
-.ai-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.07);
-  text-decoration: none;
-  transition: background 0.2s;
-  color: #98a2b3;
-}
-.ai-link:hover { background: rgba(255,255,255,0.15); color: #fff; }
-.ai-link svg { display: block; }
-
-/* ── RIGHT MENU WRAPPER ── */
-.footer11_menu-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.nav_product_nav {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.footer11_link-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.foooter-heading {
-  font-size: 12px;
-  font-weight: 600;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 6px;
-}
-.opacity_0 { opacity: 0; }
-.footer11_link {
-  font-size: 13px;
-  color: #98a2b3;
-  text-decoration: none;
-  line-height: 1.5;
-  transition: color 0.2s;
-}
-.footer11_link:hover { color: #7aecb4; }
-.hide { display: none !important; }
-.extra-top-m { margin-top: 20px; }
-.pad-16 { padding-top: 0; }
-.pad-32 { padding-bottom: 8px; }
-.div-block-68 {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-/* ── FOOTER LINE ── */
-.footer-line {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  margin: 0 24px;
-}
-
-/* ── BOTTOM BAR ── */
-.footer11_bottom-wrapper {
-  padding: 20px 24px;
-}
-.container_lumber-footer {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer11_credit-text {
-  font-size: 13px;
-  color: #667085;
-}
-.footer11_legal-list {
-  display: flex;
-  gap: 24px;
-}
-.footer11_legal-link {
-  font-size: 13px;
-  color: #667085;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer11_legal-link:hover { color: #7aecb4; }
-
-/* ── FOOTER RESPONSIVE ── */
-@media (max-width: 1024px) {
-  .footer11_top-wrapper {
-    grid-template-columns: 1fr;
-  }
-  .footer11_left-wrapper {
-    max-width: 500px;
-  }
-  .footer-last-text { max-width: 100%; }
-  .footer11_menu-wrapper {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (max-width: 640px) {
-  .footer11_menu-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .container_lumber-footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-/* ============================================================
-   MAIN LAYOUT
-   ============================================================ */
-.main {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 56px 24px 90px;
-}
-
-/* ── PHASES ── */
-.phase { display: none; animation: fadeIn 0.35s ease; }
-.phase.active { display: block; }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── EYEBROW ── */
-.eyebrow {
-  font-size: 0.72rem; font-weight: 600;
-  letter-spacing: 1.2px; text-transform: uppercase;
-  color: var(--green); margin-bottom: 14px;
-  display: flex; align-items: center; gap: 8px;
-}
-.eyebrow::before {
-  content: ''; width: 20px; height: 2px;
-  background: var(--green); border-radius: 1px;
-  display: inline-block;
-}
-
-/* ── PHASE 1: INPUTS ── */
-.hero {
-  text-align: center;
-  margin-bottom: 48px;
-}
-.hero .eyebrow { justify-content: center; }
-.hero .eyebrow::before { display: none; }
-.hero h1 {
-  font-size: 2.5rem; font-weight: 800;
-  line-height: 1.2; letter-spacing: -1px;
-  max-width: 680px; margin: 0 auto 20px;
-  color: var(--text-head);
-}
-.hero h1 em { font-style: normal; color: var(--green); }
-.hero p {
-  font-size: 0.96rem; color: var(--text-soft);
-  line-height: 1.7; max-width: 520px; margin: 0 auto;
-}
-
-.input-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 44px 52px;
-  max-width: 680px;
-  margin: 0 auto;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
-.input-group { margin-bottom: 36px; }
-.input-group label {
-  display: block;
-  font-size: 0.9rem; font-weight: 600;
-  color: var(--text-head); margin-bottom: 14px;
-}
-.input-group .hint {
-  font-size: 0.75rem; color: var(--text-muted);
-  font-weight: 400; margin-left: 8px;
-}
-
-/* Slider */
-.slider-row { display: flex; align-items: center; gap: 20px; }
-.slider-wrap { flex: 1; }
-input[type="range"] {
-  width: 100%; height: 6px;
-  -webkit-appearance: none;
-  appearance: none;
-  background: var(--border-lt);
-  border-radius: 3px; outline: none; cursor: pointer;
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  background: var(--green);
-  cursor: pointer;
-  box-shadow: 0 0 0 5px rgba(64,149,107,0.15);
-  transition: box-shadow 0.15s;
-}
-input[type="range"]::-webkit-slider-thumb:hover {
-  box-shadow: 0 0 0 8px rgba(64,149,107,0.2);
-}
-.slider-labels {
-  display: flex; justify-content: space-between;
-  margin-top: 8px; font-size: 0.68rem; color: var(--text-muted);
-}
-.slider-val-display {
-  background: var(--green-bg);
-  border: 1.5px solid rgba(64,149,107,0.3);
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 1rem; font-weight: 700;
-  color: var(--green-dk);
-  min-width: 96px; text-align: center;
-  white-space: nowrap;
-}
-
-/* Stepper */
-.stepper-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.stepper {
-  display: flex; align-items: stretch;
-  border: 1.5px solid var(--border);
-  border-radius: 10px; overflow: hidden;
-  width: fit-content;
-  background: var(--white);
-}
-.stepper-btn {
-  width: 48px; height: 48px;
-  background: var(--bg-card);
-  border: none; color: var(--text-soft);
-  font-size: 1.4rem; cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  transition: background 0.15s, color 0.15s;
-}
-.stepper-btn:hover { background: var(--border-lt); color: var(--text-head); }
-.stepper-val {
-  min-width: 60px; text-align: center;
-  font-size: 1.15rem; font-weight: 700;
-  color: var(--text-head);
-  border-left: 1.5px solid var(--border);
-  border-right: 1.5px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-}
-.stepper-hint { font-size: 0.78rem; color: var(--text-muted); }
-
-/* Toggle */
-.toggle-group {
-  display: flex;
-  border: 1.5px solid var(--border);
-  border-radius: 10px; overflow: hidden;
-  width: fit-content;
-  background: var(--white);
-}
-.toggle-btn {
-  padding: 12px 36px;
-  background: var(--white);
-  border: none; cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.88rem; font-weight: 500;
-  color: var(--text-muted);
-  transition: background 0.15s, color 0.15s;
-}
-.toggle-btn:not(:last-child) { border-right: 1.5px solid var(--border); }
-.toggle-btn.active {
-  background: var(--green-bg);
-  color: var(--green-dk); font-weight: 700;
-}
-.toggle-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; }
-
-.divider { height: 1px; background: var(--border-lt); margin: 8px 0 36px; }
-
-/* Primary CTA */
-.cta-btn {
-  width: 100%; padding: 15px 32px;
-  background: var(--orange); color: var(--white);
-  border: none; border-radius: 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem; font-weight: 700;
-  cursor: pointer; letter-spacing: -0.1px;
-  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
-  display: block;
-  box-shadow: 0 2px 8px rgba(255,111,97,0.3);
-}
-.cta-btn:hover {
-  background: var(--orange-dk);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(255,111,97,0.35);
-}
-.cta-btn:active { transform: translateY(0); }
-
-.trust-note {
-  text-align: center; margin-top: 14px;
-  font-size: 0.72rem; color: var(--text-muted);
-}
-
-/* ── PHASE 2: LEAD CAPTURE ── */
-.lead-wrapper { max-width: 540px; margin: 0 auto; }
-.lead-header { text-align: center; margin-bottom: 28px; }
-.lead-icon {
-  width: 60px; height: 60px;
-  background: var(--green-bg);
-  border: 1.5px solid rgba(64,149,107,0.25);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem;
-  margin: 0 auto 20px;
-}
-.lead-header h2 {
-  font-size: 1.9rem; font-weight: 800;
-  letter-spacing: -0.5px; margin-bottom: 10px;
-  color: var(--text-head);
-}
-.lead-header p {
-  font-size: 0.88rem; color: var(--text-soft);
-  line-height: 1.65;
-}
-
-/* Blurred preview */
-.preview-bar {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px 20px;
-  margin-bottom: 24px;
-  display: flex; gap: 0;
-  position: relative; overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-.preview-bar::after {
-  content: 'Unlock to reveal your results';
-  position: absolute; inset: 0;
-  background: rgba(249,250,251,0.5);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.78rem; font-weight: 600;
-  color: var(--green-dk); letter-spacing: 0.3px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 12px;
-}
-.preview-stat { flex: 1; text-align: center; }
-.preview-stat:not(:last-child) { border-right: 1px solid var(--border-lt); }
-.ps-label {
-  font-size: 0.65rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.5px;
-  color: var(--text-muted); margin-bottom: 8px;
-}
-.ps-val {
-  font-size: 1.9rem; font-weight: 800;
-  color: var(--green); letter-spacing: -1px;
-  filter: blur(7px); user-select: none;
-}
-.ps-sub {
-  font-size: 0.7rem; color: var(--text-muted);
-  margin-top: 4px; filter: blur(4px);
-}
-
-/* Lead form */
-.lead-form {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-}
-.lead-form .form-title {
-  font-size: 0.75rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.6px;
-  color: var(--text-muted); margin-bottom: 20px;
-  padding-bottom: 14px; border-bottom: 1px solid var(--border-lt);
-}
-.form-row { margin-bottom: 14px; }
-.form-row label {
-  display: block;
-  font-size: 0.72rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.5px;
-  color: var(--text-soft); margin-bottom: 7px;
-}
-.form-row input {
-  width: 100%; padding: 12px 16px;
-  background: var(--bg-page);
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; color: var(--text-head);
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.form-row input:focus {
-  outline: none;
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(64,149,107,0.12);
-}
-.form-row input::placeholder { color: var(--border); }
-.form-error {
-  display: none;
-  color: #B91C1C; font-size: 0.76rem;
-  margin-bottom: 12px; padding: 10px 14px;
-  background: #FEF2F2;
-  border-radius: 6px;
-  border: 1px solid #FECACA;
-}
-
-/* ── PHASE 3: RESULTS ── */
-.results-header { text-align: center; margin-bottom: 44px; }
-.results-greeting {
-  font-size: 0.82rem; color: var(--text-muted);
-  margin-bottom: 10px; font-weight: 500;
-}
-.results-header h2 {
-  font-size: 2.1rem; font-weight: 800;
-  letter-spacing: -0.6px; line-height: 1.25;
-  max-width: 620px; margin: 0 auto 14px;
-  color: var(--text-head);
-}
-.results-header p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
-
-.kpi-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 14px; margin-bottom: 20px;
-}
-.kpi-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 26px 22px;
-  position: relative; overflow: hidden;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-}
-.kpi-card::before {
-  content: ''; position: absolute;
-  top: 0; left: 0; right: 0; height: 3px;
-}
-.kpi-card.broker::before  { background: var(--border); }
-.kpi-card.employer::before { background: linear-gradient(90deg, var(--green), var(--green-lt)); }
-.kpi-card.total::before   { background: var(--orange); }
-.kc-label {
-  font-size: 0.65rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.6px;
-  color: var(--text-muted); margin-bottom: 10px;
-}
-.kc-val {
-  font-size: 2.8rem; font-weight: 800;
-  line-height: 1; letter-spacing: -2px;
-  color: var(--text-head); margin-bottom: 5px;
-}
-.kpi-card.total .kc-val { color: var(--green); }
-.kc-sub { font-size: 0.72rem; color: var(--text-muted); }
-
-.metrics-row {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 14px; margin-bottom: 20px;
-}
-.metrics-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px; padding: 22px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-}
-.mc-title {
-  font-size: 0.65rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.6px;
-  color: var(--text-muted); margin-bottom: 14px;
-  padding-bottom: 12px; border-bottom: 1px solid var(--border-lt);
-}
-.metric-item {
-  display: flex; justify-content: space-between;
-  align-items: baseline; padding: 8px 0;
-  border-bottom: 1px solid var(--border-lt);
-  font-size: 0.8rem;
-}
-.metric-item:last-child { border-bottom: none; }
-.mi-label { color: var(--text-muted); }
-.mi-val { font-weight: 700; color: var(--text-head); }
-
-/* Savings banner */
-.savings-banner {
-  background: var(--green-bg);
-  border: 1.5px solid rgba(64,149,107,0.2);
-  border-radius: 12px;
-  padding: 32px 40px;
-  display: flex; align-items: center; gap: 44px;
-  margin-bottom: 20px;
-}
-.sb-main { flex-shrink: 0; }
-.sb-label { font-size: 0.78rem; color: var(--text-soft); margin-bottom: 6px; font-weight: 500; }
-.sb-amount {
-  font-size: 3.2rem; font-weight: 800;
-  color: var(--green-dk); letter-spacing: -2px;
-  line-height: 1;
-}
-.sb-note { font-size: 0.72rem; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
-.sb-breakdown { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.sb-item {
-  background: var(--white);
-  border: 1px solid rgba(64,149,107,0.15);
-  border-radius: 8px; padding: 13px 15px;
-}
-.sbi-label {
-  font-size: 0.65rem; color: var(--text-muted);
-  margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px;
-}
-.sbi-val { font-size: 1.05rem; font-weight: 700; color: var(--text-head); }
-
-/* CTA section */
-.cta-section {
-  text-align: center;
-  background: var(--dark);
-  border-radius: 12px;
-  padding: 44px 32px;
-}
-.cta-section h3 {
-  font-size: 1.5rem; font-weight: 800;
-  letter-spacing: -0.3px; margin-bottom: 12px;
-  color: var(--white);
-}
-.cta-section > p {
-  font-size: 0.88rem; color: rgba(255,255,255,0.7);
-  line-height: 1.65; max-width: 460px;
-  margin: 0 auto 28px;
-}
-.cta-section .cta-btn {
-  max-width: 300px; margin: 0 auto;
-}
-.cta-secondary {
-  margin-top: 16px;
-  font-size: 0.78rem; color: rgba(255,255,255,0.5);
-}
-.cta-secondary a { color: var(--green-lt); text-decoration: none; }
-.cta-secondary a:hover { text-decoration: underline; }
-.methodology {
-  margin-top: 22px;
-  font-size: 0.7rem; color: rgba(255,255,255,0.35);
-  line-height: 1.7; border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 18px; text-align: left;
-}
-
-/* ============================================================
-   GLOBAL RESPONSIVE
-   ============================================================ */
-@media (max-width: 768px) {
-  .main { padding: 36px 16px 70px; }
-  .hero h1 { font-size: 1.8rem; }
-  .input-card { padding: 28px 22px; }
-  .kpi-grid { grid-template-columns: 1fr; }
-  .metrics-row { grid-template-columns: 1fr; }
-  .savings-banner { flex-direction: column; gap: 24px; padding: 24px 20px; }
-  .sb-breakdown { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 480px) {
-  .hero h1 { font-size: 1.55rem; }
-  .kc-val { font-size: 2.2rem; }
-  .sb-amount { font-size: 2.4rem; }
-  .input-card { padding: 22px 16px; }
-}
   </style>
+  <style>
+    /* ---------- reset helpers ---------- */
+    .n { /* namespace marker – no extra rules needed */ }
+    
+    /* ---------- Hello / announcement bar ---------- */
+    .banner2_component {
+      background: #003333;
+      padding: 9px 0;
+    }
+    .banner2_component .padding-global { padding: 0 32px; }
+    .container-large-2 { max-width: 1280px; margin: 0 auto; }
+    .banner2_wrapper { display: flex; align-items: center; justify-content: center; gap: 16px; position: relative; }
+    .hide-this-div-when-spacebetween { width: 100%; }
+    .banner2_content { display: flex; align-items: center; justify-content: center; gap: 16px; }
+    .banner2_text-wrapper { }
+    .hello-bar-text { color: rgba(255,255,255,0.9); font-size: 13.5px; margin: 0; }
+    .banner2_button-wrapper { }
+    .banner-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      color: #7AECB4; font-size: 13.5px; font-weight: 600;
+      text-decoration: none; white-space: nowrap;
+    }
+    .banner-btn:hover { text-decoration: underline; }
+    .banner-btn img { width: 14px; height: 14px; }
+    .banner2_close-button {
+      position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,0.6);
+      display: flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 4px;
+    }
+    .banner2_close-button:hover { color: #fff; }
+    .icon-embed-small { display: flex; }
+    
+    /* ---------- Nav wrapper ---------- */
+    .nav-wrap { position: sticky; top: 0; z-index: 1000; }
+    .nav-wrap-desktop { background: #fff; border-bottom: 1px solid #EAECF0; }
+    .navbar11_component { }
+    .new-navbar11_container {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 32px; height: 68px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .new-navbar11_logo-link { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .navbar11_logo { height: 30px; width: auto; }
+    
+    /* ---------- Nav menu ---------- */
+    .navbar1_menu-2 { display: flex; align-items: center; flex: 1; }
+    .nav-wrapper-main { display: flex; align-items: center; gap: 2px; flex: 1; }
+    
+    /* ---------- Dropdown triggers ---------- */
+    .desktop_menu-dropdown,
+    .mobile1_menu-dropdown { position: relative; }
+    .desktop_dropdown-toggle,
+    .mobile1_menu-dropdown > .desktop_dropdown-toggle {
+      display: flex; align-items: center; gap: 5px;
+      padding: 8px 12px;
+      font-size: 14px; font-weight: 500; color: #344054;
+      cursor: pointer; border-radius: 6px;
+      user-select: none; white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .desktop_dropdown-toggle:hover { color: #40956b; }
+    .dropdown-icon-6 { display: flex; align-items: center; width: 16px; height: 16px; }
+    .desktop_menu-dropdown:hover > .desktop_dropdown-toggle,
+    .mobile1_menu-dropdown:hover > .desktop_dropdown-toggle { color: #40956b; }
+    
+    /* Contact plain link */
+    .nav-contact {
+      font-size: 14px; font-weight: 500; color: #344054;
+      text-decoration: none; padding: 8px 12px;
+    }
+    .nav-contact:hover { color: #101828; }
+    
+    /* ---------- CTA / right side ---------- */
+    .nav-cta-wrapper { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .navbar11_menu-buttons { display: flex; }
+    .button.is-primary {
+      display: inline-flex; align-items: center;
+      background: #FF6F61; color: #fff;
+      padding: 10px 22px; border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .button.is-primary:hover { background: #E85D50; }
+    .no-px { }
+    
+    /* Locale switcher */
+    .localiztion-wrapper { position: relative; }
+    .localiztion-dropdown { }
+    .localiztion-toggle {
+      display: flex; align-items: center; gap: 6px;
+      cursor: pointer; padding: 6px 10px; border-radius: 6px;
+      font-size: 13px; font-weight: 500; color: #344054;
+      transition: background 0.15s;
+    }
+    .localiztion-toggle:hover { background: #F9FAFB; }
+    .localiztion-current-flag { width: 22px; height: 16px; object-fit: cover; border-radius: 3px; display: block; }
+    .us-localiztion { }
+    .ca-localiztion { display: none; }
+    .localiztion-nav {
+      display: none; position: absolute;
+      top: calc(100% + 4px); right: 0;
+      background: #fff; border: 1px solid #EAECF0;
+      border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      padding: 8px; min-width: 185px; z-index: 9999;
+    }
+    .localiztion-dropdown:hover .localiztion-nav { display: block; }
+    .localiztion-list { list-style: none; margin: 0; padding: 0; }
+    .locale-2 { }
+    .locale-link_new {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 10px; border-radius: 6px;
+      text-decoration: none; color: #101828; font-size: 13px;
+      transition: background 0.12s;
+    }
+    .locale-link_new:hover { background: #F0FDF4; }
+    .localiztion-flag { width: 22px; height: 16px; object-fit: cover; border-radius: 3px; display: block; }
+    .link-3 { display: none; }
+    
+    /* Mobile hamburger (hidden on desktop) */
+    .navbar1_menu-button { display: none; }
+    .menu-icon1 { display: flex; flex-direction: column; gap: 5px; padding: 8px; cursor: pointer; }
+    .menu-icon1_line-top-4,
+    .menu-icon1_line-bottom-3 { display: block; width: 22px; height: 2px; background: #344054; border-radius: 2px; }
+    .menu-icon1_line-middle-3 { display: block; width: 22px; height: 2px; background: #344054; border-radius: 2px; }
+    .menu-icon_line-middle-inner { }
+    
+    /* Mobile-only extras hidden on desktop */
+    .navbar11_menu-mobil { display: none; }
+    .image-64 { display: none; } /* snow overlay */
+    
+    /* ---------- PRODUCT MEGA DROPDOWN ---------- */
+    .product_dropdown-list,
+    .ca-product {
+      display: none; position: absolute;
+      top: calc(100% + 6px); left: 0;
+      background: #fff;
+      border: 1px solid #EAECF0;
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(16,24,40,0.10);
+      padding: 16px;
+      z-index: 999;
+      min-width: 860px;
+    }
+    .desktop_menu-dropdown:hover > .product_dropdown-list,
+    .desktop_menu-dropdown:hover > .ca-product { display: block; }
+    
+    .navbar08_dropdown-content {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .canada-3row { /* same as above */ }
+    
+    .navbar08_dropdown-link-list {
+      padding: 4px 8px;
+      border-right: 1px solid #F2F4F7;
+    }
+    .navbar08_dropdown-link-list:last-of-type { border-right: none; }
+    
+    /* Section heading link (Payroll / HR / Productivity / AI Agents) */
+    .navbar08_dropdown-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 8px;
+      text-decoration: none; color: #101828;
+      border-radius: 8px;
+      transition: background 0.12s;
+    }
+    .navbar08_dropdown-link:hover { background: #F0FDF4; }
+    .navbar08_icon-wrapper {
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    }
+    .icon-1x1-xsmall { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; }
+    .navbar08_item-right { display: flex; flex-direction: column; gap: 2px; }
+    .margin-bottom { margin-bottom: 4px; }
+    .margin-tiny { margin-bottom: 2px; }
+    .text-weight-semibold { font-size: 14px; font-weight: 700; color: #101828; }
+    .text-color-gray900 { color: #101828; }
+    .ai-grad {
+      background: linear-gradient(90deg,#da32f3,#3d80f4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Sub-menu links (Prevailing Wages, Certified Payroll, etc.) */
+    .navbar08_dropdown-link.sub-menu {
+      padding: 7px 8px;
+      font-size: 13px; color: #475467; font-weight: 700;
+    }
+    .navbar08_dropdown-link.sub-menu:hover { background: #F0FDF4; color: #101828; }
+    .navbar08_dropdown-link.hide { display: none; }
+    
+    /* Bottom strip (Prevailing Wage Compliance / Integrations / Case Studies) */
+    /* Reuse the grid layout */
+    #w-node-_971dc5b6-8294-a9de-d98c-cdd981a7762c-79c3d108,
+    .integrations-nav-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 6px; margin-top: 14px;
+      padding-top: 14px; border-top: 1px solid #F2F4F7;
+      grid-column: 1 / -1;
+    }
+    .integrations-nav-wrap {
+      display: flex; flex-direction: column; gap: 3px;
+      padding: 10px 12px; border-radius: 8px;
+      text-decoration: none; color: #101828;
+      transition: background 0.12s;
+    }
+    .integrations-nav-wrap:hover { background: #F0FDF4; }
+    .integrations-nav-title {
+      font-size: 13px; font-weight: 600; color: #101828;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .menu-sub-text { font-size: 12px; color: #667085; line-height: 1.5; }
+    
+    /* Integration card (hidden in this version) */
+    .integrations_card { display: none; }
+    .nav-big-link { display: none; }
+    
+    /* ---------- RESOURCES MEGA DROPDOWN ---------- */
+    .toolkit-menu-list {
+      display: none; position: absolute;
+      top: calc(100% + 6px); left: 0;
+      background: #fff;
+      border: 1px solid #EAECF0; border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(16,24,40,0.10);
+      padding: 16px; z-index: 999;
+      min-width: 780px;
+    }
+    .desktop_menu-dropdown:hover > .toolkit-menu-list { display: block; }
+    
+    .toolkit-menu-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    }
+    .toolkit-menu-link {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 10px 8px; border-radius: 8px;
+      text-decoration: none; color: #101828;
+      transition: background 0.12s;
+    }
+    .toolkit-menu-link:hover { background: #F0FDF4; }
+    .nav-item-holder { display: flex; flex-direction: column; gap: 2px; }
+    
+    /* AI audit card (right column) */
+    .nav-side-link-ai-banner {
+      display: flex; flex-direction: column;
+      padding: 0; border-radius: 10px;
+      overflow: hidden; text-decoration: none;
+      background: #0f1f38;
+      grid-row: 1 / -1; grid-column: 3;
+      transition: opacity 0.15s;
+    }
+    .nav-side-link-ai-banner:hover { opacity: 0.9; }
+    .nav-side-link-ai-banner img:first-child { width: 100%; object-fit: cover; display: block; }
+    .v-flex-12 { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+    .navbar_item-big { display: flex; flex-direction: column; gap: 4px; }
+    .v-flex-4 { display: flex; flex-direction: column; gap: 4px; }
+    .nav_product-card_title, .text-weight-semibold { color: #fff; }
+    .max-wd-240 { max-width: 200px; color: rgba(255,255,255,0.6) !important; }
+    .nav-side-link-btn { display: flex; align-items: center; gap: 6px; color: #FF6F61; font-size: 13px; font-weight: 600; }
+    .icon { display: flex; align-items: center; }
+    
+    /* ---------- CUSTOMER SUCCESS DROPDOWN ---------- */
+    .customer-list {
+      display: none; position: absolute;
+      top: calc(100% + 6px); left: 0;
+      background: #fff;
+      border: 1px solid #EAECF0; border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(16,24,40,0.10);
+      padding: 16px; z-index: 999;
+      min-width: 480px;
+    }
+    .desktop_menu-dropdown:hover > .customer-list { display: block; }
+    .customer-menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .navbar08_dropdown-link-list.en { border-right: 1px solid #F2F4F7; }
+    .en-grid { }
+    
+    /* ---------- COMPANY DROPDOWN ---------- */
+    .company-menu-list {
+      display: none; position: absolute;
+      top: calc(100% + 6px); left: 0;
+      background: #fff;
+      border: 1px solid #EAECF0; border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(16,24,40,0.10);
+      padding: 16px; z-index: 999;
+      min-width: 680px;
+    }
+    .desktop_menu-dropdown:hover > .company-menu-list { display: block; }
+    .company-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    .navbar08_dropdown-link-list.nav-11 { border-right: 1px solid #F2F4F7; }
+    .navbar08_dropdown-link-list  a { color: #212222; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 991px) {
+      .nav-wrapper-main { display: none; }
+      .navbar11_menu-buttons { display: none; }
+      .navbar1_menu-button { display: block; }
+    }
+    @media (max-width: 768px) {
+      .new-navbar11_container { padding: 0 16px; }
+      .banner2_component .padding-global { padding: 0 16px; }
+    }
+    
+    /* ca-hide hides CA-only items on EN site */
+    .ca-hide { display: none; }
+    .ca { display: none; }
+    .en { } /* shown by default */
+    </style>
     
     
 </head>
@@ -2641,46 +1381,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
     <div class="nav__hamburger" onclick="this.closest('.nav').querySelector('.nav__links').classList.toggle('nav__links--open')"><span></span><span></span><span></span></div>
   </div>
 </nav> -->
-
-
-<!-- ============================================================
-   LUMBER NAVBAR — Complete HTML
-   1. Link navbar.css in your <head>: <link rel="stylesheet" href="navbar.css">
-   2. Add navbar.js before </body>: <script src="navbar.js"></script>
-   3. Replace your existing hello-bar + nav blocks with this
-   ============================================================ -->
-
-<!-- ── HELLO BAR ─────────────────────────────────────────── -->
-<!-- <div class="banner2_component" id="lumberHelloBar">
-  <div class="padding-global">
-    <div class="container-large-2">
-      <div class="banner2_wrapper">
-        <div class="hide-this-div-when-spacebetween">
-          <div class="banner2_content en">
-            <div class="banner2_text-wrapper">
-              <p class="hello-bar-text">CPE Webinar: A Contractor's Survival Guide to the 4 Toughest Compliance States (CA, NY, IL, NJ)</p>
-            </div>
-            <div class="banner2_button-wrapper">
-              <a href="https://luma.com/8c3686k7" target="_blank" class="banner-btn">
-                <div>Register Now</div>
-                <img loading="lazy" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66da7569ce3f80e28298ebe7_arrow-narrow-up-right.svg" alt=""/>
-              </a>
-            </div>
-            <button class="banner2_close-button" onclick="document.getElementById('lumberHelloBar').style.display='none'" aria-label="Close announcement">
-              <div class="icon-embed-small">
-                <svg width="20" height="20" viewBox="0 0 32 33" fill="none">
-                  <path d="M22.835 22.864l-.471.471a1 1 0 01-1.414 0L16 17.914l-5.421 5.421a1 1 0 01-1.414 0l-.471-.471a1 1 0 010-1.414L14.086 16.5 8.694 11.079a1 1 0 010-1.414l.471-.471a1 1 0 011.414 0L16 14.586l5.421-5.421a1 1 0 011.414 0l.471.471a1 1 0 010 1.414L17.914 16.5l5.421 5.421a1 1 0 010 1.414z" fill="rgba(255,255,255,0.8)"/>
-                </svg>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- ── DESKTOP / TABLET NAVBAR ───────────────────────────── -->
 <header class="nav-wrap">
   <div class="nav-wrap-desktop">
     <div class="navbar11_component n">
@@ -2693,11 +1393,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
             class="navbar11_logo"/>
         </a>
 
-        <!-- Desktop menu -->
-        <nav class="navbar1_menu-2 new-nav">
+        <!-- Desktop nav menu -->
+        <nav class="navbar1_menu-2 is-page-height-tablet new-nav">
           <div class="nav-wrapper-main">
 
-            <!-- PRODUCT -->
+            <!-- ── PRODUCT ── -->
             <div class="desktop_menu-dropdown">
               <div class="desktop_dropdown-toggle">
                 <div class="dropdown-icon-6">
@@ -2705,13 +1405,21 @@ input[type="range"]::-webkit-slider-thumb:hover {
                 </div>
                 <div>Product</div>
               </div>
+
               <nav class="product_dropdown-list ca-product">
                 <div class="navbar08_dropdown-content canada-3row">
-                  <!-- Payroll -->
+
+                  <!-- Payroll column -->
                   <div class="navbar08_dropdown-link-list">
                     <a href="/product/payroll" class="navbar08_dropdown-link">
-                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="29" height="28" viewBox="0 0 29 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.5 16C11.5 17.1046 12.3954 18 13.5 18H15.5C16.6046 18 17.5 17.1046 17.5 16C17.5 14.8954 16.6046 14 15.5 14H13.5C12.3954 14 11.5 13.1046 11.5 12C11.5 10.8954 12.3954 10 13.5 10H15.5C16.6046 10 17.5 10.8954 17.5 12M14.5 9V19" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Payroll</div></div></div>
+                      <div class="navbar08_icon-wrapper">
+                        <div class="icon-1x1-xsmall">
+                          <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.5 16C11.5 17.1046 12.3954 18 13.5 18H15.5C16.6046 18 17.5 17.1046 17.5 16C17.5 14.8954 16.6046 14 15.5 14H13.5C12.3954 14 11.5 13.1046 11.5 12C11.5 10.8954 12.3954 10 13.5 10H15.5C16.6046 10 17.5 10.8954 17.5 12M14.5 9V19" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                      </div>
+                      <div class="navbar08_item-right">
+                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Payroll</div></div>
+                      </div>
                     </a>
                     <a href="/product/payroll/prevailing-wages" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Prevailing Wages</div></div></div></a>
                     <a href="/product/payroll/certified-payroll" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Certified Payroll</div></div></div></a>
@@ -2720,41 +1428,62 @@ input[type="range"]::-webkit-slider-thumb:hover {
                     <a href="/product/payroll/tax-filing" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Tax Filing</div></div></div></a>
                     <a href="/product/payroll/expense-management" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Expense Management</div></div></div></a>
                   </div>
-                  <!-- HR -->
+
+                  <!-- HR Management column -->
                   <div class="navbar08_dropdown-link-list">
                     <a href="/product/hr" class="navbar08_dropdown-link">
-                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19 18.5V17.5C19 16.5681 18.3626 15.785 17.5 15.563M15.75 9.645C16.483 9.942 17 10.661 17 11.5C17 12.339 16.483 13.058 15.75 13.355M16.5 18.5C16.5 17.568 16.5 17.102 16.348 16.735C16.145 16.245 15.755 15.855 15.265 15.652C14.898 15.5 14.432 15.5 13.5 15.5H12C11.068 15.5 10.602 15.5 10.235 15.652C9.745 15.855 9.355 16.245 9.152 16.735C9 17.102 9 17.568 9 18.5M14.75 11.5C14.75 12.605 13.855 13.5 12.75 13.5C11.645 13.5 10.75 12.605 10.75 11.5C10.75 10.395 11.645 9.5 12.75 9.5C13.855 9.5 14.75 10.395 14.75 11.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">HR Management</div></div></div>
+                      <div class="navbar08_icon-wrapper">
+                        <div class="icon-1x1-xsmall">
+                          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19 18.5V17.5C19 16.5681 18.3626 15.785 17.5 15.563M15.75 9.64538C16.483 9.94207 17 10.6607 17 11.5C17 12.3393 16.483 13.0579 15.75 13.3546M16.5 18.5C16.5 17.5681 16.5 17.1022 16.3478 16.7346C16.1448 16.2446 15.7554 15.8552 15.2654 15.6522C14.8978 15.5 14.4319 15.5 13.5 15.5H12C11.0681 15.5 10.6022 15.5 10.2346 15.6522C9.74458 15.8552 9.35523 16.2446 9.15224 16.7346C9 17.1022 9 17.5681 9 18.5M14.75 11.5C14.75 12.6046 13.8546 13.5 12.75 13.5C11.6454 13.5 10.75 12.6046 10.75 11.5C10.75 10.3954 11.6454 9.5 12.75 9.5C13.8546 9.5 14.75 10.3954 14.75 11.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                      </div>
+                      <div class="navbar08_item-right">
+                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">HR Management</div></div>
+                      </div>
                     </a>
                     <a href="/product/hr/applicant-tracking-system" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Applicant Tracking System</div></div></div></a>
                     <a href="/product/hr/streamlined-onboarding" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Onboarding</div></div></div></a>
                     <a href="/product/hr/benefits" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Benefits Administration</div></div></div></a>
                     <a href="/product/hr/credential-management" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Credential Management</div></div></div></a>
                   </div>
-                  <!-- Productivity -->
+
+                  <!-- Productivity column -->
                   <div class="navbar08_dropdown-link-list">
                     <a href="/product/productivity" class="navbar08_dropdown-link">
-                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="29" height="28" viewBox="0 0 29 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19.85 13.75L18.85 14.75L17.85 13.75M18.972 14.5C18.99 14.336 19 14.169 19 14C19 11.515 16.985 9.5 14.5 9.5C12.015 9.5 10 11.515 10 14C10 16.485 12.015 18.5 14.5 18.5C15.914 18.5 17.175 17.848 18 16.829M14.5 11.5V14L16 15" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-                      <div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Productivity</div></div></div>
+                      <div class="navbar08_icon-wrapper">
+                        <div class="icon-1x1-xsmall">
+                          <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19.85 13.75L18.8503 14.75L17.85 13.75M18.9725 14.5C18.9907 14.3358 19 14.169 19 14C19 11.5147 16.9853 9.5 14.5 9.5C12.0147 9.5 10 11.5147 10 14C10 16.4853 12.0147 18.5 14.5 18.5C15.9136 18.5 17.175 17.8482 18 16.8287M14.5 11.5V14L16 15" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                      </div>
+                      <div class="navbar08_item-right">
+                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Productivity</div></div>
+                      </div>
                     </a>
                     <a href="/product/productivity/multi-time-capture-modes" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Time Tracking</div></div></div></a>
                     <a href="/product/productivity/productivity-tracking" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Productivity Tracking</div></div></div></a>
                     <a href="/product/productivity/form-builder" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Form Builder</div></div></div></a>
                     <a href="/product/productivity/gamification" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Recognition &amp; Award</div></div></div></a>
                   </div>
-                  <!-- AI Agents -->
+
+                  <!-- AI Agents column -->
                   <div class="navbar08_dropdown-link-list">
                     <a href="/ila" class="navbar08_dropdown-link">
-                      <div class="navbar08_icon-wrapper"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69b13b8a1d5a6470b80194c0_Sparkle%20AI%203.webp" loading="lazy" width="28" height="28" alt="" style="border-radius:50%;"/></div>
-                      <div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900 ai-grad">AI Agents</div></div></div>
+                      <div class="navbar08_icon-wrapper">
+                        <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69b13b8a1d5a6470b80194c0_Sparkle%20AI%203.webp" loading="lazy" width="28" height="28" alt="" style="border-radius:50%;"/>
+                      </div>
+                      <div class="navbar08_item-right">
+                        <div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900 ai-grad">AI Agents</div></div>
+                      </div>
                     </a>
                     <a href="/union-agent" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Union Agent</div></div></div></a>
                     <a href="/prevailing-wage-agent" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Prevailing Wage Agent</div></div></div></a>
                     <a href="/paper-timecard-agent" class="navbar08_dropdown-link sub-menu"><div class="navbar08_item-right"><div class="margin-bottom margin-tiny"><div class="text-weight-semibold text-color-gray900">Paper Timecard Agent</div></div></div></a>
                   </div>
-                </div>
+
+                </div><!-- end grid -->
+
                 <!-- Bottom strip -->
-                <div class="integrations-nav-grid">
+                <div class="integrations-nav-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid #F2F4F7;">
                   <a href="/lumbercare" class="integrations-nav-wrap">
                     <div class="integrations-nav-title">Prevailing Wage Compliance <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-7-7M19 12l-7 7" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <p class="menu-sub-text">Audit-proof your prevailing wage work with expert guidance, proactive compliance support.</p>
@@ -2769,309 +1498,199 @@ input[type="range"]::-webkit-slider-thumb:hover {
                   </a>
                 </div>
               </nav>
-            </div>
+            </div><!-- end Product -->
 
-            <!-- RESOURCES -->
+            <!-- ── RESOURCES ── -->
             <div class="desktop_menu-dropdown">
               <div class="desktop_dropdown-toggle">
-                <div class="dropdown-icon-6"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg></div>
+                <div class="dropdown-icon-6">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg>
+                </div>
                 <div>Resources</div>
               </div>
-              <nav class="toolkit-menu-list">
-                <div class="toolkit-menu-grid">
+
+              <nav class="toolkit-menu-list customon-ca">
+                <div class="toolkit-menu-grid customon-ca" style="display:grid;grid-template-columns:1fr 1fr 200px;gap:0;">
                   <div class="navbar08_dropdown-link-list" style="border-right:1px solid #F2F4F7;">
-                    <a href="/blog" class="toolkit-menu-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M15 13.5H12M13 15.5H12M16 11.5H12M18 13.25V11.4C18 10.56 18 10.14 17.837 9.819C17.693 9.537 17.463 9.307 17.181 9.163C16.86 9 16.44 9 15.6 9H12.4C11.56 9 11.14 9 10.819 9.163C10.537 9.307 10.307 9.537 10.164 9.819C10 10.14 10 10.56 10 11.4V16.6C10 17.44 10 17.86 10.164 18.181C10.307 18.463 10.537 18.693 10.819 18.837C11.14 19 11.56 19 12.4 19H13.75M19 19L18.25 18.25M18.75 17C18.75 17.966 17.966 18.75 17 18.75C16.034 18.75 15.25 17.966 15.25 17C15.25 16.034 16.034 15.25 17 15.25C17.966 15.25 18.75 16.034 18.75 17Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Blogs</div><div class="menu-sub-text">Dive into latest insights and industry trends</div></div></a>
-                    <a href="/expert-column-listing" class="toolkit-menu-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="29" viewBox="0 0 28 29" fill="none"><rect x="2" y="2.5" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2.5" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 13.5V16.506C10.5 16.685 10.5 16.775 10.527 16.854C10.551 16.924 10.591 16.988 10.643 17.041C10.701 17.101 10.782 17.141 10.942 17.221L13.642 18.571C13.773 18.637 13.839 18.67 13.908 18.682C13.969 18.694 14.031 18.694 14.092 18.682C14.161 18.67 14.227 18.637 14.358 18.571L17.058 17.221C17.218 17.141 17.299 17.101 17.357 17.041C17.409 16.988 17.449 16.924 17.473 16.854C17.5 16.775 17.5 16.685 17.5 16.506V13.5M9 12.75L13.821 10.34C13.887 10.307 13.92 10.29 13.954 10.284C13.984 10.278 14.016 10.278 14.046 10.284C14.08 10.29 14.113 10.307 14.179 10.34L19 12.75L14.179 15.161C14.113 15.193 14.08 15.21 14.046 15.216C14.016 15.222 13.984 15.222 13.954 15.216C13.92 15.21 13.887 15.193 13.821 15.161L9 12.75Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Expert Column</div><div class="menu-sub-text">Tips &amp; insights from industry experts</div></div></a>
-                    <a href="/webinars" class="toolkit-menu-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 10.494C10.5 10.008 10.5 9.765 10.601 9.632C10.689 9.515 10.824 9.443 10.97 9.434C11.138 9.424 11.34 9.559 11.744 9.828L17.001 13.333C17.335 13.556 17.502 13.667 17.561 13.807C17.611 13.93 17.611 14.068 17.561 14.191C17.502 14.331 17.335 14.442 17.001 14.665L11.744 18.17C11.34 18.439 11.138 18.574 10.97 18.564C10.824 18.555 10.689 18.483 10.601 18.366C10.5 18.233 10.5 17.99 10.5 17.504V10.494Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Webinars</div><div class="menu-sub-text">Live and on-demand learning from industry pros</div></div></a>
-                    <a href="/wiki" class="toolkit-menu-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.5 18.5L16.325 16.325M13.5 11C14.881 11 16 12.119 16 13.5M17.5 13.5C17.5 15.709 15.709 17.5 13.5 17.5C11.291 17.5 9.5 15.709 9.5 13.5C9.5 11.291 11.291 9.5 13.5 9.5C15.709 9.5 17.5 11.291 17.5 13.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Wiki</div><div class="menu-sub-text">Your go-to hub for construction compliance knowledge</div></div></a>
-                    <a href="/whitepapers" class="toolkit-menu-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M15 9.135V11.2C15 11.48 15 11.62 15.055 11.727C15.102 11.821 15.179 11.898 15.273 11.946C15.38 12 15.52 12 15.8 12H17.865M16 14.5H12M16 16.5H12M13 12.5H12M15 9H12.4C11.56 9 11.14 9 10.819 9.163C10.537 9.307 10.307 9.537 10.164 9.819C10 10.14 10 10.56 10 11.4V16.6C10 17.44 10 17.86 10.164 18.181C10.307 18.463 10.537 18.693 10.819 18.837C11.14 19 11.56 19 12.4 19H15.6C16.44 19 16.86 19 17.181 18.837C17.463 18.693 17.693 18.463 17.837 18.181C18 17.86 18 17.44 18 16.6V12L15 9Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Whitepapers</div><div class="menu-sub-text">Data-driven insights and expert analysis</div></div></a>
+                    <a href="/blog" class="toolkit-menu-link">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M15 13.5H12M13 15.5H12M16 11.5H12M18 13.25V11.4C18 10.5599 18 10.1399 17.8365 9.81901C17.6927 9.53677 17.4632 9.3073 17.181 9.16349C16.8601 9 16.4401 9 15.6 9H12.4C11.5599 9 11.1399 9 10.819 9.16349C10.5368 9.3073 10.3073 9.53677 10.1635 9.81901C10 10.1399 10 10.5599 10 11.4V16.6C10 17.4401 10 17.8601 10.1635 18.181C10.3073 18.4632 10.5368 18.6927 10.819 18.8365C11.1399 19 11.5599 19 12.4 19H13.75M19 19L18.25 18.25M18.75 17C18.75 17.9665 17.9665 18.75 17 18.75C16.0335 18.75 15.25 17.9665 15.25 17C15.25 16.0335 16.0335 15.25 17 15.25C17.9665 15.25 18.75 16.0335 18.75 17Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Blogs</div><div class="menu-sub-text">Dive into latest insights and industry trends</div></div>
+                    </a>
+                    <a href="/expert-column-listing" class="toolkit-menu-link">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="29" viewBox="0 0 28 29" fill="none"><rect x="2" y="2.5" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2.5" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 13.5V16.5056C10.5 16.6851 10.5 16.7748 10.5273 16.8541C10.5515 16.9241 10.5909 16.9879 10.6428 17.0409C10.7014 17.1007 10.7817 17.1409 10.9422 17.2211L13.6422 18.5711C13.7734 18.6367 13.839 18.6695 13.9078 18.6824C13.9687 18.6939 14.0313 18.6939 14.0922 18.6824C14.161 18.6695 14.2266 18.6367 14.3578 18.5711L17.0578 17.2211C17.2183 17.1409 17.2986 17.1007 17.3572 17.0409C17.4091 16.9879 17.4485 16.9241 17.4727 16.8541C17.5 16.7748 17.5 16.6851 17.5 16.5056V13.5M9 12.75L13.8211 10.3395C13.8867 10.3067 13.9195 10.2903 13.9539 10.2838C13.9844 10.2781 14.0156 10.2781 14.0461 10.2838C14.0805 10.2903 14.1133 10.3067 14.1789 10.3395L19 12.75L14.1789 15.1606C14.1133 15.1934 14.0805 15.2098 14.0461 15.2162C14.0156 15.222 13.9844 15.222 13.9539 15.2162C13.9195 15.2098 13.8867 15.1934 13.8211 15.1606L9 12.75Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Expert Column</div><div class="menu-sub-text">Tips &amp; insights from industry experts</div></div>
+                    </a>
+                    <a href="/webinars" class="toolkit-menu-link">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 10.4938C10.5 10.0082 10.5 9.76541 10.6012 9.63157C10.6894 9.51498 10.8243 9.44283 10.9702 9.43411C11.1377 9.42411 11.3397 9.55879 11.7438 9.82814L17.0015 13.3333C17.3354 13.5559 17.5023 13.6672 17.5605 13.8074C17.6113 13.9301 17.6113 14.0679 17.5605 14.1905C17.5023 14.3308 17.3354 14.442 17.0015 14.6646L11.7438 18.1698C11.3397 18.4391 11.1377 18.5738 10.9702 18.5638C10.8243 18.5551 10.6894 18.483 10.6012 18.3664C10.5 18.2325 10.5 17.9897 10.5 17.5042V10.4938Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Webinars</div><div class="menu-sub-text">Live and on-demand learning from industry pros</div></div>
+                    </a>
+                    <a href="/wiki" class="toolkit-menu-link">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.5 18.5L16.325 16.325M13.5 11C14.8807 11 16 12.1193 16 13.5M17.5 13.5C17.5 15.7091 15.7091 17.5 13.5 17.5C11.2909 17.5 9.5 15.7091 9.5 13.5C9.5 11.2909 11.2909 9.5 13.5 9.5C15.7091 9.5 17.5 11.2909 17.5 13.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Wiki</div><div class="menu-sub-text">Your go-to hub for construction compliance knowledge</div></div>
+                    </a>
+                    <a href="/whitepapers" class="toolkit-menu-link">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M15 9.13477V11.2C15 11.4801 15 11.6201 15.0545 11.727C15.1024 11.8211 15.1789 11.8976 15.273 11.9455C15.38 12 15.52 12 15.8 12H17.8653M16 14.5H12M16 16.5H12M13 12.5H12M15 9H12.4C11.5599 9 11.1399 9 10.819 9.16349C10.5368 9.3073 10.3073 9.53677 10.1635 9.81901C10 10.1399 10 10.5599 10 11.4V16.6C10 17.4401 10 17.8601 10.1635 18.181C10.3073 18.4632 10.5368 18.6927 10.819 18.8365C11.1399 19 11.5599 19 12.4 19H15.6C16.4401 19 16.8601 19 17.181 18.8365C17.4632 18.6927 17.6927 18.4632 17.8365 18.181C18 17.8601 18 17.4401 18 16.6V12L15 9Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Whitepapers</div><div class="menu-sub-text">Data-driven insights and expert analysis</div></div>
+                    </a>
                   </div>
                   <div class="navbar08_dropdown-link-list" style="border-right:1px solid #F2F4F7;">
-                    <a href="/reports-guides" class="toolkit-menu-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M14 18.5L13.95 18.425C13.603 17.904 13.429 17.644 13.2 17.455C12.996 17.288 12.762 17.163 12.511 17.086C12.227 17 11.914 17 11.287 17H10.6C10.04 17 9.76 17 9.546 16.891C9.358 16.795 9.205 16.642 9.109 16.454C9 16.24 9 15.96 9 15.4V11.1C9 10.54 9 10.26 9.109 10.046C9.205 9.858 9.358 9.705 9.546 9.609C9.76 9.5 10.04 9.5 10.6 9.5H10.8C11.92 9.5 12.48 9.5 12.908 9.718C13.284 9.91 13.59 10.216 13.782 10.592C14 11.02 14 11.58 14 12.7M14 18.5V12.7M14 18.5L14.05 18.425C14.397 17.904 14.571 17.644 14.8 17.455C15.004 17.288 15.238 17.163 15.489 17.086C15.773 17 16.086 17 16.713 17H17.4C17.96 17 18.24 17 18.454 16.891C18.642 16.795 18.795 16.642 18.891 16.454C19 16.24 19 15.96 19 15.4V11.1C19 10.54 19 10.26 18.891 10.046C18.795 9.858 18.642 9.705 18.454 9.609C18.24 9.5 17.96 9.5 17.4 9.5H17.2C16.08 9.5 15.52 9.5 15.092 9.718C14.716 9.91 14.41 10.216 14.218 10.592C14 11.02 14 11.58 14 12.7" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Reports &amp; Guides</div><div class="menu-sub-text">In-depth resources to power your construction success</div></div></a>
-                    <a href="/templates" class="toolkit-menu-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.576 13.45L14.068 17.958C13.043 18.983 11.381 18.983 10.356 17.958C9.331 16.932 9.331 15.27 10.356 14.245L14.864 9.737C15.547 9.054 16.655 9.054 17.339 9.737C18.022 10.421 18.022 11.529 17.339 12.212L13.008 16.543C12.666 16.885 12.112 16.885 11.77 16.543C11.429 16.202 11.429 15.648 11.77 15.306L15.571 11.505" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Templates</div><div class="menu-sub-text">Useful downloadable, free-to-use templates</div></div></a>
-                    <a href="/podcasts" class="toolkit-menu-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.5 17V14C18.5 11.515 16.485 9.5 14 9.5C11.515 9.5 9.5 11.515 9.5 14V17M10.75 18.5C10.06 18.5 9.5 17.94 9.5 17.25V16.25C9.5 15.56 10.06 15 10.75 15C11.44 15 12 15.56 12 16.25V17.25C12 17.94 11.44 18.5 10.75 18.5ZM17.25 18.5C16.56 18.5 16 17.94 16 17.25V16.25C16 15.56 16.56 15 17.25 15C17.94 15 18.5 15.56 18.5 16.25V17.25C18.5 17.94 17.94 18.5 17.25 18.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Podcasts</div><div class="menu-sub-text">Tune in to construction conversations that matter</div></div></a>
-                    <a href="/glossary" class="toolkit-menu-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 11.9C10.5 11.06 10.5 10.64 10.664 10.319C10.807 10.037 11.037 9.807 11.319 9.663C11.64 9.5 12.06 9.5 12.9 9.5H15.1C15.94 9.5 16.36 9.5 16.681 9.663C16.963 9.807 17.193 10.037 17.337 10.319C17.5 10.64 17.5 11.06 17.5 11.9V18.5L14 16.5L10.5 18.5V11.9Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Glossary</div><div class="menu-sub-text">Clear, concise definitions of 100+ construction terms</div></div></a>
+                    <a href="/reports-guides" class="toolkit-menu-link">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M14 18.5L13.95 18.425C13.6027 17.904 13.429 17.6435 13.1996 17.4549C12.9964 17.288 12.7624 17.1627 12.5108 17.0863C12.2266 17 11.9136 17 11.2874 17H10.6C10.0399 17 9.75992 17 9.54601 16.891C9.35785 16.7951 9.20487 16.6422 9.10899 16.454C9 16.2401 9 15.9601 9 15.4V11.1C9 10.5399 9 10.2599 9.10899 10.046C9.20487 9.85785 9.35785 9.70487 9.54601 9.60899C9.75992 9.5 10.0399 9.5 10.6 9.5H10.8C11.9201 9.5 12.4802 9.5 12.908 9.71799C13.2843 9.90973 13.5903 10.2157 13.782 10.592C14 11.0198 14 11.5799 14 12.7M14 18.5V12.7M14 18.5L14.05 18.425C14.3973 17.904 14.571 17.6435 14.8004 17.4549C15.0036 17.288 15.2376 17.1627 15.4892 17.0863C15.7734 17 16.0864 17 16.7126 17H17.4C17.9601 17 18.2401 17 18.454 16.891C18.6422 16.7951 18.7951 16.6422 18.891 16.454C19 16.2401 19 15.9601 19 15.4V11.1C19 10.5399 19 10.2599 18.891 10.046C18.7951 9.85785 18.6422 9.70487 18.454 9.60899C18.2401 9.5 17.9601 9.5 17.4 9.5H17.2C16.0799 9.5 15.5198 9.5 15.092 9.71799C14.7157 9.90973 14.4097 10.2157 14.218 10.592C14 11.0198 14 11.5799 14 12.7" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Reports &amp; Guides</div><div class="menu-sub-text">In-depth resources to power your construction success</div></div>
+                    </a>
+                    <a href="/templates" class="toolkit-menu-link">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.5762 13.4497L14.0684 17.9575C13.0433 18.9827 11.3813 18.9827 10.3561 17.9575C9.331 16.9324 9.331 15.2703 10.3561 14.2452L14.8639 9.73742C15.5473 9.054 16.6554 9.054 17.3388 9.73742C18.0222 10.4208 18.0222 11.5289 17.3388 12.2123L13.0078 16.5433C12.6661 16.885 12.112 16.885 11.7703 16.5433C11.4286 16.2016 11.4286 15.6476 11.7703 15.3059L15.571 11.5052" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Templates</div><div class="menu-sub-text">Useful downloadable, free-to-use templates</div></div>
+                    </a>
+                    <a href="/podcasts" class="toolkit-menu-link">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.5 17V14C18.5 11.5147 16.4853 9.5 14 9.5C11.5147 9.5 9.5 11.5147 9.5 14V17M10.75 18.5C10.0596 18.5 9.5 17.9404 9.5 17.25V16.25C9.5 15.5596 10.0596 15 10.75 15C11.4404 15 12 15.5596 12 16.25V17.25C12 17.9404 11.4404 18.5 10.75 18.5ZM17.25 18.5C16.5596 18.5 16 17.9404 16 17.25V16.25C16 15.5596 16.5596 15 17.25 15C17.9404 15 18.5 15.5596 18.5 16.25V17.25C18.5 17.9404 17.9404 18.5 17.25 18.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Podcasts</div><div class="menu-sub-text">Tune in to construction conversations that matter</div></div>
+                    </a>
+                    <a href="/glossary" class="toolkit-menu-link">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 11.9C10.5 11.0599 10.5 10.6399 10.6635 10.319C10.8073 10.0368 11.0368 9.8073 11.319 9.66349C11.6399 9.5 12.0599 9.5 12.9 9.5H15.1C15.9401 9.5 16.3601 9.5 16.681 9.66349C16.9632 9.8073 17.1927 10.0368 17.3365 10.319C17.5 10.6399 17.5 11.0599 17.5 11.9V18.5L14 16.5L10.5 18.5V11.9Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Glossary</div><div class="menu-sub-text">Clear, concise definitions of 100+ construction terms</div></div>
+                    </a>
                   </div>
                   <!-- AI Audit card -->
-                  <a href="/free-ai-audit-tool" class="nav-side-link-ai-banner dont-show-on-ca">
-                    <img class="ai-banner-img" loading="lazy" alt="Free AI Audit Tool" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66de000cfa9ffe6669635b8d_Image%20wrap.webp"/>
-                    <div class="ai-banner-body">
-                      <div class="ai-banner-title">Free AI Audit Tool</div>
-                      <div class="ai-banner-desc">Get your certified payroll report scanned for any compliance issues.</div>
-                      <div class="ai-banner-cta">View more <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-7-7M19 12l-7 7" stroke="#FF6F61" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <a href="/free-ai-audit-tool" class="nav-side-link-ai-banner dont-show-on-ca" style="display:flex;flex-direction:column;background:#0f1f38;border-radius:10px;overflow:hidden;text-decoration:none;margin-left:8px;">
+                    <img width="200" loading="lazy" alt="" src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66de000cfa9ffe6669635b8d_Image%20wrap.webp" style="width:100%;object-fit:cover;display:block;"/>
+                    <div style="padding:14px;display:flex;flex-direction:column;gap:10px;">
+                      <div style="font-size:14px;font-weight:700;color:#fff;">Free AI Audit Tool</div>
+                      <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.5;">Get your certified payroll report scanned for any compliance issues.</div>
+                      <div style="display:flex;align-items:center;gap:4px;color:#FF6F61;font-size:13px;font-weight:600;">View more <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M19 12l-7-7M19 12l-7 7" stroke="#FF6F61" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     </div>
                   </a>
                 </div>
               </nav>
-            </div>
+            </div><!-- end Resources -->
 
-            <!-- CUSTOMER SUCCESS -->
+            <!-- ── CUSTOMER SUCCESS ── -->
             <div class="desktop_menu-dropdown">
               <div class="desktop_dropdown-toggle">
-                <div class="dropdown-icon-6"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg></div>
+                <div class="dropdown-icon-6">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg>
+                </div>
                 <div>Customer Success</div>
               </div>
+
               <nav class="customer-list">
                 <div class="customer-menu-grid en-grid">
                   <div class="navbar08_dropdown-link-list en" style="border-right:1px solid #F2F4F7;padding-right:8px;">
                     <a href="/lumbercare" class="toolkit-menu-link en">
-                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11 18.044H12.305C12.475 18.044 12.644 18.064 12.809 18.104L14.188 18.439C14.488 18.512 14.799 18.519 15.102 18.461L16.627 18.164C17.029 18.086 17.4 17.893 17.69 17.61L18.769 16.561C19.077 16.262 19.077 15.776 18.769 15.477C18.492 15.207 18.052 15.176 17.739 15.405L16.481 16.322C16.301 16.454 16.082 16.525 15.857 16.525H14.643L15.416 16.525C15.851 16.525 16.204 16.182 16.204 15.758V15.605C16.204 15.253 15.958 14.946 15.607 14.861L14.414 14.571C14.22 14.524 14.021 14.5 13.822 14.5C13.339 14.5 12.466 14.899 12.466 14.899L11 15.512M9 15.3V18.2C9 18.48 9 18.62 9.055 18.727C9.102 18.821 9.179 18.898 9.273 18.945C9.38 19 9.52 19 9.8 19H10.2C10.48 19 10.62 19 10.727 18.946C10.821 18.898 10.898 18.821 10.946 18.727C11 18.62 11 18.48 11 18.2V15.3C11 15.02 11 14.88 10.946 14.773C10.898 14.679 10.821 14.602 10.727 14.554C10.62 14.5 10.48 14.5 10.2 14.5H9.8C9.52 14.5 9.38 14.5 9.273 14.554C9.179 14.602 9.102 14.679 9.055 14.773C9 14.88 9 15.02 9 15.3ZM16.596 9.796C16.297 9.172 15.609 8.841 14.94 9.16C14.271 9.479 13.986 10.237 14.266 10.901C14.439 11.312 14.935 12.11 15.289 12.66C15.42 12.863 15.485 12.964 15.581 13.023C15.662 13.074 15.765 13.102 15.861 13.099C15.974 13.095 16.081 13.04 16.296 12.929C16.877 12.63 17.705 12.187 18.06 11.918C18.635 11.482 18.778 10.682 18.347 10.073C17.917 9.464 17.166 9.405 16.596 9.796Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11 18.0435H12.3051C12.4753 18.0435 12.6444 18.0638 12.8094 18.1043L14.1884 18.4394C14.4877 18.5123 14.7994 18.5194 15.1017 18.4606L16.6265 18.164C17.0293 18.0855 17.3998 17.8927 17.6902 17.6102L18.7689 16.5608C19.077 16.2616 19.077 15.7762 18.7689 15.4765C18.4916 15.2067 18.0524 15.1763 17.7386 15.4051L16.4813 16.3224C16.3012 16.454 16.0822 16.5249 15.8568 16.5249H14.6427L15.4155 16.5248C15.8511 16.5248 16.2039 16.1816 16.2039 15.7579V15.6045C16.2039 15.2527 15.9578 14.9459 15.607 14.8609L14.4143 14.5708C14.2202 14.5237 14.0214 14.4999 13.8216 14.4999C13.3392 14.4999 12.4659 14.8994 12.4659 14.8994L11 15.5124M9 15.2999L9 18.1999C9 18.48 9 18.62 9.0545 18.7269C9.10243 18.821 9.17892 18.8975 9.273 18.9454C9.37996 18.9999 9.51997 18.9999 9.8 18.9999H10.2C10.48 18.9999 10.62 18.9999 10.727 18.9455C10.8211 18.8975 10.8976 18.821 10.9455 18.7269C11 18.62 11 18.48 11 18.1999V15.2999C11 15.0199 11 14.8799 10.9455 14.773C10.8976 14.6789 10.8211 14.6024 10.727 14.5544C10.62 14.4999 10.48 14.4999 10.2 14.4999H9.8C9.51997 14.4999 9.37996 14.4999 9.273 14.5544C9.17892 14.6024 9.10243 14.6789 9.0545 14.773C9 14.8799 9 15.0199 9 15.2999ZM16.5957 9.79607C16.2973 9.17165 15.6093 8.84084 14.9402 9.16013C14.2711 9.47943 13.9861 10.2366 14.2662 10.9014C14.4394 11.3122 14.9354 12.1099 15.289 12.6595C15.4197 12.8625 15.4851 12.964 15.5805 13.0234C15.6624 13.0744 15.7648 13.1018 15.8612 13.0986C15.9735 13.0949 16.0809 13.0397 16.2956 12.9292C16.8766 12.6301 17.7051 12.1872 18.0604 11.918C18.6354 11.4824 18.7778 10.6817 18.3473 10.0731C17.9169 9.4644 17.1663 9.40451 16.5957 9.79607Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
                       <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">LumberCare</div><div class="menu-sub-text max-wd-350">Tailored, expert support for your operational needs</div></div>
                     </a>
                   </div>
                   <div class="navbar08_dropdown-link-list">
                     <a href="/case-studies" class="toolkit-menu-link">
-                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M12.75 19H15.25M15.5 15.663C16.683 15.102 17.5 13.896 17.5 12.5C17.5 10.567 15.933 9 14 9C12.067 9 10.5 10.567 10.5 12.5C10.5 13.896 11.318 15.102 12.5 15.663V16C12.5 16.466 12.5 16.699 12.576 16.883C12.678 17.128 12.872 17.322 13.117 17.424C13.301 17.5 13.534 17.5 14 17.5C14.466 17.5 14.699 17.5 14.883 17.424C15.128 17.322 15.322 17.128 15.424 16.883C15.5 16.699 15.5 16.466 15.5 16V15.663Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M12.75 19H15.25M15.5 15.6632C16.6825 15.1015 17.5 13.8962 17.5 12.5C17.5 10.567 15.933 9 14 9C12.067 9 10.5 10.567 10.5 12.5C10.5 13.8962 11.3175 15.1015 12.5 15.6632V16C12.5 16.4659 12.5 16.6989 12.5761 16.8827C12.6776 17.1277 12.8723 17.3224 13.1173 17.4239C13.3011 17.5 13.5341 17.5 14 17.5C14.4659 17.5 14.6989 17.5 14.8827 17.4239C15.1277 17.3224 15.3224 17.1277 15.4239 16.8827C15.5 16.6989 15.5 16.4659 15.5 16V15.6632Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
                       <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Case Studies</div><div class="menu-sub-text">How Lumber has transformed construction companies</div></div>
                     </a>
                   </div>
                 </div>
               </nav>
-            </div>
+            </div><!-- end Customer Success -->
 
-            <!-- COMPANY -->
+            <!-- ── COMPANY ── -->
             <div class="desktop_menu-dropdown">
               <div class="desktop_dropdown-toggle">
-                <div class="dropdown-icon-6"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg></div>
+                <div class="dropdown-icon-6">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg>
+                </div>
                 <div>Company</div>
               </div>
+
               <nav class="company-menu-list">
                 <div class="company-menu-grid">
                   <div class="navbar08_dropdown-link-list nav-11" style="border-right:1px solid #F2F4F7;">
-                    <a href="/about" class="toolkit-menu-link company-nav"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.75 13.5H10.3C10.02 13.5 9.88 13.5 9.773 13.555C9.679 13.602 9.602 13.679 9.555 13.773C9.5 13.88 9.5 14.02 9.5 14.3V18.5M16.25 13.5H17.7C17.98 13.5 18.12 13.5 18.227 13.555C18.321 13.602 18.398 13.679 18.446 13.773C18.5 13.88 18.5 14.02 18.5 14.3V18.5M16.25 18.5V11.1C16.25 10.54 16.25 10.26 16.141 10.046C16.045 9.858 15.892 9.705 15.704 9.609C15.49 9.5 15.21 9.5 14.65 9.5H13.35C12.79 9.5 12.51 9.5 12.296 9.609C12.108 9.705 11.955 9.858 11.859 10.046C11.75 10.26 11.75 10.54 11.75 11.1V18.5M19 18.5H9M13.5 11.5H14.5M13.5 13.5H14.5M13.5 15.5H14.5" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">About Lumber</div><div class="menu-sub-text">Discover the team and vision behind Lumber</div></div></a>
-                    <a href="/newsroom" class="toolkit-menu-link company-nav"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10 15L10.787 18.149C10.81 18.238 10.821 18.282 10.834 18.321C10.962 18.699 11.302 18.964 11.699 18.997C11.74 19 11.786 19 11.877 19C11.991 19 12.048 19 12.097 18.995C12.573 18.949 12.949 18.573 12.995 18.097C13 18.048 13 17.991 13 17.877V10.75M17.25 14.75C18.217 14.75 19 13.967 19 13C19 12.034 18.217 11.25 17.25 11.25M13.125 10.75H11.25C10.007 10.75 9 11.757 9 13C9 14.243 10.007 15.25 11.25 15.25H13.125C14.008 15.25 15.089 15.723 15.922 16.178C16.408 16.443 16.652 16.575 16.811 16.556C16.958 16.538 17.07 16.472 17.157 16.351C17.25 16.22 17.25 15.959 17.25 15.437V10.563C17.25 10.041 17.25 9.78 17.157 9.649C17.07 9.528 16.958 9.462 16.811 9.444C16.652 9.425 16.408 9.557 15.922 9.822C15.089 10.277 14.008 10.75 13.125 10.75Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Newsroom</div><div class="menu-sub-text">Catch the latest buzz and breakthroughs from Lumber</div></div></a>
+                    <a href="/about" class="toolkit-menu-link company-nav">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.75 13.5H10.3C10.02 13.5 9.87996 13.5 9.773 13.5545C9.67892 13.6024 9.60243 13.6789 9.5545 13.773C9.5 13.88 9.5 14.02 9.5 14.3V18.5M16.25 13.5H17.7C17.98 13.5 18.12 13.5 18.227 13.5545C18.3211 13.6024 18.3976 13.6789 18.4455 13.773C18.5 13.88 18.5 14.02 18.5 14.3V18.5M16.25 18.5V11.1C16.25 10.5399 16.25 10.2599 16.141 10.046C16.0451 9.85785 15.8922 9.70487 15.704 9.60899C15.4901 9.5 15.2101 9.5 14.65 9.5H13.35C12.7899 9.5 12.5099 9.5 12.296 9.60899C12.1078 9.70487 11.9549 9.85785 11.859 10.046C11.75 10.2599 11.75 10.5399 11.75 11.1V18.5M19 18.5H9M13.5 11.5H14.5M13.5 13.5H14.5M13.5 15.5H14.5" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">About Lumber</div><div class="menu-sub-text">Discover the team and vision behind Lumber</div></div>
+                    </a>
+                    <a href="/newsroom" class="toolkit-menu-link company-nav">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10 15L10.7873 18.1492C10.8095 18.2378 10.8205 18.2821 10.8336 18.3208C10.9616 18.6985 11.3018 18.9641 11.6993 18.9966C11.74 19 11.7856 19 11.8769 19C11.9912 19 12.0484 19 12.0965 18.9953C12.5725 18.9491 12.9492 18.5725 12.9953 18.0965C13 18.0483 13 17.9912 13 17.8769V10.75M17.25 14.75C18.2165 14.75 19 13.9665 19 13C19 12.0335 18.2165 11.25 17.25 11.25M13.125 10.75H11.25C10.0074 10.75 9 11.7573 9 13C9 14.2426 10.0074 15.25 11.25 15.25H13.125C14.0082 15.25 15.0886 15.7234 15.9221 16.1778C16.4084 16.4429 16.6515 16.5754 16.8108 16.5559C16.9584 16.5378 17.0701 16.4715 17.1567 16.3505C17.25 16.22 17.25 15.959 17.25 15.4368V10.5631C17.25 10.041 17.25 9.77988 17.1567 9.6494C17.0701 9.52841 16.9584 9.46211 16.8108 9.44402C16.6515 9.42452 16.4084 9.55706 15.9221 9.82213C15.0886 10.2765 14.0082 10.75 13.125 10.75Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Newsroom</div><div class="menu-sub-text">Catch the latest buzz and breakthroughs from Lumber</div></div>
+                    </a>
                   </div>
                   <div class="navbar08_dropdown-link-list" style="border-right:1px solid #F2F4F7;">
-                    <a href="/partnerships" class="toolkit-menu-link company-nav"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M13 14.5C13.215 14.787 13.489 15.025 13.803 15.197C14.118 15.368 14.466 15.471 14.823 15.496C15.181 15.522 15.54 15.47 15.876 15.345C16.212 15.22 16.517 15.024 16.77 14.77L18.27 13.27C18.726 12.799 18.978 12.167 18.972 11.512C18.966 10.856 18.703 10.229 18.24 9.765C17.776 9.302 17.149 9.039 16.494 9.033C15.838 9.028 15.207 9.28 14.735 9.735L13.875 10.59M15 13.5C14.785 13.213 14.511 12.975 14.197 12.804C13.882 12.632 13.534 12.529 13.177 12.504C12.819 12.478 12.46 12.53 12.124 12.655C11.789 12.78 11.484 12.976 11.23 13.23L9.73 14.73C9.275 15.202 9.023 15.833 9.028 16.489C9.034 17.144 9.297 17.771 9.761 18.235C10.224 18.698 10.851 18.961 11.507 18.967C12.162 18.973 12.794 18.72 13.265 18.265L14.12 17.41" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Partners</div><div class="menu-sub-text">Collaborating with the best to drive industry excellence</div></div></a>
-                    <a href="/associations" class="toolkit-menu-link company-nav"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M13 14.5C13.215 14.787 13.489 15.025 13.803 15.197C14.118 15.368 14.466 15.471 14.823 15.496C15.181 15.522 15.54 15.47 15.876 15.345C16.212 15.22 16.517 15.024 16.77 14.77L18.27 13.27C18.726 12.799 18.978 12.167 18.972 11.512C18.966 10.856 18.703 10.229 18.24 9.765C17.776 9.302 17.149 9.039 16.494 9.033C15.838 9.028 15.207 9.28 14.735 9.735L13.875 10.59M15 13.5C14.785 13.213 14.511 12.975 14.197 12.804C13.882 12.632 13.534 12.529 13.177 12.504C12.819 12.478 12.46 12.53 12.124 12.655C11.789 12.78 11.484 12.976 11.23 13.23L9.73 14.73C9.275 15.202 9.023 15.833 9.028 16.489C9.034 17.144 9.297 17.771 9.761 18.235C10.224 18.698 10.851 18.961 11.507 18.967C12.162 18.973 12.794 18.72 13.265 18.265L14.12 17.41" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Associations</div><div class="menu-sub-text">Proudly connected to leading industry associations</div></div></a>
+                    <a href="/partnerships" class="toolkit-menu-link company-nav">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M13.0001 14.5C13.2148 14.787 13.4888 15.0246 13.8034 15.1965C14.118 15.3683 14.4659 15.4705 14.8234 15.4961C15.181 15.5218 15.5399 15.4702 15.8758 15.3449C16.2117 15.2196 16.5167 15.0235 16.7701 14.77L18.2701 13.27C18.7255 12.7985 18.9775 12.167 18.9718 11.5115C18.9661 10.856 18.7032 10.229 18.2396 9.76544C17.7761 9.30192 17.1491 9.03899 16.4936 9.0333C15.8381 9.0276 15.2066 9.27959 14.7351 9.73498L13.8751 10.59M15.0001 13.5C14.7854 13.2129 14.5114 12.9754 14.1968 12.8035C13.8822 12.6316 13.5343 12.5294 13.1768 12.5038C12.8192 12.4782 12.4603 12.5298 12.1244 12.6551C11.7885 12.7804 11.4835 12.9764 11.2301 13.23L9.7301 14.73C9.2747 15.2015 9.02272 15.833 9.02841 16.4885C9.03411 17.144 9.29703 17.771 9.76055 18.2345C10.2241 18.698 10.8511 18.961 11.5066 18.9667C12.1621 18.9724 12.7936 18.7204 13.2651 18.265L14.1201 17.41" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Partners</div><div class="menu-sub-text">Collaborating with the best to drive industry excellence</div></div>
+                    </a>
+                    <a href="/associations" class="toolkit-menu-link company-nav">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M13.0001 14.5C13.2148 14.787 13.4888 15.0246 13.8034 15.1965C14.118 15.3683 14.4659 15.4705 14.8234 15.4961C15.181 15.5218 15.5399 15.4702 15.8758 15.3449C16.2117 15.2196 16.5167 15.0235 16.7701 14.77L18.2701 13.27C18.7255 12.7985 18.9775 12.167 18.9718 11.5115C18.9661 10.856 18.7032 10.229 18.2396 9.76544C17.7761 9.30192 17.1491 9.03899 16.4936 9.0333C15.8381 9.0276 15.2066 9.27959 14.7351 9.73498L13.8751 10.59M15.0001 13.5C14.7854 13.2129 14.5114 12.9754 14.1968 12.8035C13.8822 12.6316 13.5343 12.5294 13.1768 12.5038C12.8192 12.4782 12.4603 12.5298 12.1244 12.6551C11.7885 12.7804 11.4835 12.9764 11.2301 13.23L9.7301 14.73C9.2747 15.2015 9.02272 15.833 9.02841 16.4885C9.03411 17.144 9.29703 17.771 9.76055 18.2345C10.2241 18.698 10.8511 18.961 11.5066 18.9667C12.1621 18.9724 12.7936 18.7204 13.2651 18.265L14.1201 17.41" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Associations</div><div class="menu-sub-text">Proudly connected to leading industry associations</div></div>
+                    </a>
                   </div>
                   <div class="navbar08_dropdown-link-list">
-                    <a href="/careers" class="toolkit-menu-link company-nav"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M12 18.5V11.5C12 11.035 12 10.803 12.051 10.612C12.19 10.094 12.594 9.69 13.112 9.551C13.303 9.5 13.535 9.5 14 9.5C14.465 9.5 14.698 9.5 14.888 9.551C15.406 9.69 15.81 10.094 15.949 10.612C16 10.803 16 11.035 16 11.5V18.5M10.6 18.5H17.4C17.96 18.5 18.24 18.5 18.454 18.391C18.642 18.295 18.795 18.142 18.891 17.954C19 17.74 19 17.46 19 16.9V13.1C19 12.54 19 12.26 18.891 12.046C18.795 11.858 18.642 11.705 18.454 11.609C18.24 11.5 17.96 11.5 17.4 11.5H10.6C10.04 11.5 9.76 11.5 9.546 11.609C9.358 11.705 9.205 11.858 9.109 12.046C9 12.26 9 12.54 9 13.1V16.9C9 17.46 9 17.74 9.109 17.954C9.205 18.142 9.358 18.295 9.546 18.391C9.76 18.5 10.04 18.5 10.6 18.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Careers</div><div class="menu-sub-text">Join the Lumber team</div></div></a>
-                    <a href="/construction-industry-events" class="toolkit-menu-link company-nav"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M16 9V11M12 9V11M9.5 13H18.5M10.5 10H17.5C18.052 10 18.5 10.448 18.5 11V18C18.5 18.552 18.052 19 17.5 19H10.5C9.948 19 9.5 18.552 9.5 18V11C9.5 10.448 9.948 10 10.5 10Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Events</div><div class="menu-sub-text">Meet our Lumberjacks</div></div></a>
+                    <a href="/careers" class="toolkit-menu-link company-nav">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M12 18.5V11.5C12 11.035 12 10.8025 12.0511 10.6118C12.1898 10.0941 12.5941 9.68981 13.1118 9.55111C13.3025 9.5 13.535 9.5 14 9.5C14.465 9.5 14.6975 9.5 14.8882 9.55111C15.4059 9.68981 15.8102 10.0941 15.9489 10.6118C16 10.8025 16 11.035 16 11.5V18.5M10.6 18.5H17.4C17.9601 18.5 18.2401 18.5 18.454 18.391C18.6422 18.2951 18.7951 18.1422 18.891 17.954C19 17.7401 19 17.4601 19 16.9V13.1C19 12.5399 19 12.2599 18.891 12.046C18.7951 11.8578 18.6422 11.7049 18.454 11.609C18.2401 11.5 17.9601 11.5 17.4 11.5H10.6C10.0399 11.5 9.75992 11.5 9.54601 11.609C9.35785 11.7049 9.20487 11.8578 9.10899 12.046C9 12.2599 9 12.5399 9 13.1V16.9C9 17.4601 9 17.7401 9.10899 17.954C9.20487 18.1422 9.35785 18.2951 9.54601 18.391C9.75992 18.5 10.0399 18.5 10.6 18.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Careers</div><div class="menu-sub-text">Join the Lumber team</div></div>
+                    </a>
+                    <a href="/construction-industry-events" class="toolkit-menu-link company-nav">
+                      <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M16 9V11M12 9V11M9.5 13H18.5M10.5 10H17.5C18.0523 10 18.5 10.4477 18.5 11V18C18.5 18.5523 18.0523 19 17.5 19H10.5C9.94772 19 9.5 18.5523 9.5 18V11C9.5 10.4477 9.94772 10 10.5 10Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                      <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900">Events</div><div class="menu-sub-text">Meet our Lumberjacks</div></div>
+                    </a>
                   </div>
                 </div>
               </nav>
-            </div>
+            </div><!-- end Company -->
 
+            <!-- Contact -->
             <a href="/contact-us" class="nav-contact mobile-nav">Contact</a>
-          </div>
 
-          <!-- Desktop right CTAs -->
-          <div class="nav-cta-wrapper">
-            <div class="navbar11_menu-buttons">
+          </div><!-- end nav-wrapper-main -->
+
+          <!-- Right CTA area -->
+          <div class="nav-cta-wrapper new-center">
+            <div class="navbar11_menu-buttons change-in-mob">
               <a href="/demo-sign-up" class="button is-primary no-px n">Book a demo</a>
             </div>
-            <a href="https://timesheet.lumberfi.com/" target="_blank" class="nav-contact">App Login</a>
+            <a href="https://timesheet.lumberfi.com/" target="_blank" class="nav-contact change-in-mob">App Login</a>
+
+            <!-- Locale switcher -->
             <div class="localiztion-wrapper">
               <div class="localiztion-dropdown">
                 <div class="localiztion-toggle">
-                  <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" loading="lazy" width="70" alt="US flag" class="localiztion-current-flag"/>
+                  <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" loading="lazy" width="70" alt="" class="localiztion-current-flag"/>
                   <div class="us-localiztion">US</div>
-                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#344054" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#344054" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
                 <nav class="localiztion-nav">
                   <ul class="localiztion-list">
-                    <li class="locale-2"><a hreflang="en" href="/" class="locale-link_new"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" loading="lazy" width="70" alt="" class="localiztion-flag"/><div>United States (US)</div></a></li>
-                    <li class="locale-2"><a hreflang="en-CA" href="/ca" class="locale-link_new"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b3bcf47d76c7ffd6920_Canada.webp" loading="lazy" width="70" alt="" class="localiztion-flag"/><div>Canada (CA)</div></a></li>
+                    <li class="locale-2 w-locales-item">
+                      <a hreflang="en" href="/" class="locale-link_new">
+                        <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" loading="lazy" width="70" alt="" class="localiztion-flag"/>
+                        <div>United States (US)</div>
+                      </a>
+                    </li>
+                    <li class="locale-2 w-locales-item">
+                      <a hreflang="en-CA" href="/ca" class="locale-link_new">
+                        <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b3bcf47d76c7ffd6920_Canada.webp" loading="lazy" width="70" alt="" class="localiztion-flag"/>
+                        <div>Canada (CA)</div>
+                      </a>
+                    </li>
                   </ul>
                 </nav>
               </div>
             </div>
-          </div>
+
+          </div><!-- end nav-cta-wrapper -->
         </nav>
 
-        <!-- Hamburger button (mobile only) -->
-        <button class="navbar1_menu-button" id="mobileMenuBtn" aria-label="Open menu">
+        <!-- Mobile hamburger -->
+        <div class="navbar1_menu-button">
           <div class="menu-icon1">
-            <span class="menu-icon1_line-top-4"></span>
-            <span class="menu-icon1_line-middle-3"></span>
-            <span class="menu-icon1_line-bottom-3"></span>
+            <div class="menu-icon1_line-top-4"></div>
+            <div class="menu-icon1_line-middle-3"><div class="menu-icon_line-middle-inner"></div></div>
+            <div class="menu-icon1_line-bottom-3"></div>
           </div>
-        </button>
+        </div>
 
-      </div>
-    </div>
-  </div>
+      </div><!-- end container -->
+    </div><!-- end navbar11_component -->
+  </div><!-- end nav-wrap-desktop -->
 </header>
-
-<!-- ══════════════════════════════════════════════════════════
-     MOBILE FULL-SCREEN OVERLAY MENU
-     ══════════════════════════════════════════════════════════ -->
-<div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
-
-  <!-- Header: logo + close -->
-  <div class="mobile-nav-header">
-    <a href="/" class="mobile-nav-logo">
-      <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/66f172583eca55ff6c30eb29_Lumber-Logo.webp" alt="Lumber" width="120"/>
-    </a>
-    <button class="mobile-nav-close" id="mobileMenuClose" aria-label="Close menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M18 6L6 18M6 6l12 12" stroke="#344054" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Accordion body -->
-  <div class="mobile-nav-body">
-
-    <!-- PRODUCT accordion -->
-    <div class="mob-acc-item">
-      <button class="mob-acc-trigger" data-target="mob-product">
-        Product
-        <span class="mob-acc-chevron"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#344054" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="mob-acc-panel" id="mob-product">
-        <div class="mob-sub-section">
-          <div class="mob-sub-heading">Payroll</div>
-          <a href="/product/payroll/prevailing-wages" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.5 16C11.5 17.1046 12.3954 18 13.5 18H15.5C16.6046 18 17.5 17.1046 17.5 16C17.5 14.8954 16.6046 14 15.5 14H13.5C12.3954 14 11.5 13.1046 11.5 12C11.5 10.8954 12.3954 10 13.5 10H15.5C16.6046 10 17.5 10.8954 17.5 12M14.5 9V19" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Prevailing Wages</span></div>
-          </a>
-          <a href="/product/payroll/certified-payroll" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.5 16C11.5 17.1046 12.3954 18 13.5 18H15.5C16.6046 18 17.5 17.1046 17.5 16C17.5 14.8954 16.6046 14 15.5 14H13.5C12.3954 14 11.5 13.1046 11.5 12C11.5 10.8954 12.3954 10 13.5 10H15.5C16.6046 10 17.5 10.8954 17.5 12M14.5 9V19" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Certified Payroll</span></div>
-          </a>
-          <a href="/product/payroll/union-configuration" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.5 16C11.5 17.1046 12.3954 18 13.5 18H15.5C16.6046 18 17.5 17.1046 17.5 16C17.5 14.8954 16.6046 14 15.5 14H13.5C12.3954 14 11.5 13.1046 11.5 12C11.5 10.8954 12.3954 10 13.5 10H15.5C16.6046 10 17.5 10.8954 17.5 12M14.5 9V19" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Union Reporting</span></div>
-          </a>
-          <a href="/product/payroll/worker-compensation" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.5 16C11.5 17.1046 12.3954 18 13.5 18H15.5C16.6046 18 17.5 17.1046 17.5 16C17.5 14.8954 16.6046 14 15.5 14H13.5C12.3954 14 11.5 13.1046 11.5 12C11.5 10.8954 12.3954 10 13.5 10H15.5C16.6046 10 17.5 10.8954 17.5 12M14.5 9V19" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Worker Compensation</span></div>
-          </a>
-          <a href="/product/payroll/tax-filing" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.5 16C11.5 17.1046 12.3954 18 13.5 18H15.5C16.6046 18 17.5 17.1046 17.5 16C17.5 14.8954 16.6046 14 15.5 14H13.5C12.3954 14 11.5 13.1046 11.5 12C11.5 10.8954 12.3954 10 13.5 10H15.5C16.6046 10 17.5 10.8954 17.5 12M14.5 9V19" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Tax Filing</span></div>
-          </a>
-          <a href="/product/payroll/expense-management" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.5 16C11.5 17.1046 12.3954 18 13.5 18H15.5C16.6046 18 17.5 17.1046 17.5 16C17.5 14.8954 16.6046 14 15.5 14H13.5C12.3954 14 11.5 13.1046 11.5 12C11.5 10.8954 12.3954 10 13.5 10H15.5C16.6046 10 17.5 10.8954 17.5 12M14.5 9V19" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Expense Management</span></div>
-          </a>
-        </div>
-        <div class="mob-sub-section">
-          <div class="mob-sub-heading">HR Management</div>
-          <a href="/product/hr/applicant-tracking-system" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19 18.5V17.5C19 16.568 18.363 15.785 17.5 15.563M15.75 9.645C16.483 9.942 17 10.661 17 11.5C17 12.339 16.483 13.058 15.75 13.355M16.5 18.5C16.5 17.568 16.5 17.102 16.348 16.735C16.145 16.245 15.755 15.855 15.265 15.652C14.898 15.5 14.432 15.5 13.5 15.5H12C11.068 15.5 10.602 15.5 10.235 15.652C9.745 15.855 9.355 16.245 9.152 16.735C9 17.102 9 17.568 9 18.5M14.75 11.5C14.75 12.605 13.855 13.5 12.75 13.5C11.645 13.5 10.75 12.605 10.75 11.5C10.75 10.395 11.645 9.5 12.75 9.5C13.855 9.5 14.75 10.395 14.75 11.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Applicant Tracking</span></div>
-          </a>
-          <a href="/product/hr/streamlined-onboarding" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19 18.5V17.5C19 16.568 18.363 15.785 17.5 15.563M15.75 9.645C16.483 9.942 17 10.661 17 11.5C17 12.339 16.483 13.058 15.75 13.355M16.5 18.5C16.5 17.568 16.5 17.102 16.348 16.735C16.145 16.245 15.755 15.855 15.265 15.652C14.898 15.5 14.432 15.5 13.5 15.5H12C11.068 15.5 10.602 15.5 10.235 15.652C9.745 15.855 9.355 16.245 9.152 16.735C9 17.102 9 17.568 9 18.5M14.75 11.5C14.75 12.605 13.855 13.5 12.75 13.5C11.645 13.5 10.75 12.605 10.75 11.5C10.75 10.395 11.645 9.5 12.75 9.5C13.855 9.5 14.75 10.395 14.75 11.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Onboarding</span></div>
-          </a>
-          <a href="/product/hr/benefits" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19 18.5V17.5C19 16.568 18.363 15.785 17.5 15.563M15.75 9.645C16.483 9.942 17 10.661 17 11.5C17 12.339 16.483 13.058 15.75 13.355M16.5 18.5C16.5 17.568 16.5 17.102 16.348 16.735C16.145 16.245 15.755 15.855 15.265 15.652C14.898 15.5 14.432 15.5 13.5 15.5H12C11.068 15.5 10.602 15.5 10.235 15.652C9.745 15.855 9.355 16.245 9.152 16.735C9 17.102 9 17.568 9 18.5M14.75 11.5C14.75 12.605 13.855 13.5 12.75 13.5C11.645 13.5 10.75 12.605 10.75 11.5C10.75 10.395 11.645 9.5 12.75 9.5C13.855 9.5 14.75 10.395 14.75 11.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Benefits Administration</span></div>
-          </a>
-          <a href="/product/hr/credential-management" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19 18.5V17.5C19 16.568 18.363 15.785 17.5 15.563M15.75 9.645C16.483 9.942 17 10.661 17 11.5C17 12.339 16.483 13.058 15.75 13.355M16.5 18.5C16.5 17.568 16.5 17.102 16.348 16.735C16.145 16.245 15.755 15.855 15.265 15.652C14.898 15.5 14.432 15.5 13.5 15.5H12C11.068 15.5 10.602 15.5 10.235 15.652C9.745 15.855 9.355 16.245 9.152 16.735C9 17.102 9 17.568 9 18.5M14.75 11.5C14.75 12.605 13.855 13.5 12.75 13.5C11.645 13.5 10.75 12.605 10.75 11.5C10.75 10.395 11.645 9.5 12.75 9.5C13.855 9.5 14.75 10.395 14.75 11.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Credential Management</span></div>
-          </a>
-        </div>
-        <div class="mob-sub-section">
-          <div class="mob-sub-heading">Productivity</div>
-          <a href="/product/productivity/multi-time-capture-modes" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19.85 13.75L18.85 14.75L17.85 13.75M18.972 14.5C18.99 14.336 19 14.169 19 14C19 11.515 16.985 9.5 14.5 9.5C12.015 9.5 10 11.515 10 14C10 16.485 12.015 18.5 14.5 18.5C15.914 18.5 17.175 17.848 18 16.829M14.5 11.5V14L16 15" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Time Tracking</span></div>
-          </a>
-          <a href="/product/productivity/form-builder" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19.85 13.75L18.85 14.75L17.85 13.75M18.972 14.5C18.99 14.336 19 14.169 19 14C19 11.515 16.985 9.5 14.5 9.5C12.015 9.5 10 11.515 10 14C10 16.485 12.015 18.5 14.5 18.5C15.914 18.5 17.175 17.848 18 16.829M14.5 11.5V14L16 15" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Form Builder</span></div>
-          </a>
-          <a href="/product/productivity/gamification" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2.5" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2.5" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M19.85 13.75L18.85 14.75L17.85 13.75M18.972 14.5C18.99 14.336 19 14.169 19 14C19 11.515 16.985 9.5 14.5 9.5C12.015 9.5 10 11.515 10 14C10 16.485 12.015 18.5 14.5 18.5C15.914 18.5 17.175 17.848 18 16.829M14.5 11.5V14L16 15" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title">Recognition &amp; Award</span></div>
-          </a>
-        </div>
-        <div class="mob-sub-section">
-          <div class="mob-sub-heading">AI Agents</div>
-          <a href="/union-agent" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69b13b8a1d5a6470b80194c0_Sparkle%20AI%203.webp" width="28" height="28" alt="" style="border-radius:50%;"/></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title ai-grad">Union Agent</span></div>
-          </a>
-          <a href="/prevailing-wage-agent" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69b13b8a1d5a6470b80194c0_Sparkle%20AI%203.webp" width="28" height="28" alt="" style="border-radius:50%;"/></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title ai-grad">Prevailing Wage Agent</span></div>
-          </a>
-          <a href="/paper-timecard-agent" class="mob-sub-link">
-            <div class="navbar08_icon-wrapper"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69b13b8a1d5a6470b80194c0_Sparkle%20AI%203.webp" width="28" height="28" alt="" style="border-radius:50%;"/></div>
-            <div class="mob-sub-link-text"><span class="mob-sub-link-title ai-grad">Paper Timecard Agent</span></div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- RESOURCES accordion -->
-    <div class="mob-acc-item">
-      <button class="mob-acc-trigger" data-target="mob-resources">
-        Resources
-        <span class="mob-acc-chevron"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#344054" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="mob-acc-panel" id="mob-resources">
-        <div class="mob-sub-section">
-          <a href="/blog" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M15 13.5H12M13 15.5H12M16 11.5H12M18 13.25V11.4C18 10.56 18 10.14 17.837 9.819C17.693 9.537 17.463 9.307 17.181 9.163C16.86 9 16.44 9 15.6 9H12.4C11.56 9 11.14 9 10.819 9.163C10.537 9.307 10.307 9.537 10.164 9.819C10 10.14 10 10.56 10 11.4V16.6C10 17.44 10 17.86 10.164 18.181C10.307 18.463 10.537 18.693 10.819 18.837C11.14 19 11.56 19 12.4 19H13.75M19 19L18.25 18.25M18.75 17C18.75 17.966 17.966 18.75 17 18.75C16.034 18.75 15.25 17.966 15.25 17C15.25 16.034 16.034 15.25 17 15.25C17.966 15.25 18.75 16.034 18.75 17Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Blogs</span><span class="mob-sub-link-desc">Dive into latest insights and industry trends</span></div></a>
-          <a href="/expert-column-listing" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="29" viewBox="0 0 28 29" fill="none"><rect x="2" y="2.5" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2.5" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 13.5V16.506C10.5 16.775 10.527 16.854 10.643 17.041C10.701 17.101 10.782 17.141 10.942 17.221L13.642 18.571C13.773 18.637 13.839 18.67 13.908 18.682C13.969 18.694 14.031 18.694 14.092 18.682C14.161 18.67 14.227 18.637 14.358 18.571L17.058 17.221C17.218 17.141 17.299 17.101 17.357 17.041C17.409 16.988 17.449 16.924 17.473 16.854C17.5 16.775 17.5 16.685 17.5 16.506V13.5M9 12.75L13.821 10.34C14.113 10.29 14.08 10.307 14.179 10.34L19 12.75L14.179 15.161C13.887 15.193 13.92 15.21 13.821 15.161L9 12.75Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Expert Column</span><span class="mob-sub-link-desc">Tips &amp; insights from industry experts</span></div></a>
-          <a href="/webinars" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 10.494C10.5 10.008 10.5 9.765 10.601 9.632C10.689 9.515 10.824 9.443 10.97 9.434C11.138 9.424 11.34 9.559 11.744 9.828L17.001 13.333C17.335 13.556 17.502 13.667 17.561 13.807C17.611 13.93 17.611 14.068 17.561 14.191C17.502 14.331 17.335 14.442 17.001 14.665L11.744 18.17C11.34 18.439 11.138 18.574 10.97 18.564C10.824 18.555 10.689 18.483 10.601 18.366C10.5 18.233 10.5 17.99 10.5 17.504V10.494Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Webinars</span><span class="mob-sub-link-desc">Live and on-demand learning from industry pros</span></div></a>
-          <a href="/wiki" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.5 18.5L16.325 16.325M13.5 11C14.881 11 16 12.119 16 13.5M17.5 13.5C17.5 15.709 15.709 17.5 13.5 17.5C11.291 17.5 9.5 15.709 9.5 13.5C9.5 11.291 11.291 9.5 13.5 9.5C15.709 9.5 17.5 11.291 17.5 13.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Wiki</span><span class="mob-sub-link-desc">Your go-to hub for construction compliance</span></div></a>
-          <a href="/reports-guides" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M14 18.5V12.7M14 18.5L13.95 18.425C13.603 17.904 13.429 17.644 13.2 17.455C12.996 17.288 12.762 17.163 12.511 17.086C12.227 17 11.914 17 11.287 17H10.6C10.04 17 9.76 17 9.546 16.891C9.358 16.795 9.205 16.642 9.109 16.454C9 16.24 9 15.96 9 15.4V11.1C9 10.54 9 10.26 9.109 10.046C9.205 9.858 9.358 9.705 9.546 9.609C9.76 9.5 10.04 9.5 10.6 9.5H10.8C11.92 9.5 12.48 9.5 12.908 9.718C13.284 9.91 13.59 10.216 13.782 10.592C14 11.02 14 11.58 14 12.7M14 18.5L14.05 18.425C14.397 17.904 14.571 17.644 14.8 17.455C15.004 17.288 15.238 17.163 15.489 17.086C15.773 17 16.086 17 16.713 17H17.4C17.96 17 18.24 17 18.454 16.891C18.642 16.795 18.795 16.642 18.891 16.454C19 16.24 19 15.96 19 15.4V11.1C19 10.54 19 10.26 18.891 10.046C18.795 9.858 18.642 9.705 18.454 9.609C18.24 9.5 17.96 9.5 17.4 9.5H17.2C16.08 9.5 15.52 9.5 15.092 9.718C14.716 9.91 14.41 10.216 14.218 10.592C14 11.02 14 11.58 14 12.7" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Reports &amp; Guides</span></div></a>
-          <a href="/templates" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M18.576 13.45L14.068 17.958C13.043 18.983 11.381 18.983 10.356 17.958C9.331 16.932 9.331 15.27 10.356 14.245L14.864 9.737C15.547 9.054 16.655 9.054 17.339 9.737C18.022 10.421 18.022 11.529 17.339 12.212L13.008 16.543C12.666 16.885 12.112 16.885 11.77 16.543C11.429 16.202 11.429 15.648 11.77 15.306L15.571 11.505" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Templates</span></div></a>
-          <a href="/glossary" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10.5 11.9C10.5 11.06 10.5 10.64 10.664 10.319C10.807 10.037 11.037 9.807 11.319 9.663C11.64 9.5 12.06 9.5 12.9 9.5H15.1C15.94 9.5 16.36 9.5 16.681 9.663C16.963 9.807 17.193 10.037 17.337 10.319C17.5 10.64 17.5 11.06 17.5 11.9V18.5L14 16.5L10.5 18.5V11.9Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Glossary</span></div></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- CUSTOMER SUCCESS accordion -->
-    <div class="mob-acc-item">
-      <button class="mob-acc-trigger" data-target="mob-customer">
-        Customer Success
-        <span class="mob-acc-chevron"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#344054" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="mob-acc-panel" id="mob-customer">
-        <div class="mob-sub-section">
-          <a href="/lumbercare" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11 18.044H12.305C12.644 18.064 12.809 18.104 14.188 18.439C14.799 18.519 15.102 18.461 16.627 18.164C17.029 18.086 17.4 17.893 17.69 17.61L18.769 16.561C19.077 16.262 19.077 15.776 18.769 15.477C18.492 15.207 18.052 15.176 17.739 15.405L16.481 16.322C16.301 16.454 16.082 16.525 15.857 16.525H14.643L15.416 16.525C15.851 16.525 16.204 16.182 16.204 15.758V15.605C16.204 15.253 15.958 14.946 15.607 14.861L14.414 14.571C14.22 14.524 14.021 14.5 13.822 14.5C13.339 14.5 12.466 14.899 12.466 14.899L11 15.512M9 15.3V18.2C9 18.62 9.055 18.727 9.273 18.945C9.38 19 9.52 19 9.8 19H10.2C10.62 19 10.727 18.946 10.946 18.727C11 18.62 11 18.48 11 18.2V15.3C11 14.88 10.946 14.773 10.727 14.554C10.62 14.5 10.48 14.5 10.2 14.5H9.8C9.52 14.5 9.38 14.5 9.273 14.554C9.102 14.679 9.055 14.773 9 15.3ZM16.596 9.796C16.297 9.172 15.609 8.841 14.94 9.16C14.271 9.479 13.986 10.237 14.266 10.901C14.439 11.312 14.935 12.11 15.289 12.66C15.485 12.964 15.581 13.023 15.862 13.099C15.974 13.095 16.081 13.04 16.296 12.929C16.877 12.63 17.705 12.187 18.06 11.918C18.635 11.482 18.778 10.682 18.347 10.073C17.917 9.464 17.166 9.405 16.596 9.796Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">LumberCare</span><span class="mob-sub-link-desc">Tailored, expert support for your operational needs</span></div></a>
-          <a href="/case-studies" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M12.75 19H15.25M15.5 15.663C16.683 15.102 17.5 13.896 17.5 12.5C17.5 10.567 15.933 9 14 9C12.067 9 10.5 10.567 10.5 12.5C10.5 13.896 11.318 15.102 12.5 15.663V16C12.5 16.466 12.5 16.699 12.576 16.883C12.678 17.128 12.872 17.322 13.117 17.424C13.301 17.5 13.534 17.5 14 17.5C14.466 17.5 14.699 17.5 14.883 17.424C15.128 17.322 15.322 17.128 15.424 16.883C15.5 16.699 15.5 16.466 15.5 16V15.663Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Case Studies</span><span class="mob-sub-link-desc">How Lumber has transformed construction companies</span></div></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- COMPANY accordion -->
-    <div class="mob-acc-item">
-      <button class="mob-acc-trigger" data-target="mob-company">
-        Company
-        <span class="mob-acc-chevron"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#344054" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="mob-acc-panel" id="mob-company">
-        <div class="mob-sub-section">
-          <a href="/about" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.75 13.5H10.3C10.02 13.5 9.88 13.5 9.773 13.555C9.679 13.602 9.602 13.679 9.555 13.773C9.5 13.88 9.5 14.02 9.5 14.3V18.5M16.25 13.5H17.7C17.98 13.5 18.12 13.5 18.227 13.555C18.321 13.602 18.398 13.679 18.446 13.773C18.5 13.88 18.5 14.02 18.5 14.3V18.5M16.25 18.5V11.1C16.25 10.54 16.25 10.26 16.141 10.046C16.045 9.858 15.892 9.705 15.704 9.609C15.49 9.5 15.21 9.5 14.65 9.5H13.35C12.79 9.5 12.51 9.5 12.296 9.609C12.108 9.705 11.955 9.858 11.859 10.046C11.75 10.26 11.75 10.54 11.75 11.1V18.5M19 18.5H9M13.5 11.5H14.5M13.5 13.5H14.5M13.5 15.5H14.5" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">About Lumber</span><span class="mob-sub-link-desc">Discover the team and vision behind Lumber</span></div></a>
-          <a href="/newsroom" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M10 15L10.787 18.149C10.962 18.699 11.302 18.964 11.699 18.997C11.877 19 11.991 19 12.097 18.995C12.573 18.949 12.949 18.573 12.995 18.097C13 18.048 13 17.991 13 17.877V10.75M17.25 14.75C18.217 14.75 19 13.967 19 13C19 12.034 18.217 11.25 17.25 11.25M13.125 10.75H11.25C10.007 10.75 9 11.757 9 13C9 14.243 10.007 15.25 11.25 15.25H13.125C14.008 15.25 15.089 15.723 15.922 16.178C16.408 16.443 16.652 16.575 16.811 16.556C16.958 16.538 17.07 16.472 17.157 16.351C17.25 16.22 17.25 15.959 17.25 15.437V10.563C17.25 10.041 17.25 9.78 17.157 9.649C17.07 9.528 16.958 9.462 16.811 9.444C16.652 9.425 16.408 9.557 15.922 9.822C15.089 10.277 14.008 10.75 13.125 10.75Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Newsroom</span></div></a>
-          <a href="/partnerships" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M13 14.5C13.215 14.787 13.489 15.025 13.803 15.197C14.118 15.368 14.466 15.471 14.823 15.496C15.181 15.522 15.54 15.47 15.876 15.345C16.212 15.22 16.517 15.024 16.77 14.77L18.27 13.27C18.726 12.799 18.978 12.167 18.972 11.512C18.966 10.856 18.703 10.229 18.24 9.765C17.776 9.302 17.149 9.039 16.494 9.033C15.838 9.028 15.207 9.28 14.735 9.735L13.875 10.59M15 13.5C14.785 13.213 14.511 12.975 14.197 12.804C13.882 12.632 13.534 12.529 13.177 12.504C12.819 12.478 12.46 12.53 12.124 12.655C11.789 12.78 11.484 12.976 11.23 13.23L9.73 14.73C9.275 15.202 9.023 15.833 9.028 16.489C9.034 17.144 9.297 17.771 9.761 18.235C10.224 18.698 10.851 18.961 11.507 18.967C12.162 18.973 12.794 18.72 13.265 18.265L14.12 17.41" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Partners</span></div></a>
-          <a href="/careers" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M12 18.5V11.5C12 11.035 12 10.803 12.051 10.612C12.19 10.094 12.594 9.69 13.112 9.551C13.303 9.5 13.535 9.5 14 9.5C14.465 9.5 14.698 9.5 14.888 9.551C15.406 9.69 15.81 10.094 15.949 10.612C16 10.803 16 11.035 16 11.5V18.5M10.6 18.5H17.4C17.96 18.5 18.24 18.5 18.454 18.391C18.642 18.295 18.795 18.142 18.891 17.954C19 17.74 19 17.46 19 16.9V13.1C19 12.54 19 12.26 18.891 12.046C18.795 11.858 18.642 11.705 18.454 11.609C18.24 11.5 17.96 11.5 17.4 11.5H10.6C10.04 11.5 9.76 11.5 9.546 11.609C9.358 11.705 9.205 11.858 9.109 12.046C9 12.26 9 12.54 9 13.1V16.9C9 17.46 9 17.74 9.109 17.954C9.205 18.142 9.358 18.295 9.546 18.391C9.76 18.5 10.04 18.5 10.6 18.5Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Careers</span></div></a>
-          <a href="/construction-industry-events" class="mob-sub-link"><div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M16 9V11M12 9V11M9.5 13H18.5M10.5 10H17.5C18.052 10 18.5 10.448 18.5 11V18C18.5 18.552 18.052 19 17.5 19H10.5C9.948 19 9.5 18.552 9.5 18V11C9.5 10.448 9.948 10 10.5 10Z" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="mob-sub-link-text"><span class="mob-sub-link-title">Events</span></div></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contact plain link -->
-    <a href="/contact-us" class="mob-plain-link">Contact</a>
-
-  </div><!-- end mobile-nav-body -->
-
-  <!-- Mobile footer: locale + CTA -->
-  <div class="mobile-nav-footer">
-    <button class="mob-locale-toggle" id="mobLocaleBtn">
-      <img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" alt="US" class="mob-locale-flag"/>
-      US
-      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="#344054" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <nav class="mob-locale-panel" id="mobLocalePanel">
-        <a href="/" class="locale-link_new"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b15014e0b48d891b5bc_United%20States.webp" class="localiztion-flag" alt="US"/><div>United States (US)</div></a>
-        <a href="/ca" class="locale-link_new"><img src="https://cdn.prod.website-files.com/64ba4b61a6e0ed8004b57d97/69367b3bcf47d76c7ffd6920_Canada.webp" class="localiztion-flag" alt="CA"/><div>Canada (CA)</div></a>
-      </nav>
-    </button>
-    <a href="/demo-sign-up" class="mob-book-demo">Book a demo</a>
-    <a href="https://timesheet.lumberfi.com/" target="_blank" class="mob-app-login">App Login</a>
-  </div>
-
-</div>
-<!-- END MOBILE OVERLAY -->
 
 <div class="main">
 
@@ -3733,79 +2352,7 @@ function switchPhase(id){
   });
 </script>
 
-<script>
- 
 
-   (function () {
-     'use strict';
-   
-     /* ---------- Mobile menu open / close ---------- */
-     const openBtn   = document.getElementById('mobileMenuBtn');
-     const closeBtn  = document.getElementById('mobileMenuClose');
-     const overlay   = document.getElementById('mobileNavOverlay');
-   
-     function openMenu() {
-       overlay.classList.add('is-open');
-       overlay.setAttribute('aria-hidden', 'false');
-       document.body.style.overflow = 'hidden';
-     }
-   
-     function closeMenu() {
-       overlay.classList.remove('is-open');
-       overlay.setAttribute('aria-hidden', 'true');
-       document.body.style.overflow = '';
-     }
-   
-     if (openBtn)  openBtn.addEventListener('click', openMenu);
-     if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-   
-     /* Close on Escape */
-     document.addEventListener('keydown', function (e) {
-       if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
-         closeMenu();
-       }
-     });
-   
-     /* ---------- Accordion triggers ---------- */
-     document.querySelectorAll('.mob-acc-trigger').forEach(function (btn) {
-       btn.addEventListener('click', function () {
-         const targetId = btn.getAttribute('data-target');
-         const panel    = document.getElementById(targetId);
-         const isOpen   = panel.classList.contains('is-open');
-   
-         /* Close all panels */
-         document.querySelectorAll('.mob-acc-panel').forEach(function (p) {
-           p.classList.remove('is-open');
-         });
-         document.querySelectorAll('.mob-acc-trigger').forEach(function (b) {
-           b.classList.remove('is-active');
-         });
-   
-         /* Open clicked one (if it wasn't already open) */
-         if (!isOpen) {
-           panel.classList.add('is-open');
-           btn.classList.add('is-active');
-         }
-       });
-     });
-   
-     /* ---------- Mobile locale toggle ---------- */
-     const localeBtn   = document.getElementById('mobLocaleBtn');
-     const localePanel = document.getElementById('mobLocalePanel');
-   
-     if (localeBtn && localePanel) {
-       localeBtn.addEventListener('click', function (e) {
-         e.stopPropagation();
-         localeBtn.classList.toggle('open');
-       });
-   
-       document.addEventListener('click', function () {
-         localeBtn.classList.remove('open');
-       });
-     }
-   
-   })();
-</script>
 
 </body>
 </html>
