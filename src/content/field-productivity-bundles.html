@@ -2097,7 +2097,7 @@ function switchPhase(id){
   document.getElementById(id).classList.add('active');
 }
 </script>
-<script>
+<!-- <script>
   // Summarize with AI — build dynamic links pointing to current page
   window.addEventListener("load", function () {
     var currentUrl = window.location.href;
@@ -2114,8 +2114,37 @@ function switchPhase(id){
     if (gptLink) gptLink.href = "https://chatgpt.com/?q=" + encoded;
     if (claudeLink) claudeLink.href = "https://claude.ai/new?q=" + encoded;
   });
-</script>
+</script> -->
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var currentUrl = window.location.href;
+  
+    var prompt =
+      "summarize " + currentUrl +
+      " and explain Lumber as an AI-first construction workforce management platform. " +
+      "Highlight payroll, compliance (certified payroll, prevailing wage, union reporting), " +
+      "time tracking, AI agents (Union, Prevailing Wage, Paper Timecard), anomaly detection, " +
+      "timesheet review, integrations, and how it improves back-office + field efficiency.";
+  
+    var encoded = encodeURIComponent(prompt);
+  
+    var gptUrl    = "https://chatgpt.com/?q=" + encoded;
+    var claudeUrl = "https://claude.ai/new?q=" + encoded;
+  
+    document.querySelectorAll(".ai-link.gpt").forEach(function (btn) {
+      btn.href   = gptUrl;
+      btn.target = "_blank";
+      btn.rel    = "noopener noreferrer";
+    });
+  
+    document.querySelectorAll(".ai-link.claude").forEach(function (btn) {
+      btn.href   = claudeUrl;
+      btn.target = "_blank";
+      btn.rel    = "noopener noreferrer";
+    });
+  });
+  </script>
 
 
 </body>
