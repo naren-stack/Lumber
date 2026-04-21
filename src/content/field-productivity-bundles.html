@@ -978,6 +978,9 @@
     .product-head{
       color: #40956b;
     }
+    .product-menu{
+      font-size: 16px;
+    }
     .banner2_component .padding-global { padding: 0 32px; }
     .container-large-2 { max-width: 1280px; margin: 0 auto; }
     .banner2_wrapper { display: flex; align-items: center; justify-content: center; gap: 16px; position: relative; }
@@ -1005,7 +1008,7 @@
     
     /* ---------- Nav wrapper ---------- */
     .nav-wrap { position: sticky; top: 0; z-index: 1000; }
-    .nav-wrap-desktop { background: #fff; border-bottom: 1px solid #EAECF0; }
+    .nav-wrap-desktop { background: #fff; border-bottom: 1px solid #EAECF0; padding-top: 1rem; padding-bottom: 1rem;}
     .navbar11_component { }
     .new-navbar11_container {
       max-width: 1280px; margin: 0 auto;
@@ -1116,6 +1119,7 @@
       z-index: 999;
       min-width: 860px;
       inset: 100% 0% auto -100%;
+      width: 76rem;
     }
     .desktop_menu-dropdown:hover > .product_dropdown-list,
     .desktop_menu-dropdown:hover > .ca-product { display: block; }
@@ -1203,6 +1207,7 @@
       ; z-index: 999;
       min-width: 780px;
       inset: 100% 0% auto -180%;
+      width: 76rem;
     }
     .desktop_menu-dropdown:hover > .toolkit-menu-list { display: block; }
     
@@ -1251,7 +1256,7 @@
     }
     .desktop_menu-dropdown:hover > .customer-list { display: block; }
     .customer-menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-    .navbar08_dropdown-link-list.en { border-right: 1px solid #F2F4F7; }
+    /* .navbar08_dropdown-link-list.en { border-right: 1px solid #F2F4F7; } */
     .en-grid { }
     
     /* ---------- COMPANY DROPDOWN ---------- */
@@ -1264,10 +1269,11 @@
       padding:1.25rem; z-index: 999;
       min-width: 680px;
       inset: 100% 0% auto -411%;
+      width: 76 rem;
     }
     .desktop_menu-dropdown:hover > .company-menu-list { display: block; }
     .company-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
-    .navbar08_dropdown-link-list.nav-11 { border-right: 1px solid #F2F4F7; }
+    /* .navbar08_dropdown-link-list.nav-11 { border-right: 1px solid #F2F4F7; } */
     .navbar08_dropdown-link-list  a { color: #212222; }
 
     /* ---------- Responsive ---------- */
@@ -1409,10 +1415,11 @@
             <!-- ── PRODUCT ── -->
             <div class="desktop_menu-dropdown">
               <div class="desktop_dropdown-toggle">
+                <div class="product-menu">Product</div>
                 <div class="dropdown-icon-6">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg>
                 </div>
-                <div>Product</div>
+                
               </div>
 
               <nav class="product_dropdown-list ca-product">
@@ -1512,10 +1519,11 @@
             <!-- ── RESOURCES ── -->
             <div class="desktop_menu-dropdown">
               <div class="desktop_dropdown-toggle">
+                <div class="product-menu">Resources</div>
                 <div class="dropdown-icon-6">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg>
                 </div>
-                <div>Resources</div>
+                
               </div>
 
               <nav class="toolkit-menu-list customon-ca">
@@ -1576,10 +1584,11 @@
             <!-- ── CUSTOMER SUCCESS ── -->
             <div class="desktop_menu-dropdown">
               <div class="desktop_dropdown-toggle">
+                <div class="product-menu">Customer Success</div>
                 <div class="dropdown-icon-6">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg>
                 </div>
-                <div>Customer Success</div>
+             
               </div>
 
               <nav class="customer-list">
@@ -1603,15 +1612,16 @@
             <!-- ── COMPANY ── -->
             <div class="desktop_menu-dropdown">
               <div class="desktop_dropdown-toggle">
+                <div class="product-menu">Company</div>
                 <div class="dropdown-icon-6">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.558 6.295a.667.667 0 010-.943l.884-.884a.667.667 0 01.943 0L8 8.174l3.615-3.706a.667.667 0 01.943 0l.884.884a.667.667 0 010 .943L8.59 11.56a.667.667 0 01-.943 0L2.558 6.295z" fill="currentColor"/></svg>
                 </div>
-                <div>Company</div>
+                
               </div>
 
               <nav class="company-menu-list">
                 <div class="company-menu-grid">
-                  <div class="navbar08_dropdown-link-list nav-11" style="border-right:1px solid #F2F4F7;">
+                  <div class="navbar08_dropdown-link-list nav-11" ">
                     <a href="/about" class="toolkit-menu-link company-nav">
                       <div class="navbar08_icon-wrapper"><div class="icon-1x1-xsmall"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="12" fill="#AEFFD7"/><rect x="2" y="2" width="24" height="24" rx="12" stroke="#D0FFE8" stroke-width="4"/><path d="M11.75 13.5H10.3C10.02 13.5 9.87996 13.5 9.773 13.5545C9.67892 13.6024 9.60243 13.6789 9.5545 13.773C9.5 13.88 9.5 14.02 9.5 14.3V18.5M16.25 13.5H17.7C17.98 13.5 18.12 13.5 18.227 13.5545C18.3211 13.6024 18.3976 13.6789 18.4455 13.773C18.5 13.88 18.5 14.02 18.5 14.3V18.5M16.25 18.5V11.1C16.25 10.5399 16.25 10.2599 16.141 10.046C16.0451 9.85785 15.8922 9.70487 15.704 9.60899C15.4901 9.5 15.2101 9.5 14.65 9.5H13.35C12.7899 9.5 12.5099 9.5 12.296 9.60899C12.1078 9.70487 11.9549 9.85785 11.859 10.046C11.75 10.2599 11.75 10.5399 11.75 11.1V18.5M19 18.5H9M13.5 11.5H14.5M13.5 13.5H14.5M13.5 15.5H14.5" stroke="#40956B" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
                       <div class="nav-item-holder"><div class="text-weight-semibold text-color-gray900 product-head">About Lumber</div><div class="menu-sub-text">Discover the team and vision behind Lumber</div></div>
@@ -1646,7 +1656,7 @@
             </div><!-- end Company -->
 
             <!-- Contact -->
-            <a href="/contact-us" class="nav-contact mobile-nav">Contact</a>
+            <a href="/contact-us" class="nav-contact mobile-nav class="product-menu"">Contact</a>
 
           </div><!-- end nav-wrapper-main -->
 
