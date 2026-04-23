@@ -2183,8 +2183,77 @@ function switchPhase(id){
   script.onload = loadHubSpotForm; // ← fires AFTER script is ready
   document.head.appendChild(script);
 </script> -->
-
 <script>
+  // ✅ FIX: showResults() no longer needs form fields
+  // The old version tried to read #lead-name, #lead-company, #lead-email
+  // which don't exist anymore since HubSpot replaced that form.
+  // Now we just calculate and show results directly.
+  function showResultsFromHubspot() {
+    const r = calcSavings();
+
+    // Greeting without name (HubSpot handles name collection)
+    document.getElementById('results-greeting').textContent = 'Here are your personalized results';
+    document.getElementById('result-headline-hrs').textContent = r.total.toLocaleString() + ' hours';
+
+    document.getElementById('r-broker-hrs').textContent   = r.broker.toLocaleString();
+    document.getElementById('r-employer-hrs').textContent = r.employer.toLocaleString();
+    document.getElementById('r-total-hrs').textContent    = r.total.toLocaleString();
+
+    document.getElementById('r-b-days-mo').textContent = (r.broker   / 12 / 8).toFixed(1) + ' days';
+    document.getElementById('r-e-days-mo').textContent = (r.employer / 12 / 8).toFixed(1) + ' days';
+    document.getElementById('r-b-wks').textContent     = (r.broker   / 40).toFixed(1) + ' weeks';
+    document.getElementById('r-e-wks').textContent     = (r.employer / 40).toFixed(1) + ' weeks';
+    document.getElementById('r-b-hrs-wk').textContent  = (r.broker   / 52).toFixed(1) + ' hrs';
+    document.getElementById('r-e-hrs-wk').textContent  = (r.employer / 52).toFixed(1) + ' hrs';
+
+    document.getElementById('r-broker-cost').textContent   = '$' + r.brokerCost.toLocaleString();
+    document.getElementById('r-employer-cost').textContent = '$' + r.employerCost.toLocaleString();
+    document.getElementById('r-total-cost').textContent    = '$' + r.totalCost.toLocaleString();
+
+    const hcLabel = state.headcount >= 2000 ? '2,000+' : state.headcount.toLocaleString();
+    document.getElementById('r-config-hc').textContent  = hcLabel + ' employees';
+    document.getElementById('r-config-car').textContent = state.carriers + ' carrier' + (state.carriers !== 1 ? 's' : '');
+
+    switchPhase('phase3');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ✅ Listen for HubSpot iframe postMessage
+  window.addEventListener('message', function(event) {
+    if (
+      event.data &&
+      event.data.type === 'hsFormCallback' &&
+      event.data.eventName === 'onFormSubmitted'
+    ) {
+      showResultsFromHubspot();
+    }
+  });
+
+  // ✅ Load HubSpot form
+  function loadHubSpotForm() {
+    hbspt.forms.create({
+      portalId: "24336868",
+      formId: "0a3a1d20-3f85-4796-acd5-600de78e4623",
+      region: "na1",
+      target: "#hubspot-form-container"
+    });
+  }
+
+  var script = document.createElement('script');
+  script.charset = 'utf-8';
+  script.type = 'text/javascript';
+  script.src = 'https://js.hsforms.net/forms/embed/v2.js';
+  script.onload = loadHubSpotForm;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      document.head.appendChild(script);
+    });
+  } else {
+    document.head.appendChild(script);
+  }
+</script>
+<!-- <script>
 
   // Listen for HubSpot's iframe postMessage
 
@@ -2244,6 +2313,6 @@ function switchPhase(id){
 
   }
 
-</script>
+</script> -->
 </body>
 </html>
