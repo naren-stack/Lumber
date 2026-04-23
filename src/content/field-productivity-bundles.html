@@ -1565,11 +1565,12 @@
         <button class="cta-btn" onclick="showResults()">Unlock My Full Results →</button>
       </div> -->
 
-      <!-- HubSpot Form Embed -->
-<div class="lead-form">
-  <div class="form-title">Enter your details to unlock results</div>
-  <div id="hubspot-form-container"></div>
-</div>
+      <div class="lead-form">
+        <div class="form-title">Enter your details to unlock results</div>
+        <div id="hubspot-form-container"></div>
+      </div>
+      
+    
 
 
     </div>
@@ -2152,19 +2153,27 @@ function switchPhase(id){
     });
   });
   </script>
-<!-- HubSpot script (place before closing </body>) -->
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<!-- Replace your existing HubSpot script block with this -->
 <script>
-  hbspt.forms.create({
-    portalId: "24336868",
-    formId: "0a3a1d20-3f85-4796-acd5-600de78e4623",
-    region: "na1",
-    target: "#hubspot-form-container",
-    onFormSubmit: function($form) {
-      // Optional: trigger your showResults() after submission
-      showResults();
-    }
-  });
+  function loadHubSpotForm() {
+    hbspt.forms.create({
+      portalId: "24336868",
+      formId: "0a3a1d20-3f85-4796-acd5-600de78e4623",
+      region: "na1",
+      target: "#hubspot-form-container",
+      onFormSubmitted: function($form, data) {
+        showResults();
+      }
+    });
+  }
+
+  // Load script dynamically and wait for it
+  var script = document.createElement('script');
+  script.charset = 'utf-8';
+  script.type = 'text/javascript';
+  script.src = '//js.hsforms.net/forms/embed/v2.js';
+  script.onload = loadHubSpotForm; // ← fires AFTER script is ready
+  document.head.appendChild(script);
 </script>
 
 </body>
