@@ -1,4 +1,4 @@
-import rawHtml from "@/content/field-productivity-bundles";
+import htmlData from "@/content/field-productivity-bundles.json";
 import ClientFieldProductivityBundlePage from "./dev/field-productivity-bundle/ClientFieldProductivityBundlePage";
 
 function parseHtml(rawHtml: string) {
@@ -20,7 +20,7 @@ function parseHtml(rawHtml: string) {
   return { html, scripts };
 }
 
-const { html, scripts } = parseHtml(rawHtml);
+const { html, scripts } = parseHtml(htmlData.html);
 
 export default function Home() {
   return <ClientFieldProductivityBundlePage html={html} scripts={scripts} />;
