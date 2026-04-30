@@ -1,4 +1,4 @@
-const html = `
+const html = String.raw`
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2085,7 +2085,7 @@ function showResults() {
   const company = document.getElementById('lead-company').value.trim();
   const email   = document.getElementById('lead-email').value.trim();
   const errEl   = document.getElementById('form-error');
-  const emailOk = /^[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+$/.test(email);
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   if (!name || !company || !email || !emailOk) {
     errEl.style.display = 'block';
@@ -2096,7 +2096,7 @@ function showResults() {
   const firstName = name.split(' ')[0];
   const r = calcSavings();
 
-  document.getElementById('results-greeting').textContent  = \\`Here are your personalized results, ${firstName}\\`;
+  document.getElementById('results-greeting').textContent  = \\\`Here are your personalized results, ${firstName}\\\`;
   document.getElementById('result-headline-hrs').textContent = r.total.toLocaleString() + ' hours';
 
   document.getElementById('r-broker-hrs').textContent   = r.broker.toLocaleString();
